@@ -2,12 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Products | Apex Content Lab">
-	<h1 style="font-size: 2rem; margin-bottom: 0.5rem; color: #38bdf8;">Digital Products</h1>
-	<p style="color: #94a3b8; margin-bottom: 2rem;">Pre-built templates and automation kits for creators.</p>
-	<div style="background-color: #1e293b; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #334155;">
-		<h3 style="color: #38bdf8;">Canva Bulk Design Templates</h3>
-		<p style="color: #94a3b8; margin: 0.5rem 0 1rem 0;">Optimized multi-slide layouts tailored for Reels and TikTok formats.</p>
-		<a href="#" class="btn">Learn More</a>
+<Layout title="Digital Products & Toolkits | Apex Content Lab">
+	<section style="text-align: center; margin-bottom: 3rem;">
+		<h1 style="font-size: 2.25rem; color: #38bdf8; margin-bottom: 0.5rem;">Digital Products & Toolkits</h1>
+		<p style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+			Actionable blueprints, workbooks, and implementation toolkits to build your own growth engines.
+		</p>
+	</section>
+
+	<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+		<!-- Free Resource -->
+		<div style="background-color: #1e293b; padding: 2rem; border-radius: 0.75rem; border: 1px solid #38bdf8; position: relative;">
+			<span style="background-color: #38bdf8; color: #0f172a; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: bold; position: absolute; top: -12px; right: 20px;">FREE RESOURCE</span>
+			<h2 style="color: #38bdf8; margin-bottom: 0.5rem;">Attention-to-Leads Blueprint</h2>
+			<p style="color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;">
+				Learn the simple framework for turning short-form content and attention into qualified, actionable leads.
+			</p>
+			<a href="/free-blueprint" class="btn" style="width: 100%;">Download Free</a>
+		</div>
+
+		<!-- Premium Resource -->
+		<div style="background-color: #1e293b; padding: 2rem; border-radius: 0.75rem; border: 1px solid #334155;">
+			<span style="background-color: #2563eb; color: white; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: bold; float: right;">PREMIUM</span>
+			<h2 style="color: #38bdf8; margin-bottom: 0.5rem;">Lead Magnet Blueprint Kit</h2>
+			<p style="color: #94a3b8; margin-bottom: 1rem; font-size: 0.95rem;">
+				A comprehensive workbook for building high-converting lead magnets that consistently generate qualified subscribers.
+			</p>
+			<ul style="color: #f8fafc; font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.7;">
+				<li>118-Page Detailed Blueprint & Worksheets</li>
+				<li>Conversion Frameworks & Implementation Checklists</li>
+				<li>Plug-and-Play Production Templates</li>
+			</ul>
+			<a href="https://yourname.gumroad.com" target="_blank" class="btn" style="width: 100%; background-color: transparent; border: 1px solid #475569;">View Product on Gumroad ↗</a>
+		</div>
 	</div>
 </Layout>

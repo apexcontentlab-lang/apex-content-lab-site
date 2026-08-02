@@ -2,170 +2,318 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Apex Content Lab | Marketing & Lead Generation Systems">
+<Layout title="Apex Content Lab | Growth Systems & Digital Marketing Agency">
 	<style>
-		.hero { text-align: center; padding: 3rem 0; max-width: 850px; margin: 0 auto; }
-		.hero-title { font-size: 2.75rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
-		.hero-sub { font-size: 1.15rem; color: var(--muted); margin-bottom: 2rem; }
+		.hero { text-align: center; padding: 3.5rem 0 4.5rem; max-width: 900px; margin: 0 auto; }
+		.hero-title { font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+		.hero-sub { font-size: 1.2rem; color: var(--muted); margin-bottom: 2.25rem; max-width: 780px; margin-left: auto; margin-right: auto; }
 		.btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-		.sec { margin: 4rem 0; }
-		.sec-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
-		.sec-desc { color: var(--muted); margin-bottom: 2rem; max-width: 650px; }
+		.sec { margin: 5.5rem 0; }
+		.sec-title { font-size: 2.15rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+		.sec-desc { color: var(--muted); margin-bottom: 2.25rem; max-width: 700px; font-size: 1.05rem; }
 
-		.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-		.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
+		.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; }
+		.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.75rem; }
+
+		.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2.25rem; transition: all 0.25s ease; }
+		.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+		.card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.65rem; color: var(--text); }
+		.card-text { color: var(--muted); font-size: 0.975rem; margin-bottom: 1.25rem; }
+
+		.mockup-img { width: 100%; height: auto; border-radius: 0.5rem; margin-bottom: 1.25rem; border: 1px solid var(--border); object-fit: cover; }
+
+		.check-list { list-style: none; margin-bottom: 1.25rem; }
+		.check-list li { font-size: 0.925rem; margin-bottom: 0.5rem; color: var(--text); display: flex; align-items: center; gap: 0.6rem; }
 		
-		.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; transition: 0.2s; }
-		.card:hover { border-color: var(--accent); }
-		.card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-		.card-text { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+		/* Custom Professional SVG Checkmark */
+		.check-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); color: var(--accent); flex-shrink: 0; }
+		.check-icon svg { width: 11px; height: 11px; stroke: currentColor; stroke-width: 3; fill: none; }
 
-		.check-list { list-style: none; }
-		.check-list li { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text); }
-		.check-list span { color: var(--accent); margin-right: 0.5rem; }
+		/* Founder Card */
+		.founder-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem; padding: 3rem; display: grid; grid-template-columns: 220px 1fr; gap: 2.5rem; align-items: center; }
+		.brand-logo-box { background: var(--bg-dark); border: 1px solid var(--border); padding: 1.75rem; border-radius: 0.75rem; display: flex; justify-content: center; align-items: center; }
+		.brand-logo-box img { max-width: 100%; height: auto; max-height: 140px; object-fit: contain; }
 
-		.brand-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem; padding: 2.5rem; display: grid; grid-template-columns: 200px 1fr; gap: 2.5rem; align-items: center; }
-		.brand-logo-box { background: var(--bg-dark); border: 1px solid var(--border); padding: 1.5rem; border-radius: 0.75rem; display: flex; justify-content: center; align-items: center; }
-		.brand-logo-box img { max-width: 100%; height: auto; max-height: 120px; object-fit: contain; }
+		.pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+		.pill { background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 0.4rem 0.85rem; border-radius: 0.375rem; font-size: 0.85rem; color: var(--text); font-weight: 500; }
 
-		.pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-		.pill { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 0.25rem 0.6rem; border-radius: 0.375rem; font-size: 0.8rem; }
+		/* Downward Framework Diagram with Vector Arrows */
+		.framework-container { max-width: 500px; margin: 2rem auto 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+		.framework-step { background: var(--bg-dark); border: 1px solid var(--border); width: 100%; text-align: center; padding: 1rem 1.5rem; border-radius: 0.5rem; font-weight: 700; font-size: 1.1rem; color: var(--text); }
+		.framework-arrow-svg { color: var(--accent); width: 20px; height: 20px; margin: 0.25rem 0; }
 
-		@media (max-width: 768px) {
-			.hero-title { font-size: 2rem; }
-			.brand-card { grid-template-columns: 1fr; padding: 1.5rem; text-align: center; }
-			.brand-logo-box { max-width: 200px; margin: 0 auto; }
+		@media (max-width: 800px) {
+			.hero-title { font-size: 2.15rem; }
+			.founder-card { grid-template-columns: 1fr; padding: 1.75rem; text-align: left; }
+			.brand-logo-box { max-width: 220px; margin: 0 auto; }
+			.grid-2 { grid-template-columns: 1fr; }
 		}
 	</style>
 
-	<!-- HERO -->
+	<!-- 1. HERO SECTION -->
 	<section class="hero">
 		<span class="badge">Growth Systems Agency</span>
-		<h1 class="hero-title">Turn Attention Into Qualified Leads. Build Marketing Systems That Scale.</h1>
-		<p class="hero-sub">Apex Content Lab helps businesses attract, capture, nurture, and convert customers through automated email marketing, strategic content, and short-form video systems.</p>
+		<h1 class="hero-title">Turn Attention Into Qualified Leads. Build Marketing Systems That Grow Your Business.</h1>
+		<p class="hero-sub">
+			Apex Content Lab helps businesses attract, capture, nurture, and convert customers through email marketing, lead generation, strategic content, marketing automation, and short-form video systems.
+		</p>
 		<div class="btn-group">
-			<a href="#products" class="btn-primary">Download Free Blueprint</a>
+			<a href="https://preview.mailerlite.io/preview/2453071/forms/190605752159700691" target="_blank" rel="noopener noreferrer" class="btn-primary">Download Free Blueprint</a>
 			<a href="#services" class="btn-secondary">Explore Growth Systems</a>
 		</div>
 	</section>
 
-	<!-- ABOUT -->
+	<!-- 2. ABOUT APEX CONTENT LAB -->
 	<section id="about" class="sec">
-		<div class="card" style="background: linear-gradient(135deg, #1e293b, #0f172a);">
-			<span class="badge">Marketing Without A System Costs You Customers</span>
+		<div class="card" style="background: linear-gradient(135deg, #1e293b, #0f172a); border-color: rgba(56, 189, 248, 0.3);">
+			<span class="badge">Marketing Without a System Costs You Customers</span>
 			<h2 class="sec-title">We Replace Random Posting With Repeatable Growth</h2>
-			<p class="sec-desc" style="max-width:100%;">Most businesses don't struggle because they lack content—they struggle because every campaign depends on starting from scratch. We build marketing systems that continue working long after content is published, creating structured channels that generate qualified leads consistently.</p>
+			<div style="color: var(--muted); font-size: 1.05rem; line-height: 1.8;">
+				<p style="margin-bottom: 0.8rem;">Most businesses don't struggle because they lack content.</p>
+				<p style="margin-bottom: 0.8rem;">They struggle because every post, campaign, and lead depends on starting from scratch.</p>
+				<p style="margin-bottom: 0.8rem;">At Apex Content Lab, we build marketing systems that continue working long after the post is published.</p>
+				<p style="color: var(--text); font-weight: 500;">Instead of chasing algorithms, we help businesses create structured systems that generate qualified leads, build customer relationships, and support sustainable business growth.</p>
+			</div>
 		</div>
 	</section>
 
-	<!-- LEADERSHIP BRANDING -->
-	<section id="leadership" class="sec">
+	<!-- 3. MEET THE FOUNDER -->
+	<section id="founder" class="sec">
 		<span class="badge">Engineered by Strategy. Built for Growth.</span>
-		<h2 class="sec-title">Leadership & Strategic Vision</h2>
-		<div class="brand-card">
+		<h2 class="sec-title">Meet the Founder</h2>
+		
+		<div class="founder-card">
 			<div class="brand-logo-box">
-				<img src="/logo.png" alt="Apex Content Lab Brand Logo" />
+				<img src="/logo.png" alt="Apex Content Lab Brand Logo" onerror="this.style.display='none'" />
 			</div>
 			<div>
-				<h3 style="font-size: 1.5rem; font-weight: 700;">Ebua Hastings Etta</h3>
-				<p style="color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem;">Founder & Marketing Systems Strategist</p>
-				<p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 0.75rem;">Apex Content Lab was founded by Ebua Hastings Etta to help businesses convert attention into measurable sales pipelines through email automation, lead generation, and short-form video strategies.</p>
-				<blockquote style="border-left: 2px solid var(--accent); padding-left: 1rem; color: var(--text); font-style: italic; font-size: 0.9rem; margin: 1rem 0;">"Successful marketing isn't about posting more content—it's about building systems that consistently create opportunities."</blockquote>
+				<h3 style="font-size: 1.6rem; font-weight: 700;">Ebua Hastings Etta</h3>
+				<p style="color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">Founder & Marketing Systems Strategist, Apex Content Lab</p>
+				
+				<p style="color: var(--muted); margin-bottom: 0.85rem; font-size: 0.975rem;">
+					Apex Content Lab was founded by Ebua Hastings Etta, a marketing systems strategist focused on helping businesses turn attention into qualified leads.
+				</p>
+				
+				<p style="color: var(--muted); margin-bottom: 0.85rem; font-size: 0.975rem;">
+					With hands-on experience in email marketing, lead generation, content strategy, marketing automation, and short-form video systems, Hastings builds practical frameworks that help businesses attract the right audience, nurture relationships, and create sustainable growth.
+				</p>
+
+				<p style="color: var(--muted); margin-bottom: 1rem; font-size: 0.975rem;">
+					His work combines strategic thinking with implementation, transforming complex marketing concepts into simple systems that businesses can apply immediately. Every framework, workbook, and growth system developed by Apex Content Lab is designed with one goal: helping businesses build marketing that continues working long after content is published.
+				</p>
+
+				<blockquote style="border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--text); font-style: italic; font-size: 0.95rem; margin: 1.25rem 0;">
+					"I believe successful marketing isn't about posting more content—it's about building systems that consistently create opportunities. My mission is to help businesses replace random marketing with repeatable growth systems that generate measurable results."
+				</blockquote>
+
+				<p style="font-weight: 600; font-size: 0.85rem; color: var(--text); margin-top: 1rem;">Specializes in:</p>
 				<div class="pills">
 					<span class="pill">Email Marketing</span>
-					<span class="pill">Lead Generation</span>
-					<span class="pill">Automation</span>
+					<span class="pill">Lead Generation Systems</span>
+					<span class="pill">Marketing Automation</span>
 					<span class="pill">Content Strategy</span>
-					<span class="pill">Short-Form Video</span>
+					<span class="pill">Short-Form Video Strategy</span>
+					<span class="pill">Customer Journey Design</span>
+					<span class="pill">Marketing Framework Development</span>
+					<span class="pill">Digital Product Creation</span>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- SERVICES -->
+	<!-- 4. CORE SERVICES -->
 	<section id="services" class="sec">
 		<span class="badge">Agency Services</span>
 		<h2 class="sec-title">Core Growth Systems</h2>
-		<p class="sec-desc">End-to-end agency services engineered for conversion and scalability.</p>
-		<div class="grid-3">
+		<p class="sec-desc">End-to-end digital marketing and lead generation systems engineered for small business growth.</p>
+		
+		<div class="grid-2">
+			<!-- 1. Email Marketing Systems -->
 			<div class="card">
-				<h3 class="card-title">Email Marketing Systems</h3>
-				<p class="card-text">Nurture leads and convert subscribers into clients automatically.</p>
+				<h3 class="card-title">1. Email Marketing Systems</h3>
+				<p class="card-text">Build email systems that nurture leads, increase engagement, and convert subscribers into loyal customers.</p>
+				<p style="font-weight:600; font-size:0.875rem; color:var(--accent); margin-bottom:0.6rem;">Includes:</p>
 				<ul class="check-list">
-					<li><span>✓</span> Welcome Sequences & Newsletters</li>
-					<li><span>✓</span> Campaign Strategy & Copywriting</li>
-					<li><span>✓</span> Customer Retention Workflows</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Welcome Sequences</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Newsletters</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Campaign Strategy</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Email Copywriting</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Customer Retention</li>
 				</ul>
 			</div>
+
+			<!-- 2. Lead Generation Systems -->
 			<div class="card">
-				<h3 class="card-title">Lead Generation Systems</h3>
-				<p class="card-text">Turn cold traffic into qualified lead opportunities.</p>
+				<h3 class="card-title">2. Lead Generation Systems</h3>
+				<p class="card-text">Turn attention into qualified leads through strategic lead magnets and conversion-focused customer journeys.</p>
+				<p style="font-weight:600; font-size:0.875rem; color:var(--accent); margin-bottom:0.6rem;">Includes:</p>
 				<ul class="check-list">
-					<li><span>✓</span> Lead Magnet Strategy & Pages</li>
-					<li><span>✓</span> Audience & Market Research</li>
-					<li><span>✓</span> High-Converting Funnels</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Lead Magnet Strategy</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Landing Pages</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Audience Research</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Conversion Strategy</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Lead Capture Systems</li>
 				</ul>
 			</div>
+
+			<!-- 3. Marketing Automation -->
 			<div class="card">
-				<h3 class="card-title">Short-Form Video Strategy</h3>
-				<p class="card-text">Attract audiences across modern platforms to feed backend systems.</p>
+				<h3 class="card-title">3. Marketing Automation</h3>
+				<p class="card-text">Reduce manual work with automated customer journeys and scalable CRM automation workflows.</p>
+				<p style="font-weight:600; font-size:0.875rem; color:var(--accent); margin-bottom:0.6rem;">Includes:</p>
 				<ul class="check-list">
-					<li><span>✓</span> IG Reels, TikTok, YT Shorts & FB Reels</li>
-					<li><span>✓</span> Content Repurposing Calendars</li>
-					<li><span>✓</span> Programmatic Content Pipelines</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Automation Workflows</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> CRM Integration</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Customer Journeys</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Behavioral Automation</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Email Sequences</li>
+				</ul>
+			</div>
+
+			<!-- 4. Content & Short-Form Video Strategy -->
+			<div class="card">
+				<h3 class="card-title">4. Content & Short-Form Video Strategy</h3>
+				<p class="card-text">Create strategic content that attracts the right audience while supporting your backend lead generation funnels.</p>
+				<p style="font-weight:600; font-size:0.875rem; color:var(--accent); margin-bottom:0.6rem;">Includes:</p>
+				<ul class="check-list">
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Short-Form Video Strategy</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Instagram Reels & Facebook Reels</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> TikTok Strategy & YouTube Shorts</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Content Repurposing</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Content Calendars & Systems</li>
 				</ul>
 			</div>
 		</div>
 	</section>
 
-	<!-- PRODUCTS -->
+	<!-- 5. SUPPORTING EXPERTISE -->
+	<section class="sec">
+		<span class="badge">Strategic Capabilities</span>
+		<h2 class="sec-title">Supporting Expertise</h2>
+		<p class="sec-desc">We also help businesses with strategic market positioning and backend framework development:</p>
+		<div class="pills" style="gap: 0.75rem;">
+			<span class="pill">Audience Research</span>
+			<span class="pill">Reddit Market Research</span>
+			<span class="pill">Positioning</span>
+			<span class="pill">Brand Messaging</span>
+			<span class="pill">Customer Psychology</span>
+			<span class="pill">Marketing Frameworks</span>
+			<span class="pill">Offer Development</span>
+			<span class="pill">Copywriting</span>
+			<span class="pill">Growth Strategy</span>
+			<span class="pill">Founder Productivity Systems</span>
+		</div>
+	</section>
+
+	<!-- 6. DIGITAL PRODUCTS -->
 	<section id="products" class="sec">
 		<span class="badge">Resources & Toolkits</span>
-		<h2 class="sec-title">Digital Products & Frameworks</h2>
-		<p class="sec-desc">Practical assets to implement lead generation systems right away.</p>
+		<h2 class="sec-title">Digital Products & Resources</h2>
+		<p class="sec-desc">Practical frameworks, blueprints, and workbooks to accelerate your email funnels and lead generation.</p>
+		
 		<div class="grid-2">
+			<!-- Free Resource -->
 			<div class="card" style="border-color: rgba(56,189,248,0.4);">
+				<img src="/free-blueprint-mockup.png" alt="Attention-to-Leads Blueprint Mockup" class="mockup-img" onerror="this.style.display='none'" />
 				<span class="badge">Free Resource</span>
 				<h3 class="card-title">Attention-to-Leads Blueprint</h3>
-				<p class="card-text">Learn the exact framework for turning content attention into leads.</p>
-				<a href="https://gumroad.com" target="_blank" class="btn-primary" style="width:100%;">Download Free Blueprint</a>
+				<p class="card-text">Learn the simple framework for turning content attention into qualified leads.</p>
+				<a href="https://apexlab1.gumroad.com/l/frjftx" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%;">Download Free</a>
+			</div>
+
+			<!-- Premium Resource -->
+			<div class="card">
+				<img src="/paid-kit-mockup.png" alt="Lead Magnet Blueprint Kit Mockup" class="mockup-img" onerror="this.style.display='none'" />
+				<span class="badge" style="color:#a855f7; border-color:rgba(168,85,247,0.3); background:rgba(168,85,247,0.1);">Premium Resource</span>
+				<h3 class="card-title">Lead Magnet Blueprint Kit</h3>
+				<p class="card-text">A comprehensive workbook for building lead magnets that consistently generate qualified leads.</p>
+				<p style="font-weight:600; font-size:0.85rem; color:var(--text); margin-bottom:0.5rem;">Includes:</p>
+				<ul class="check-list">
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> 118-Page Blueprint</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Worksheets & Frameworks</li>
+					<li><span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span> Implementation Checklists & Templates</li>
+				</ul>
+				<a href="https://apexlab1.gumroad.com/l/ifevv" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width:100%;">View Product</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- 7. OUR FRAMEWORK (VECTOR DOWN ARROWS) -->
+	<section id="framework" class="sec">
+		<div class="card" style="text-align:center; padding: 3.5rem 1.5rem;">
+			<span class="badge">The Growth Engine</span>
+			<h2 class="sec-title">The Attention-to-Leads Growth System</h2>
+			<p class="sec-desc" style="margin: 0 auto 1.5rem;">Everything we build follows this proven, structured framework:</p>
+			
+			<div class="framework-container">
+				<div class="framework-step">Attention</div>
+				
+				<svg class="framework-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+				
+				<div class="framework-step">Lead Capture</div>
+				
+				<svg class="framework-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+				
+				<div class="framework-step">Lead Nurture</div>
+				
+				<svg class="framework-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+				
+				<div class="framework-step">Customer Conversion</div>
+				
+				<svg class="framework-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+				
+				<div class="framework-step" style="border-color: var(--primary); background: rgba(37, 99, 235, 0.1); color: var(--accent);">Business Growth</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 8. WHY BUSINESSES CHOOSE US -->
+	<section class="sec">
+		<span class="badge">Why Businesses Choose Us</span>
+		<h2 class="sec-title">Designed for Long-Term Value</h2>
+		
+		<div class="grid-2" style="margin-top: 1.5rem;">
+			<div class="card">
+				<h3 class="card-title" style="display:flex; align-items:center; gap:0.6rem;">
+					<span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+					Practical Systems
+				</h3>
+				<p class="card-text">No fluff. Actionable strategies and frameworks you can implement immediately.</p>
 			</div>
 			<div class="card">
-				<span class="badge" style="color:#a855f7; border-color:rgba(168,85,247,0.3); background:rgba(168,85,247,0.1);">Premium Kit (Gumroad)</span>
-				<h3 class="card-title">Lead Magnet Blueprint Kit</h3>
-				<p class="card-text">Comprehensive toolkit for building high-converting lead magnets.</p>
-				<ul class="check-list" style="margin-bottom:1rem;">
-					<li><span>✓</span> 118-Page Blueprint Guide</li>
-					<li><span>✓</span> Worksheets & Frameworks</li>
-					<li><span>✓</span> Implementation Checklists</li>
-				</ul>
-				<a href="https://gumroad.com" target="_blank" class="btn-secondary" style="width:100%;">View Product on Gumroad</a>
+				<h3 class="card-title" style="display:flex; align-items:center; gap:0.6rem;">
+					<span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+					Marketing That Compounds
+				</h3>
+				<p class="card-text">Build digital assets that continue generating leads long after publication.</p>
+			</div>
+			<div class="card">
+				<h3 class="card-title" style="display:flex; align-items:center; gap:0.6rem;">
+					<span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+					Human-Centered Automation
+				</h3>
+				<p class="card-text">Automate customer journeys without losing personal authenticity or brand voice.</p>
+			</div>
+			<div class="card">
+				<h3 class="card-title" style="display:flex; align-items:center; gap:0.6rem;">
+					<span class="check-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+					Designed for Sustainable Growth
+				</h3>
+				<p class="card-text">Marketing systems engineered to scale smoothly as your business expands.</p>
 			</div>
 		</div>
 	</section>
 
-	<!-- FRAMEWORK -->
-	<section id="framework" class="sec">
-		<div class="card" style="text-align:center; padding:3rem 1.5rem;">
-			<span class="badge">The Growth Engine</span>
-			<h2 class="sec-title">The Attention-to-Leads System</h2>
-			<div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; font-weight:700;">
-				<span class="card" style="padding:0.75rem 1.25rem;">Attention</span> →
-				<span class="card" style="padding:0.75rem 1.25rem;">Lead Capture</span> →
-				<span class="card" style="padding:0.75rem 1.25rem;">Lead Nurture</span> →
-				<span class="card" style="padding:0.75rem 1.25rem; border-color:var(--primary);">Conversion</span>
-			</div>
-		</div>
-	</section>
-
-	<!-- FINAL CTA -->
-	<section class="sec" style="text-align:center; background:var(--bg-card); border:1px solid var(--border); padding:3rem 1.5rem; border-radius:1rem;">
+	<!-- 9. FINAL CALL TO ACTION -->
+	<section class="sec" style="text-align:center; background: var(--bg-card); border: 1px solid var(--border); padding: 4rem 2rem; border-radius: 1rem;">
 		<h2 class="sec-title">Ready to Build a Marketing System That Works?</h2>
-		<p class="sec-desc" style="margin:0 auto 1.5rem;">Download the free Attention-to-Leads Blueprint or explore our premium resources today.</p>
+		<p class="sec-desc" style="margin: 0 auto 2rem;">
+			Download the free Attention-to-Leads Blueprint or explore our premium resources and growth systems today.
+		</p>
 		<div class="btn-group">
-			<a href="#products" class="btn-primary">Get the Free Blueprint</a>
-			<a href="https://linkedin.com" target="_blank" class="btn-secondary">Connect on LinkedIn</a>
+			<a href="https://preview.mailerlite.io/preview/2453071/forms/190605752159700691" target="_blank" rel="noopener noreferrer" class="btn-primary">Download Free Blueprint</a>
+			<a href="#products" class="btn-secondary">Explore Products</a>
 		</div>
 	</section>
 </Layout>

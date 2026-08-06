@@ -1,0 +1,18 @@
+{
+  "astro.language-server.ls-path": "./node_modules/@astrojs/language-server",
+  "files.associations": {
+    "*.astro": "astro",
+    "*.css": "tailwindcss"
+  },
+  "editor.defaultFormatter": "astro.astro-vscode",
+  "[astro]": {
+    "editor.defaultFormatter": "astro.astro-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "editor.formatOnSave": true
+}

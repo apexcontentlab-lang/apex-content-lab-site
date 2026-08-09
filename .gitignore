@@ -1,0 +1,26 @@
+# Build & Cache Output
+dist/
+.astro/
+.vercel/
+
+# Dependencies
+node_modules/
+
+# Environment Files
+.env
+.env.local
+.env.production
+.env.development
+
+# Logs & Diagnostics
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+
+# IDE / Editor Metadata
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/

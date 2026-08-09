@@ -1,0 +1,43 @@
+---
+import { siteConfig } from '../../config/site';
+
+interface Props {
+  variant?: 'light' | 'dark';
+  class?: string;
+}
+
+const { variant = 'light', class: className = '' } = Astro.props;
+---
+
+<a 
+  href={siteConfig.routes.home} 
+  class={`flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-apex-blue)] rounded-lg ${className}`}
+  aria-label={`${siteConfig.name} - Homepage`}
+>
+  <!-- Vector Symbol Placeholder -->
+  <div class:list={[
+    "flex h-10 w-10 items-center justify-center rounded-xl transition-transform duration-200 group-hover:scale-105 shadow-sm",
+    variant === 'dark' ? "bg-white text-[var(--color-dark-bg)]" : "bg-[var(--color-apex-blue)] text-white"
+  ]}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12 3L3 18H8.5L12 11L15.5 18H21L12 3Z" fill="currentColor"/>
+      <path d="M12 13.5L9.5 18H14.5L12 13.5Z" fill="var(--color-growth-cyan)"/>
+    </svg>
+  </div>
+
+  <!-- Wordmark -->
+  <div class="flex flex-col">
+    <span class:list={[
+      "font-bold text-xl tracking-tight leading-none",
+      variant === 'dark' ? "text-white" : "text-[var(--color-dark-text)]"
+    ]}>
+      {siteConfig.name}
+    </span>
+    <span class:list={[
+      "text-[10px] font-semibold tracking-widest uppercase mt-1",
+      variant === 'dark' ? "text-[var(--color-dark-text-secondary)]" : "text-[var(--color-text-gray)]"
+    ]}>
+      Growth Systems
+    </span>
+  </div>
+</a>

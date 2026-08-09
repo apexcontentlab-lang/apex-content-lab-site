@@ -1,0 +1,193 @@
+---
+import { siteConfig } from '../../config/site';
+import { ArrowRight, Download, CheckCircle2, TrendingUp, Users, Mail, Zap, Play } from 'lucide-astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const trustPoints = [
+  'Lead Generation Systems',
+  'Email Marketing Systems',
+  'Marketing Automation',
+  'Short-Form Video Systems',
+  'Customer Journey Systems',
+];
+---
+
+<section 
+  id="hero"
+  class={`relative overflow-hidden bg-white pt-12 pb-16 lg:pt-20 lg:pb-28 border-b border-[var(--color-border-gray)] ${className}`}
+  aria-label="Hero Section"
+>
+  <!-- Background Glow & Grid Accents -->
+  <div class="aria-hidden: true pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
+    <div class="h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-[var(--color-apex-blue-light)] to-[var(--color-growth-cyan-light)] opacity-60 blur-3xl"></div>
+  </div>
+
+  <div class="container-apex-wide">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+      
+      <!-- LEFT COLUMN: Value Proposition & CTAs (7 Cols on Desktop) -->
+      <div class="lg:col-span-7 flex flex-col items-start space-y-6 lg:space-y-8 text-left">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 rounded-full border border-[var(--color-apex-blue)]/20 bg-[var(--color-apex-blue-light)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-apex-blue)] transition-all duration-200 hover:border-[var(--color-apex-blue)]/40">
+          <span class="h-2 w-2 rounded-full bg-[var(--color-apex-blue)] animate-pulse"></span>
+          <span>Growth Systems Company</span>
+        </div>
+
+        <!-- Headline (H1) -->
+        <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[var(--color-dark-text)] leading-[1.1] max-w-[680px]">
+          Turn Attention Into <span class="text-[var(--color-apex-blue)]">Qualified Leads.</span>
+        </h1>
+
+        <!-- Supporting Copy -->
+        <p class="text-lg sm:text-xl text-[var(--color-text-gray)] leading-relaxed max-w-[640px]">
+          Apex Content Lab helps coaches, consultants, agencies, creators, and growing businesses build marketing systems that attract qualified leads, grow email lists, automate customer journeys, and generate sustainable business growth.
+        </p>
+
+        <!-- Dual CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
+          <!-- Primary CTA (Strategic Orange) -->
+          <a
+            href={siteConfig.integrations.mailerlite.formPreviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-14 items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-[var(--color-strategic-orange)] px-8 text-lg font-semibold text-white shadow-[var(--shadow-apex-cta)] transition-all duration-250 hover:bg-[var(--color-strategic-orange-hover)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-strategic-orange)] focus-visible:ring-offset-2"
+          >
+            <Download class="h-5 w-5" />
+            <span>Download Free Blueprint</span>
+          </a>
+
+          <!-- Secondary CTA (Outline / Apex Blue) -->
+          <a
+            href={siteConfig.routes.bookCall}
+            class="inline-flex h-14 items-center justify-center gap-2 rounded-[var(--radius-btn)] border-2 border-[var(--color-apex-blue)] bg-white px-8 text-lg font-semibold text-[var(--color-apex-blue)] transition-all duration-250 hover:bg-[var(--color-apex-blue-light)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-apex-blue)] focus-visible:ring-offset-2"
+          >
+            <span>Book a Strategy Call</span>
+            <ArrowRight class="h-5 w-5" />
+          </a>
+        </div>
+
+        <!-- Trust Indicators Line -->
+        <div class="pt-6 border-t border-[var(--color-border-gray)] w-full">
+          <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-gray)] mb-3">
+            Helping businesses build marketing infrastructure:
+          </p>
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-sm font-medium text-[var(--color-dark-text)]">
+            {trustPoints.map((point) => (
+              <div class="flex items-center gap-1.5">
+                <CheckCircle2 class="h-4 w-4 text-[var(--color-growth-green)] shrink-0" />
+                <span>{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Interactive System Dashboard Mockup (5 Cols on Desktop) -->
+      <div class="lg:col-span-5 relative flex items-center justify-center">
+        <!-- Main Graphic Mockup Container -->
+        <div class="relative w-full max-w-[520px] rounded-[var(--radius-container)] border border-[var(--color-border-gray)] bg-white p-6 shadow-2xl transition-all duration-300 hover:shadow-apex-hover">
+          
+          <!-- Mockup Header Bar -->
+          <div class="flex items-center justify-between border-b border-[var(--color-border-gray)] pb-4 mb-6">
+            <div class="flex items-center gap-2">
+              <span class="h-3 w-3 rounded-full bg-red-400"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+              <span class="h-3 w-3 rounded-full bg-green-400"></span>
+            </div>
+            <span class="text-xs font-mono font-medium text-[var(--color-text-gray)] bg-[var(--color-soft-gray-bg)] px-3 py-1 rounded-md">
+              apex-growth-system.v1
+            </span>
+          </div>
+
+          <!-- Growth Metrics Row -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="rounded-xl border border-[var(--color-border-gray)] bg-[var(--color-soft-gray-bg)] p-4">
+              <div class="flex items-center justify-between text-xs text-[var(--color-text-gray)] mb-1">
+                <span>Qualified Leads</span>
+                <Users class="h-4 w-4 text-[var(--color-apex-blue)]" />
+              </div>
+              <div class="text-2xl font-bold text-[var(--color-dark-text)]">+148%</div>
+              <div class="text-[11px] font-medium text-[var(--color-growth-green)] mt-1 flex items-center gap-0.5">
+                <TrendingUp class="h-3 w-3" />
+                <span>Automated pipeline</span>
+              </div>
+            </div>
+
+            <div class="rounded-xl border border-[var(--color-border-gray)] bg-[var(--color-soft-gray-bg)] p-4">
+              <div class="flex items-center justify-between text-xs text-[var(--color-text-gray)] mb-1">
+                <span>Email Subscribers</span>
+                <Mail class="h-4 w-4 text-[var(--color-growth-cyan)]" />
+              </div>
+              <div class="text-2xl font-bold text-[var(--color-dark-text)]">2,450+</div>
+              <div class="text-[11px] font-medium text-[var(--color-apex-blue)] mt-1 flex items-center gap-0.5">
+                <Zap class="h-3 w-3" />
+                <span>Welcome seq active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- System Workflow Flow Visualization -->
+          <div class="rounded-xl border border-[var(--color-border-gray)] bg-white p-4 space-y-3">
+            <div class="text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)] mb-2 flex items-center justify-between">
+              <span>Apex Growth Architecture</span>
+              <span class="h-2 w-2 rounded-full bg-[var(--color-growth-green)] animate-ping"></span>
+            </div>
+
+            <!-- Stage 1 -->
+            <div class="flex items-center justify-between rounded-lg border border-[var(--color-border-gray)] p-2.5 text-xs">
+              <div class="flex items-center gap-2">
+                <div class="h-6 w-6 rounded-md bg-[var(--color-apex-blue-light)] flex items-center justify-center text-[var(--color-apex-blue)] font-bold">1</div>
+                <span class="font-semibold text-[var(--color-dark-text)]">Attention Engine</span>
+              </div>
+              <span class="text-[11px] text-[var(--color-text-gray)]">Short-Form Content</span>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="h-3 w-[2px] bg-[var(--color-apex-blue)]/30 mx-auto -my-1"></div>
+
+            <!-- Stage 2 -->
+            <div class="flex items-center justify-between rounded-lg border border-[var(--color-apex-blue)]/30 bg-[var(--color-apex-blue-light)]/50 p-2.5 text-xs">
+              <div class="flex items-center gap-2">
+                <div class="h-6 w-6 rounded-md bg-[var(--color-apex-blue)] flex items-center justify-center text-white font-bold">2</div>
+                <span class="font-semibold text-[var(--color-apex-blue)]">Lead Capture</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[var(--color-apex-blue)]">Free Blueprint</span>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="h-3 w-[2px] bg-[var(--color-apex-blue)]/30 mx-auto -my-1"></div>
+
+            <!-- Stage 3 -->
+            <div class="flex items-center justify-between rounded-lg border border-[var(--color-border-gray)] p-2.5 text-xs">
+              <div class="flex items-center gap-2">
+                <div class="h-6 w-6 rounded-md bg-[var(--color-growth-cyan-light)] flex items-center justify-center text-[var(--color-growth-cyan)] font-bold">3</div>
+                <span class="font-semibold text-[var(--color-dark-text)]">Automated Nurture</span>
+              </div>
+              <span class="text-[11px] text-[var(--color-text-gray)]">MailerLite Funnel</span>
+            </div>
+          </div>
+
+          <!-- Floating Badge Highlight -->
+          <div class="absolute -bottom-5 -left-5 hidden sm:flex items-center gap-3 rounded-2xl border border-[var(--color-border-gray)] bg-white p-3.5 shadow-xl">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-strategic-orange-light)] text-[var(--color-strategic-orange)]">
+              <Play class="h-5 w-5 fill-current" />
+            </div>
+            <div>
+              <div class="text-xs font-bold text-[var(--color-dark-text)]">Built for Sustainability</div>
+              <div class="text-[11px] text-[var(--color-text-gray)]">Marketing works 24/7 offline</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

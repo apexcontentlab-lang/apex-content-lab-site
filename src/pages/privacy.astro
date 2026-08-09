@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
+import { siteConfig } from '../config/site';
+
+const lastUpdated = "August 5, 2026";
+---
+
+<BaseLayout
+  title={`Privacy Policy | ${siteConfig.name}`}
+  description={`Privacy Policy for ${siteConfig.name}. Read how we collect, use, and protect your personal data.`}
+>
+  <Header />
+
+  <main class="flex-grow">
+    <!-- Header Hero -->
+    <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-12 lg:py-16 border-b border-gray-100">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Privacy Policy
+        </h1>
+        <p class="text-xs font-mono text-gray-500">
+          Last Updated: {lastUpdated}
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Area -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-8 text-sm text-gray-700 leading-relaxed">
+        
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">1. Information We Collect</h2>
+          <p>
+            At {siteConfig.name} ("Apex Content Lab", "we", "us", or "our"), we respect your privacy and are committed to protecting your personal data. We collect information you provide directly when interacting with our website, including:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-gray-600">
+            <li>Name and contact details (email address, phone number) when subscribing to our newsletter or requesting resources.</li>
+            <li>Business details and project requirements submitted via booking forms or direct communications.</li>
+            <li>Technical data such as IP address, browser type, and page interaction metrics collected via analytics.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">2. How We Use Your Information</h2>
+          <p>We use the collected information to:</p>
+          <ul class="list-disc pl-5 space-y-1 text-gray-600">
+            <li>Deliver requested digital resources, blueprints, and email communications via MailerLite.</li>
+            <li>Process transactions and digital product purchases hosted on Gumroad.</li>
+            <li>Provide 1-on-1 consultation services and customer support.</li>
+            <li>Improve our website architecture, user experience, and growth infrastructure offerings.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">3. Third-Party Integrations</h2>
+          <p>
+            We do not sell or trade your personal information. We integrate with trusted third-party service providers to power our growth infrastructure, including:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-gray-600">
+            <li><strong>MailerLite:</strong> For managing subscriber lists and email automation delivery.</li>
+            <li><strong>Gumroad:</strong> For processing digital product purchases and distribution.</li>
+            <li><strong>Vercel & Cloudflare:</strong> For secure website hosting, routing, and performance optimization.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">4. Data Retention & Your Rights</h2>
+          <p>
+            We retain your information only for as long as necessary to fulfill the purposes outlined in this policy or until you unsubscribe. You have the right to access, update, or request the deletion of your personal data at any time by clicking the unsubscribe link in our emails or contacting us directly.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">5. Contact Us</h2>
+          <p>
+            For questions regarding this Privacy Policy or your data, please contact us at:
+          </p>
+          <p class="font-mono text-xs text-[var(--color-apex-blue,#2563EB)]">
+            Email: {siteConfig.contact.primaryEmail}
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingWhatsApp />
+</BaseLayout>

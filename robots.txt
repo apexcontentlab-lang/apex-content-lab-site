@@ -1,4 +1,12 @@
+# www.robotstxt.org/
+
+# Allow all search engines and AI crawlers to index the public site
 User-agent: *
 Allow: /
 
-Sitemap: https://apexcontentlab.com/sitemap-index.xml
+# Disallow indexing of build artifacts and private configuration directories
+Disallow: /_astro/
+Disallow: /api/
+
+# Sitemap Location
+Sitemap: https://apex-content-lab.com/sitemap-index.xml

@@ -1,0 +1,87 @@
+---
+import { siteConfig } from '../../config/site';
+import type { Product } from '../../data/productsData';
+import { CheckCircle2, ArrowRight, ExternalLink, ShoppingBag, BookOpen } from 'lucide-astro';
+
+interface Props {
+  product: Product;
+  class?: string;
+}
+
+const { product, class: className = '' } = Astro.props;
+---
+
+<div 
+  class:list={[
+    "relative rounded-[var(--radius-card)] border bg-white p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-[var(--shadow-apex-hover)] hover:-translate-y-1",
+    product.isPopular ? "border-2 border-[var(--color-apex-blue)] ring-4 ring-[var(--color-apex-blue-light)]" : "border-[var(--color-border-gray)]",
+    className
+  ]}
+>
+  {product.isPopular && (
+    <div class="absolute -top-3.5 right-8 rounded-full bg-[var(--color-apex-blue)] px-4 py-1 text-xs font-bold text-white uppercase tracking-wider shadow-md">
+      Most Popular
+    </div>
+  )}
+
+  <div class="space-y-6">
+    <!-- Card Header / Mockup Placeholder -->
+    <div class={`rounded-xl border p-6 flex flex-col items-center justify-center text-center space-y-3 ${product.mockupBgColor || 'bg-[var(--color-soft-gray-bg)] border-[var(--color-border-gray)]'}`}>
+      <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm">
+        <BookOpen class="h-6 w-6 text-[var(--color-apex-blue)]" />
+      </div>
+      <div>
+        <span class="text-[10px] font-mono font-bold tracking-widest uppercase text-[var(--color-text-gray)]">Digital Asset</span>
+        <h4 class="text-lg font-bold text-[var(--color-dark-text)] leading-tight">{product.title}</h4>
+      </div>
+      <div class="text-[11px] font-semibold text-[var(--color-text-gray)] bg-white/80 px-2.5 py-0.5 rounded-full border border-[var(--color-border-gray)]">
+        {siteConfig.name}
+      </div>
+    </div>
+
+    <!-- Badge & Price Line -->
+    <div class="flex items-center justify-between border-b border-[var(--color-border-gray)] pb-4">
+      <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-gray)] bg-[var(--color-soft-gray-bg)] px-3 py-1 rounded-md border border-[var(--color-border-gray)]">
+        {product.badge}
+      </span>
+      <span class="text-xl font-extrabold text-[var(--color-dark-text)]">{product.price}</span>
+    </div>
+
+    <!-- Description -->
+    <p class="text-sm text-[var(--color-text-gray)] leading-relaxed">
+      {product.description}
+    </p>
+
+    <!-- Included Features Checklist -->
+    <div class="space-y-2.5 pt-2">
+      <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)] block">What's Inside:</span>
+      <ul class="space-y-2">
+        {product.features.map((feature) => (
+          <li class="flex items-start gap-2 text-xs text-[var(--color-dark-text)]">
+            <CheckCircle2 class="h-4 w-4 text-[var(--color-growth-green)] shrink-0 mt-0.5" />
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Buy / Get Button -->
+  <div class="pt-6 mt-6 border-t border-[var(--color-border-gray)]">
+    <a
+      href={product.gumroadUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class:list={[
+        "flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold text-sm transition-all duration-200",
+        product.isPopular
+          ? "bg-[var(--color-strategic-orange)] text-white shadow-[var(--shadow-apex-cta)] hover:bg-[var(--color-strategic-orange-hover)]"
+          : "bg-[var(--color-apex-blue)] text-white hover:bg-[var(--color-apex-blue-hover)]"
+      ]}
+    >
+      <ShoppingBag class="h-4 w-4" />
+      <span>Get Product on Gumroad</span>
+      <ExternalLink class="h-3.5 w-3.5" />
+    </a>
+  </div>
+</div>

@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/* APEX CONTENT LAB DESIGN SYSTEM TOKENS (TAILWIND CSS V4.0)                  */
+/* -------------------------------------------------------------------------- */
+
+@theme {
+  /* Brand Colors */
+  --color-apex-blue: #2563EB;
+  --color-apex-blue-hover: #1D4ED8;
+  --color-apex-blue-light: #EFF6FF;
+  
+  --color-growth-cyan: #06B6D4;
+  --color-growth-cyan-hover: #0891B2;
+  --color-growth-cyan-light: #ECFEFF;
+
+  --color-growth-green: #22C55E;
+  --color-growth-green-hover: #16A34A;
+  --color-growth-green-light: #F0FDF4;
+
+  --color-strategic-orange: #F97316;
+  --color-strategic-orange-hover: #EA580C;
+  --color-strategic-orange-light: #FFF7ED;
+
+  /* Neutral Palette */
+  --color-pure-white: #FFFFFF;
+  --color-soft-gray-bg: #F8FAFC;
+  --color-border-gray: #E2E8F0;
+  --color-border-gray-hover: #CBD5E1;
+  --color-text-gray: #64748B;
+  --color-dark-text: #0F172A;
+
+  /* Dark Mode Palette */
+  --color-dark-bg: #0B1120;
+  --color-dark-surface-primary: #111827;
+  --color-dark-surface-secondary: #1F2937;
+  --color-dark-text-primary: #F8FAFC;
+  --color-dark-text-secondary: #CBD5E1;
+
+  /* Typography */
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* Spacing Scale Tokens */
+  --spacing-section-sm: 64px;
+  --spacing-section-md: 96px;
+  --spacing-section-lg: 120px;
+
+  /* Border Radius */
+  --radius-btn: 12px;
+  --radius-input: 12px;
+  --radius-card: 20px;
+  --radius-container: 24px;
+  --radius-badge: 9999px;
+
+  /* Shadows */
+  --shadow-apex-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  --shadow-apex-card: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+  --shadow-apex-hover: 0 12px 24px -4px rgba(37, 99, 235, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
+  --shadow-apex-cta: 0 10px 20px -3px rgba(249, 115, 22, 0.25);
+
+  /* Microinteractions & Transitions */
+  --ease-apex: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-smooth: 250ms;
+  --duration-slow: 300ms;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BASE RESETS & GLOBAL TYPOGRAPHY RULES                                      */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    font-family: var(--font-inter);
+    color: var(--color-dark-text);
+    background-color: var(--color-pure-white);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.7;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  /* Headings Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-dark-text);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  h1 { font-size: 3.5rem; line-height: 1.1; }   /* 56px */
+  h2 { font-size: 2.5rem; line-height: 1.2; }   /* 40px */
+  h3 { font-size: 2rem; font-weight: 600; }    /* 32px */
+  h4 { font-size: 1.5rem; font-weight: 600; }   /* 24px */
+  h5 { font-size: 1.25rem; font-weight: 600; }  /* 20px */
+  h6 { font-size: 1.125rem; font-weight: 600; } /* 18px */
+
+  @media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }  /* 40px */
+    h2 { font-size: 2rem; }    /* 32px */
+    h3 { font-size: 1.75rem; } /* 28px */
+    body { font-size: 17px; }
+  }
+
+  /* Focus Indicator for Accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-apex-blue);
+    outline-offset: 3px;
+  }
+
+  /* Selection Color */
+  ::selection {
+    background-color: var(--color-apex-blue-light);
+    color: var(--color-apex-blue);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* UTILITY CLASSES & CONTAINER BOUNDARIES                                     */
+/* -------------------------------------------------------------------------- */
+
+@layer utilities {
+  .container-apex {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .container-apex-wide {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .container-apex-narrow {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .container-apex-reading {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Section Spacing Utilities */
+  .section-padding-lg {
+    padding-top: var(--spacing-section-lg);
+    padding-bottom: var(--spacing-section-lg);
+  }
+
+  .section-padding-md {
+    padding-top: var(--spacing-section-md);
+    padding-bottom: var(--spacing-section-md);
+  }
+
+  .section-padding-sm {
+    padding-top: var(--spacing-section-sm);
+    padding-bottom: var(--spacing-section-sm);
+  }
+
+  @media (max-width: 768px) {
+    .section-padding-lg { padding-top: 64px; padding-bottom: 64px; }
+    .section-padding-md { padding-top: 48px; padding-bottom: 48px; }
+    .section-padding-sm { padding-top: 32px; padding-bottom: 32px; }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ACCESSIBILITY: REDUCED MOTION OVERRIDES                                    */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+      }
+    

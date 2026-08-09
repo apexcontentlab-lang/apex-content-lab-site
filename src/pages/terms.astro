@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
+import { siteConfig } from '../config/site';
+
+const lastUpdated = "August 5, 2026";
+---
+
+<BaseLayout
+  title={`Terms & Conditions | ${siteConfig.name}`}
+  description={`Terms and Conditions for ${siteConfig.name}. Please review the terms governing the use of our growth systems, website, and digital products.`}
+>
+  <Header />
+
+  <main class="flex-grow">
+    <!-- Header Hero -->
+    <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-12 lg:py-16 border-b border-gray-100">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          Terms & Conditions
+        </h1>
+        <p class="text-xs font-mono text-gray-500">
+          Last Updated: {lastUpdated}
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Area -->
+    <section class="py-12 lg:py-16 bg-white">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-8 text-sm text-gray-700 leading-relaxed">
+        
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">1. Acceptance of Terms</h2>
+          <p>
+            By accessing or using the website, growth systems, blueprints, or digital products provided by {siteConfig.name} ("Apex Content Lab", "we", "us", or "our"), you agree to be bound by these Terms & Conditions. If you do not agree, please refrain from using our services.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">2. Intellectual Property Rights</h2>
+          <p>
+            All content, web layout architecture, text, design frameworks, code, and digital assets published on this site belong exclusively to {siteConfig.legalName} unless otherwise stated. Unauthorised distribution, duplication, or reselling of our proprietary frameworks or digital resources is strictly prohibited.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">3. Growth Systems & Digital Products</h2>
+          <p>
+            Our growth systems, lead generation blueprints, and digital templates are designed to build marketing infrastructure for your business. Results may vary depending on market conditions, execution, and external platform algorithms.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-gray-600">
+            <li><strong>Digital Products:</strong> Access and fulfillment of downloadable resources or templates bought via Gumroad are subject to Gumroad's terms of service and delivery mechanisms.</li>
+            <li><strong>Custom Implementation Services:</strong> Scope, deliverables, timelines, and payment structures for turnkey installations are governed by individual client agreements signed prior to project kick-off.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">4. Limitation of Liability</h2>
+          <p>
+            In no event shall {siteConfig.name}, founder {siteConfig.founder.name}, or team members be held liable for indirect, incidental, or consequential damages resulting from platform downtime, algorithm shifts, or technical disruptions on third-party services (such as MailerLite, Vercel, or Cloudflare).
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">5. Modifications to Terms</h2>
+          <p>
+            We reserve the right to update these terms at any time. Changes will be posted on this page with an updated "Last Updated" revision date.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">6. Contact Information</h2>
+          <p>
+            If you have any questions regarding these Terms & Conditions, please contact us:
+          </p>
+          <p class="font-mono text-xs text-[var(--color-apex-blue,#2563EB)]">
+            Email: {siteConfig.contact.primaryEmail}
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingWhatsApp />
+</BaseLayout>

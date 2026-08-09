@@ -1,0 +1,151 @@
+---
+import { siteConfig } from '../../config/site';
+import Logo from './Logo.astro';
+import { Menu, X, ArrowRight } from 'lucide-astro';
+
+const navItems = [
+  { name: 'Home', href: siteConfig.routes.home },
+  { name: 'Services', href: siteConfig.routes.services },
+  { name: 'Framework', href: siteConfig.routes.framework },
+  { name: 'Resources', href: siteConfig.routes.resources },
+  { name: 'Products', href: siteConfig.routes.products },
+  { name: 'About', href: siteConfig.routes.about },
+  { name: 'Contact', href: siteConfig.routes.contact },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header 
+  id="site-header"
+  class="sticky top-0 z-50 w-full border-b border-[var(--color-border-gray)] bg-white/95 backdrop-blur-md transition-shadow duration-200"
+>
+  <div class="container-apex-wide flex h-20 items-center justify-between">
+    <!-- Logo -->
+    <Logo variant="light" />
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-7" aria-label="Main Navigation">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "relative text-base font-medium transition-colors duration-150 py-1 hover:text-[var(--color-apex-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-apex-blue)] rounded-md",
+              isActive ? "text-[var(--color-apex-blue)] font-semibold" : "text-[var(--color-dark-text)]"
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.name}
+            {isActive && (
+              <span class="absolute bottom-0 left-0 h-[2px] w-full bg-[var(--color-apex-blue)] rounded-full" />
+            )}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Primary CTA Button (Desktop) -->
+    <div class="hidden lg:flex items-center">
+      <a
+        href={siteConfig.routes.bookCall}
+        class="inline-flex h-12 items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-[var(--color-strategic-orange)] px-6 text-base font-semibold text-white shadow-[var(--shadow-apex-cta)] transition-all duration-200 hover:bg-[var(--color-strategic-orange-hover)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-strategic-orange)] focus-visible:ring-offset-2"
+      >
+        Book a Strategy Call
+        <ArrowRight class="h-4 w-4" />
+      </a>
+    </div>
+
+    <!-- Mobile Menu Trigger -->
+    <button
+      id="mobile-menu-trigger"
+      type="button"
+      class="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-border-gray)] text-[var(--color-dark-text)] lg:hidden hover:bg-[var(--color-soft-gray-bg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-apex-blue)]"
+      aria-label="Open Navigation Menu"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+    >
+      <Menu id="menu-icon-open" class="h-6 w-6 block" />
+      <X id="menu-icon-close" class="h-6 w-6 hidden" />
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Navigation Drawer -->
+  <div 
+    id="mobile-navigation" 
+    class="hidden border-b border-[var(--color-border-gray)] bg-white px-6 py-6 lg:hidden shadow-lg"
+    aria-label="Mobile Navigation"
+  >
+    <div class="flex flex-col space-y-4">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              "text-lg font-medium transition-colors duration-150 py-1 flex items-center justify-between",
+              isActive ? "text-[var(--color-apex-blue)] font-semibold" : "text-[var(--color-dark-text)] hover:text-[var(--color-apex-blue)]"
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            <span>{item.name}</span>
+            {isActive && <span class="h-2 w-2 rounded-full bg-[var(--color-apex-blue)]"></span>}
+          </a>
+        );
+      })}
+      
+      <div class="pt-4 border-t border-[var(--color-border-gray)]">
+        <a
+          href={siteConfig.routes.bookCall}
+          class="flex h-13 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-[var(--color-strategic-orange)] text-base font-semibold text-white shadow-md transition-all duration-200 hover:bg-[var(--color-strategic-orange-hover)]"
+        >
+          Book a Strategy Call
+          <ArrowRight class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  function setupNavigation() {
+    const header = document.getElementById('site-header');
+    const menuBtn = document.getElementById('mobile-menu-trigger');
+    const mobileNav = document.getElementById('mobile-navigation');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    // Sticky Header elevation on scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header?.classList.add('shadow-md');
+      } else {
+        header?.classList.remove('shadow-md');
+      }
+    });
+
+    // Mobile Toggle Interaction
+    menuBtn?.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      
+      if (!isExpanded) {
+        mobileNav?.classList.remove('hidden');
+        iconOpen?.classList.add('hidden');
+        iconClose?.classList.remove('hidden');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        menuBtn.setAttribute('aria-label', 'Close Navigation Menu');
+      } else {
+        mobileNav?.classList.add('hidden');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', 'Open Navigation Menu');
+      }
+    });
+  }
+
+  // Execute setup on initial load and view transitions
+  setupNavigation();
+  document.addEventListener('astro:after-swap', setupNavigation);
+</script>

@@ -39,11 +39,11 @@
   --color-dark-text-primary: #F8FAFC;
   --color-dark-text-secondary: #CBD5E1;
 
-  /* Typography */
+    /* Typography */
   --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
   /* Spacing Scale Tokens */
-  --spacing-section-sm: 64px;
+  --spacing-section-sm:64px;
 }
 
   /* Spacing Scale Tokens */

@@ -18,7 +18,7 @@ const { product, class: className = '' } = Astro.props;
     className
   ]}
 >
-  {product.isPopular && (
+  {product?.isPopular && (
     <div class="absolute -top-3.5 right-8 rounded-full bg-[var(--color-apex-blue)] px-4 py-1 text-xs font-bold text-white uppercase tracking-wider shadow-md">
       Most Popular
     </div>
@@ -74,7 +74,7 @@ const { product, class: className = '' } = Astro.props;
       rel="noopener noreferrer"
       class:list={[
         "flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold text-sm transition-all duration-200",
-        product.isPopular
+        product?.isPopular
           ? "bg-[var(--color-strategic-orange)] text-white shadow-[var(--shadow-apex-cta)] hover:bg-[var(--color-strategic-orange-hover)]"
           : "bg-[var(--color-apex-blue)] text-white hover:bg-[var(--color-apex-blue-hover)]"
       ]}

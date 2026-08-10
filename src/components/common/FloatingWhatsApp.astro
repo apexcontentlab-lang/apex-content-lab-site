@@ -1,4 +1,9 @@
 ---
+const { product = {}, class: className = '' } = Astro.props;
+---
+{product?.features?.map((feature) => (
+
+---
 import { siteConfig } from '../../config/site';
 import type { Product } from '../../data/productsData';
 import { CheckCircle2, ArrowRight, ExternalLink, ShoppingBag, BookOpen } from 'lucide-astro';

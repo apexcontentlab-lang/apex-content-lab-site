@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* -------------------------------------------------------------------------- */
-/* APEX CONTENT LAB DESIGN SYSTEM TOKENS (TAILWIND CSS V4.0)                  */
-/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------- */
+/* APEX CONTENT LAB DESIGN SYSTEM TOKENS (TAILWIND CSS V3) */
+/* -------------------------------------------------- */
 
-@theme {
+:root {
   /* Brand Colors */
   --color-apex-blue: #2563EB;
-  --color-apex-blue-hover: #1D4ED8;
+  --color-apex-blue-hover: #1D4ED0;
   --color-apex-blue-light: #EFF6FF;
-  
+
   --color-growth-cyan: #06B6D4;
   --color-growth-cyan-hover: #0891B2;
   --color-growth-cyan-light: #ECFEFF;
@@ -41,6 +41,10 @@
 
   /* Typography */
   --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* Spacing Scale Tokens */
+  --spacing-section-sm: 64px;
+}
 
   /* Spacing Scale Tokens */
   --spacing-section-sm: 64px;

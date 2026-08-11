@@ -16,7 +16,18 @@ interface Props {
 const { product, class: className = '' } = Astro.props;
 
 const hasProductImage = Boolean(product.coverImage);
-const hasGumroadUrl = Boolean(product.gumroadUrl);
+
+const ctaUrl =
+  product.deliveryType === 'mailerlite'
+    ? product.mailerliteUrl
+    : product.gumroadUrl;
+
+const isAvailable = Boolean(ctaUrl);
+
+const ctaLabel =
+  product.deliveryType === 'mailerlite'
+    ? 'Get the Free Blueprint'
+    : 'Get the Blueprint on Gumroad';
 ---
 
 <article
@@ -35,7 +46,7 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
   )}
 
   <div class="space-y-6">
-    <!-- Product Cover / Mockup -->
+    <!-- Product Cover -->
     <div
       class:list={[
         'relative overflow-hidden rounded-xl border p-4 flex min-h-56 items-center justify-center text-center',
@@ -124,11 +135,11 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
     </div>
   </div>
 
-  <!-- Purchase CTA -->
+  <!-- Purchase / Download CTA -->
   <div class="pt-6 mt-6 border-t border-[var(--color-border-gray)]">
-    {hasGumroadUrl ? (
+    {isAvailable ? (
       <a
-        href={product.gumroadUrl}
+        href={ctaUrl}
         target="_blank"
         rel="noopener noreferrer"
         class:list={[
@@ -138,8 +149,14 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
             : 'bg-[var(--color-apex-blue)] text-white hover:bg-[var(--color-apex-blue-hover)]',
         ]}
       >
-        <ShoppingBag class="h-4 w-4" />
-        <span>Get Product on Gumroad</span>
+        {product.deliveryType === 'mailerlite' ? (
+          <BookOpen class="h-4 w-4" />
+        ) : (
+          <ShoppingBag class="h-4 w-4" />
+        )}
+
+        <span>{ctaLabel}</span>
+
         <ExternalLink class="h-3.5 w-3.5" />
       </a>
     ) : (

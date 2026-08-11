@@ -85,7 +85,7 @@ export const productsData: DigitalProduct[] = [
 
     mailerliteUrl: siteConfig.integrations.mailerlite.formPreviewUrl,
 
-    coverImage: '/image/we/products/playbook-cover.png',
+    coverImage: '/image/we/resources/blueprint-preview.png',
   },
 
   {
@@ -134,7 +134,7 @@ export const productsData: DigitalProduct[] = [
 
     gumroadUrl: 'https://apexlab1.gumroad.com/l/ifevv',
 
-    coverImage: '/image/we/resources/blueprint-preview.png',
+    coverImage: '/image/we/products/playbook-cover.png',
   },
 ];
 

@@ -8,6 +8,7 @@ export interface ResourceItem {
   format: string;
   description: string;
   downloadUrl: string;
+  coverImage?: string;
   badgeColor: {
     bg: string;
     text: string;
@@ -26,7 +27,8 @@ export const resourcesData: ResourceItem[] = [
     description:
       "The complete visual framework for turning short-form social attention into owned email subscribers and automated client acquisition.",
     downloadUrl:
-      siteConfig.integrations.mailerlite.formPreviewUrl,
+      siteConfig.integrations.mailerlite.defaultSubscribeUrl,
+    coverImage: "/image/we/resources/blueprint-preview.png",
     badgeColor: {
       bg: "bg-blue-50",
       text: "text-[var(--color-apex-blue,#2563EB)]",

@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from '../../config/site';
-import type { DigitalProduct } from '../../data/productsData';
+import type { DigitalProduct } from '../../data/products';
 import {
   CheckCircle2,
   ExternalLink,
@@ -54,29 +54,20 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
       ) : (
         <div class="flex flex-col items-center justify-center gap-4 py-8">
           <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-sm">
-            <BookOpen
-              class="h-7 w-7"
-              style={`color: ${product.accentColor.text.includes('[') ? 'var(--color-apex-blue)' : undefined}`}
-            />
+            <BookOpen class="h-7 w-7 text-[var(--color-apex-blue)]" />
           </div>
 
           <div>
-            <span
-              class="text-[10px] font-mono font-bold tracking-widest uppercase text-[var(--color-text-gray)]"
-            >
+            <span class="text-[10px] font-mono font-bold tracking-widest uppercase text-[var(--color-text-gray)]">
               Digital Asset
             </span>
 
-            <h3
-              class="mt-1 text-lg font-bold text-[var(--color-dark-text)] leading-tight"
-            >
+            <h3 class="mt-1 text-lg font-bold text-[var(--color-dark-text)] leading-tight">
               {product.title}
             </h3>
           </div>
 
-          <div
-            class="text-[11px] font-semibold text-[var(--color-text-gray)] bg-white/80 px-2.5 py-0.5 rounded-full border border-[var(--color-border-gray)]"
-          >
+          <div class="text-[11px] font-semibold text-[var(--color-text-gray)] bg-white/80 px-2.5 py-0.5 rounded-full border border-[var(--color-border-gray)]">
             {siteConfig.name}
           </div>
         </div>
@@ -84,9 +75,7 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
     </div>
 
     <!-- Badge & Price -->
-    <div
-      class="flex items-center justify-between gap-4 border-b border-[var(--color-border-gray)] pb-4"
-    >
+    <div class="flex items-center justify-between gap-4 border-b border-[var(--color-border-gray)] pb-4">
       <span
         class:list={[
           'text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-md border',
@@ -98,24 +87,18 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
         {product.badge}
       </span>
 
-      <span
-        class="text-xl font-extrabold text-[var(--color-dark-text)] whitespace-nowrap"
-      >
+      <span class="text-xl font-extrabold text-[var(--color-dark-text)] whitespace-nowrap">
         {product.price.display}
       </span>
     </div>
 
     <!-- Product Information -->
     <div>
-      <h4
-        class="text-xl font-bold text-[var(--color-dark-text)] leading-tight"
-      >
+      <h4 class="text-xl font-bold text-[var(--color-dark-text)] leading-tight">
         {product.title}
       </h4>
 
-      <p
-        class="mt-2 text-sm font-medium text-[var(--color-apex-blue)] leading-relaxed"
-      >
+      <p class="mt-2 text-sm font-medium text-[var(--color-apex-blue)] leading-relaxed">
         {product.tagline}
       </p>
 
@@ -126,20 +109,14 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
 
     <!-- Included Features -->
     <div class="space-y-3 pt-2">
-      <span
-        class="text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)] block"
-      >
+      <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)] block">
         What's Inside:
       </span>
 
       <ul class="space-y-2">
         {product.features.map((feature) => (
-          <li
-            class="flex items-start gap-2 text-xs text-[var(--color-dark-text)]"
-          >
-            <CheckCircle2
-              class="h-4 w-4 text-[var(--color-growth-green)] shrink-0 mt-0.5"
-            />
+          <li class="flex items-start gap-2 text-xs text-[var(--color-dark-text)]">
+            <CheckCircle2 class="h-4 w-4 text-[var(--color-growth-green)] shrink-0 mt-0.5" />
             <span>{feature}</span>
           </li>
         ))}
@@ -166,9 +143,7 @@ const hasGumroadUrl = Boolean(product.gumroadUrl);
         <ExternalLink class="h-3.5 w-3.5" />
       </a>
     ) : (
-      <div
-        class="flex h-12 w-full items-center justify-center rounded-[var(--radius-btn)] bg-[var(--color-soft-gray-bg)] text-[var(--color-text-gray)] border border-[var(--color-border-gray)] font-semibold text-sm"
-      >
+      <div class="flex h-12 w-full items-center justify-center rounded-[var(--radius-btn)] bg-[var(--color-soft-gray-bg)] text-[var(--color-text-gray)] border border-[var(--color-border-gray)] font-semibold text-sm">
         Coming Soon
       </div>
     )}

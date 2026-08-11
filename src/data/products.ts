@@ -1,10 +1,5 @@
 import { siteConfig } from '../config/site';
 
-export interface ProductFeature {
-  title: string;
-  description?: string;
-}
-
 export interface DigitalProduct {
   id: string;
   slug: string;
@@ -30,20 +25,15 @@ export interface DigitalProduct {
   };
 
   features: string[];
-  gumroadUrl: string;
   deliverables: string[];
   targetAudience: string;
 
-  /**
-   * Real Gumroad product ID.
-   * Leave empty until we identify the actual Gumroad IDs.
-   */
+  deliveryType: 'mailerlite' | 'gumroad';
+
+  mailerliteUrl?: string;
+  gumroadUrl?: string;
   gumroadProductId?: string;
 
-  /**
-   * Optional product cover/thumbnail image.
-   * This can come from Gumroad or a local asset later.
-   */
   coverImage?: string;
 }
 
@@ -52,147 +42,100 @@ export const productsData: DigitalProduct[] = [
     id: 'attention-to-leads-blueprint',
     slug: 'attention-to-leads-blueprint',
     title: 'Attention-to-Leads Master Blueprint',
-    badge: 'Flagship Guide',
+    badge: 'Free Blueprint',
     tagline:
-      'The complete step-by-step master framework for converting online attention into qualified email subscribers.',
+      'The step-by-step framework for turning online attention into qualified email subscribers.',
     description:
-      'An actionable digital blueprint detailing the exact visual architecture, content workflows, and email funnels needed to transform short-form video attention into owned audience members.',
+      'A practical blueprint showing how to connect short-form content, lead capture, email marketing, and customer journeys into one growth system.',
+
     price: {
-      display: 'Free / $0',
+      display: 'Free',
       amount: 0,
       currency: 'USD',
       isFree: true,
     },
+
     isPopular: true,
     isFlagship: true,
+
     accentColor: {
       bg: 'bg-blue-50',
       text: 'text-[var(--color-apex-blue,#2563EB)]',
       border: 'border-blue-200',
     },
+
     features: [
-      '7-Stage Growth Architecture Diagram & Overview',
-      'Audience Psychology & Research Canvas',
-      'Short-Form Video Repurposing Workflow',
+      '7-Stage Growth Architecture',
+      'Audience Psychology & Research Framework',
+      'Short-Form Content-to-Email Workflow',
       'MailerLite Setup & Integration Guide',
-      'Lead Capture Landing Page Wireframe',
+      'Lead Capture Landing Page Framework',
     ],
+
     deliverables: [
-      'High-Resolution PDF Master Blueprint (24 Pages)',
-      'Interactive Notion Implementation Hub',
-      '3 Video Walkthroughs by Ebua Hastings Etta',
+      'Attention-to-Leads Master Blueprint',
+      'Implementation Framework',
       'MailerLite Integration Checklist',
     ],
-    gumroadUrl: siteConfig.integrations.gumroad.storeUrl,
+
     targetAudience:
-      'Coaches, consultants, creators, and agency owners looking to systematize subscriber acquisition.',
+      'Coaches, consultants, creators, startups, and businesses that want to turn attention into an owned audience.',
+
+    deliveryType: 'mailerlite',
+
+    mailerliteUrl: siteConfig.integrations.mailerlite.formPreviewUrl,
+
+    coverImage: '/image/we/products/playbook-cover.png',
   },
 
   {
-    id: 'lead-magnet-launchpad-kit',
-    slug: 'lead-magnet-launchpad-kit',
-    title: 'Lead Magnet Launchpad Kit',
-    badge: 'Implementation Kit',
+    id: 'lead-magnet-blueprint',
+    slug: 'lead-magnet-blueprint',
+    title: 'Lead Magnet Blueprint',
+    badge: 'Premium Blueprint',
     tagline:
-      'Plug-and-play templates and copywriting frameworks to build a high-converting lead magnet in 48 hours.',
+      'Build a lead magnet that attracts the right people and turns attention into qualified subscribers.',
     description:
-      'Stop guessing what your audience wants. This kit provides pre-structured templates, headline generators, and landing page copy frameworks engineered for rapid opt-in conversion.',
+      'A practical blueprint for planning, creating, positioning, and promoting a lead magnet that fits into a working email marketing system.',
+
     price: {
       display: '$27',
       amount: 27,
       currency: 'USD',
     },
+
     isPopular: false,
+    isFlagship: false,
+
     accentColor: {
       bg: 'bg-cyan-50',
       text: 'text-[var(--color-growth-cyan,#0891B2)]',
       border: 'border-cyan-200',
     },
-    features: [
-      '5 High-Converting Lead Magnet Formats (PDF, Checklist, Swipe File, Video, Template)',
-      'Landing Page Copywriting Canvas & Wireframes',
-      '50+ Opt-In Form Headline Generators',
-      'Lead Magnet Validation & Audit Checklist',
-    ],
-    deliverables: [
-      'Canva & Google Docs Lead Magnet Design Templates',
-      'Fill-in-the-Blank Landing Page Copy Script',
-      'Opt-in Rate Optimization Checklist',
-    ],
-    gumroadUrl: siteConfig.integrations.gumroad.storeUrl,
-    targetAudience:
-      'Solopreneurs and small business owners needing an immediate, irresistible lead magnet asset.',
-  },
 
-  {
-    id: 'welcome-email-sequence-kit',
-    slug: 'welcome-email-sequence-kit',
-    title: 'Welcome Email Sequence Kit',
-    badge: 'Email Funnel',
-    tagline:
-      'Tested 5-part automated email welcome sequence templates designed to build immediate brand authority.',
-    description:
-      'First impressions set the tone for client lifetime value. These pre-written, plug-and-play email templates deliver lead magnets, set expectations, and introduce core offers seamlessly.',
-    price: {
-      display: '$37',
-      amount: 37,
-      currency: 'USD',
-    },
-    isPopular: false,
-    accentColor: {
-      bg: 'bg-amber-50',
-      text: 'text-[var(--color-strategic-orange,#D97706)]',
-      border: 'border-amber-200',
-    },
     features: [
-      '5 Pre-Written Email Templates (Delivery, Story, Authority, Value, Pitch)',
-      'Subject Line Vault (50+ Proven High-Open Titles)',
-      'Storytelling & Positioning Framework',
-      'Contextual Call-to-Action Insertion Strategy',
+      'Lead Magnet Planning Framework',
+      'High-Converting Lead Magnet Formats',
+      'Landing Page Copy Framework',
+      'Opt-In Messaging & Positioning',
+      'Lead Magnet Validation Checklist',
     ],
-    deliverables: [
-      'Editable Email Copy Master Document',
-      'MailerLite Automation Setup Instructions',
-      'Open & Click-Through Optimization Guide',
-    ],
-    gumroadUrl: siteConfig.integrations.gumroad.storeUrl,
-    targetAudience:
-      'Businesses with an existing lead magnet that struggle to turn new subscribers into buyers.',
-  },
 
-  {
-    id: 'growth-engine-architecture-pack',
-    slug: 'growth-engine-architecture-pack',
-    title: 'Growth Engine Architecture Bundle',
-    badge: 'Systems Bundle',
-    tagline:
-      'The complete operating bundle combining all Apex Content Lab blueprints, templates, and CRM diagrams.',
-    description:
-      'Get every digital asset, template kit, email sequence, and system flowchart produced by Apex Content Lab in a single complete growth architecture package.',
-    price: {
-      display: '$67',
-      amount: 67,
-      currency: 'USD',
-    },
-    isPopular: false,
-    accentColor: {
-      bg: 'bg-emerald-50',
-      text: 'text-[var(--color-growth-green,#059669)]',
-      border: 'border-emerald-200',
-    },
-    features: [
-      'All 3 Individual Product Kits Included (Blueprint, Launchpad Kit, Welcome Sequence)',
-      'Complete Marketing Automation Flowcharts & Diagrams',
-      'Subscriber Retention & Weekly Newsletter Framework',
-      'Lifetime Updates & Future Blueprint Additions',
-    ],
     deliverables: [
-      'Complete Master Digital Product Collection',
-      'All Templates, Notion Workspaces & Video Guides',
-      'Priority Access to Future Resource Additions',
+      'Lead Magnet Blueprint',
+      'Landing Page Copy Framework',
+      'Lead Magnet Validation Checklist',
     ],
-    gumroadUrl: siteConfig.integrations.gumroad.storeUrl,
+
     targetAudience:
-      'Founders and growth specialists wanting the complete DIY toolkit for building scalable systems.',
+      'Business owners, consultants, creators, and service providers who want a practical system for building a lead-generating asset.',
+
+    deliveryType: 'gumroad',
+
+    gumroadUrl: 'https://apexlab1.gumroad.com/l/ifevv',
+
+    coverImage: '/image/we/resources/blueprint-preview.png',
   },
 ];
+
+export default productsData;

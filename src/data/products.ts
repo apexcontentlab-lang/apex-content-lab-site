@@ -1,10 +1,5 @@
 import { siteConfig } from '../config/site';
 
-export interface ProductFeature {
-  title: string;
-  description?: string;
-}
-
 export interface DigitalProduct {
   id: string;
   slug: string;
@@ -30,16 +25,16 @@ export interface DigitalProduct {
   };
 
   features: string[];
-  gumroadUrl?: string;
   deliverables: string[];
   targetAudience: string;
 
+  deliveryType: 'mailerlite' | 'gumroad';
+
+  mailerliteUrl?: string;
+  gumroadUrl?: string;
   gumroadProductId?: string;
 
   coverImage?: string;
-
-  deliveryType: 'mailerlite' | 'gumroad';
-  mailerliteUrl?: string;
 }
 
 export const productsData: DigitalProduct[] = [
@@ -88,8 +83,7 @@ export const productsData: DigitalProduct[] = [
 
     deliveryType: 'mailerlite',
 
-    mailerliteUrl:
-      'https://preview.mailerlite.io/preview/2453071/forms/190605752159700691',
+    mailerliteUrl: siteConfig.integrations.mailerlite.formPreviewUrl,
 
     coverImage: '/image/we/products/playbook-cover.png',
   },

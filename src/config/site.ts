@@ -47,14 +47,14 @@ export interface SiteConfig {
     };
   };
   socialLinks: {
-    linkedin: string;
-    facebook: string;
-    instagram: string;
-    threads: string;
-    tiktok: string;
-    pinterest: string;
-    youtube: string;
-  };
+  linkedin: "https://www.linkedin.com/in/ebua-hastings-ba05173a2",
+  facebook: "https://www.facebook.com/profile.php?id=61592196512458",
+  instagram: "https://www.instagram.com/apexcontentlab",
+  threads: "https://www.threads.com/@apexcontentlab",
+  tiktok: "https://www.tiktok.com/@apex.content.lab",
+  pinterest: "https://pin.it/1ZAbYcTKX",
+  youtube: "https://www.youtube.com/@ApexContentLab"
+},   
   seo: {
     defaultTitle: string;
     titleTemplate: string;

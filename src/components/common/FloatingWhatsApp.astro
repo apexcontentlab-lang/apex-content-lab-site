@@ -1,87 +1,23 @@
 ---
 import { siteConfig } from '../../config/site';
-import type { Product } from '../../data/productsData';
-import { CheckCircle2, ArrowRight, ExternalLink, ShoppingBag, BookOpen } from 'lucide-astro';
 
-interface Props {
-  product: Product;
-  class?: string;
-}
-
-const { product = {}, class: className = '' } = Astro.props;
+const whatsapp = siteConfig.contact.whatsapp;
 ---
 
-<div 
-  class:list={[
-    "relative rounded-[var(--radius-card)] border bg-white p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-[var(--shadow-apex-hover)] hover:-translate-y-1",
-    product?.isPopular ? "border-2 border-[var(--color-apex-blue)] ring-4 ring-[var(--color-apex-blue-light)]" : "border-[var(--color-border-gray)]",
-    className
-  ]}
+<a
+  href={whatsapp.fullUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with Apex Content Lab on WhatsApp"
+  title="Chat with Apex Content Lab on WhatsApp"
+  class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#25D366]/30"
 >
-  {product?.isPopular && (
-    <div class="absolute -top-3.5 right-8 rounded-full bg-[var(--color-apex-blue)] px-4 py-1 text-xs font-bold text-white uppercase tracking-wider shadow-md">
-      Most Popular
-    </div>
-  )}
-
-  <div class="space-y-6">
-    <!-- Card Header / Mockup Placeholder -->
-    <div class={`rounded-xl border p-6 flex flex-col items-center justify-center text-center space-y-3 ${product?.mockupBgColor || 'bg-[var(--color-soft-gray-bg)] border-[var(--color-border-gray)]'}`}>
-      <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-sm">
-        <BookOpen class="h-6 w-6 text-[var(--color-apex-blue)]" />
-      </div>
-      <div>
-        <span class="text-[10px] font-mono font-bold tracking-widest uppercase text-[var(--color-text-gray)]">Digital Asset</span>
-        <h4 class="text-lg font-bold text-[var(--color-dark-text)] leading-tight">{product?.title}</h4>
-      </div>
-      <div class="text-[11px] font-semibold text-[var(--color-text-gray)] bg-white/80 px-2.5 py-0.5 rounded-full border border-[var(--color-border-gray)]">
-        {siteConfig.name}
-      </div>
-    </div>
-
-    <!-- Badge & Price Line -->
-    <div class="flex items-center justify-between border-b border-[var(--color-border-gray)] pb-4">
-      <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-gray)] bg-[var(--color-soft-gray-bg)] px-3 py-1 rounded-md border border-[var(--color-border-gray)]">
-        {product?.badge}
-      </span>
-      <span class="text-xl font-extrabold text-[var(--color-dark-text)]">{product?.price}</span>
-    </div>
-
-    <!-- Description -->
-    <p class="text-sm text-[var(--color-text-gray)] leading-relaxed">
-      {product?.description}
-    </p>
-
-    <!-- Included Features Checklist -->
-    <div class="space-y-2.5 pt-2">
-      <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)] block">What's Inside:</span>
-      <ul class="space-y-2">
-        {product?.features?.map((feature) => (
-          <li class="flex items-start gap-2 text-xs text-[var(--color-dark-text)]">
-            <CheckCircle2 class="h-4 w-4 text-[var(--color-growth-green)] shrink-0 mt-0.5" />
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-
-  <!-- Buy / Get Button -->
-  <div class="pt-6 mt-6 border-t border-[var(--color-border-gray)]">
-    <a
-      href={product?.gumroadUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class:list={[
-        "flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold text-sm transition-all duration-200",
-        product?.isPopular
-          ? "bg-[var(--color-strategic-orange)] text-white shadow-[var(--shadow-apex-cta)] hover:bg-[var(--color-strategic-orange-hover)]"
-          : "bg-[var(--color-apex-blue)] text-white hover:bg-[var(--color-apex-blue-hover)]"
-      ]}
-    >
-      <ShoppingBag class="h-4 w-4" />
-      <span>Get Product on Gumroad</span>
-      <ExternalLink class="h-3.5 w-3.5" />
-    </a>
-  </div>
-</div>
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    class="h-7 w-7"
+    aria-hidden="true"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.866 9.866 0 01-1.511-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.158 11.89c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.684 1.448h.005c6.554 0 11.89-5.335 11.893-11.89a11.821 11.821 0 00-3.479-8.416"/>
+  </svg>
+</a>

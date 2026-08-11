@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
 import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
-import { siteConfig } from '../config/site';
-import { productsData } from '../data/products';
+import ProductCard from '../components/cards/ProductCard.astro';
+import { productsData } from '../data/productsData';
 ---
 
 <BaseLayout
@@ -21,9 +21,11 @@ import { productsData } from '../data/products';
           <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">
             <span>Actionable Assets</span>
           </div>
+
           <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
             Digital Blueprints & Systems
           </h1>
+
           <p class="text-lg text-gray-600 leading-relaxed">
             Plug-and-play guides, copywriting frameworks, and email kits engineered to fast-track your marketing infrastructure build on Gumroad.
           </p>
@@ -34,67 +36,23 @@ import { productsData } from '../data/products';
     <!-- Product Grid -->
     <section class="py-16 lg:py-24 bg-white">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-          {productsData.map((product) => (
-            <div 
-              id={product.id}
-              class={`scroll-mt-28 rounded-3xl p-8 border ${
-                product.isFlagship 
-                  ? 'border-[var(--color-apex-blue,#2563EB)] bg-gradient-to-br from-blue-50/30 via-white to-white ring-1 ring-blue-500/20 shadow-xl' 
-                  : 'border-gray-200 bg-white shadow-sm'
-              } flex flex-col justify-between`}
-            >
-              <div class="space-y-6">
-                <!-- Header Badges & Pricing -->
-                <div class="flex items-center justify-between gap-4">
-                  <span class={`px-3 py-1 rounded-full text-xs font-semibold ${product.accentColor.bg} ${product.accentColor.text}`}>
-                    {product.badge}
-                  </span>
-                  <span class="text-2xl font-black text-gray-900 font-mono">
-                    {product.price.display}
-                  </span>
-                </div>
+        {productsData.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {productsData.map((product) => (
+              <ProductCard product={product} />
+            ))}
+          </div>
+        ) : (
+          <div class="rounded-3xl border border-gray-200 bg-gray-50 px-6 py-16 text-center">
+            <h2 class="text-xl font-bold text-gray-900">
+              Products Coming Soon
+            </h2>
 
-                <div>
-                  <h2 class="text-2xl font-bold text-gray-900 mb-2">{product.title}</h2>
-                  <p class="text-sm font-medium text-[var(--color-apex-blue,#2563EB)] mb-3">{product.tagline}</p>
-                  <p class="text-sm text-gray-600 leading-relaxed">{product.description}</p>
-                </div>
-
-                <!-- Features Included -->
-                <div class="space-y-3 pt-2">
-                  <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Key Deliverables & Features</p>
-                  <ul class="space-y-2 text-xs text-gray-700">
-                    {product.features.map((feature) => (
-                      <li class="flex items-start gap-2">
-                        <svg class="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Action Link -->
-              <div class="pt-8">
-                <a
-                  href={product.gumroadUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full inline-flex items-center justify-center rounded-xl bg-gray-900 px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-gray-800 transition-colors focus-ring"
-                >
-                  Get Access on Gumroad
-                  <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-
-            </div>
-          ))}
-        </div>
+            <p class="mt-2 text-sm text-gray-600">
+              We're updating our digital product library. Check back shortly.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   </main>

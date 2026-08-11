@@ -1,15 +1,237 @@
 ---
 import { siteConfig } from '../../config/site';
-import { MessageCircle } from 'lucide-astro';
 ---
 
-<a
-  href={siteConfig.contact.whatsapp.fullUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-200 hover:scale-110 hover:shadow-xl focus-visible:outline-none"
-  aria-label="Contact Apex Content Lab on WhatsApp"
-  title="Chat with Growth Systems Strategist"
->
-  <MessageCircle class="h-7 w-7 fill-white stroke-none" />
-</a>
+<footer class="border-t border-gray-200 bg-gray-950 text-white">
+  <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Brand -->
+      <div>
+        <a
+          href={siteConfig.routes.home}
+          class="inline-block text-xl font-extrabold tracking-tight"
+        >
+          {siteConfig.name}
+        </a>
+
+        <p class="mt-4 max-w-sm text-sm leading-6 text-gray-400">
+          {siteConfig.description}
+        </p>
+
+        <p class="mt-5 text-sm font-semibold text-gray-300">
+          {siteConfig.tagline}
+        </p>
+      </div>
+
+      <!-- Explore -->
+      <div>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-white">
+          Explore
+        </h2>
+
+        <nav class="mt-4 space-y-3">
+          <a
+            href={siteConfig.routes.home}
+            class="block text-sm text-gray-400 transition hover:text-white"
+          >
+            Home
+          </a>
+
+          <a
+            href={siteConfig.routes.services}
+            class="block text-sm text-gray-400 transition hover:text-white"
+          >
+            Services
+          </a>
+
+          <a
+            href={siteConfig.routes.framework}
+            class="block text-sm text-gray-400 transition hover:text-white"
+          >
+            Framework
+          </a>
+
+          <a
+            href={siteConfig.routes.products}
+            class="block text-sm text-gray-400 transition hover:text-white"
+          >
+            Digital Products
+          </a>
+
+          <a
+            href={siteConfig.routes.resources}
+            class="block text-sm text-gray-400 transition hover:text-white"
+          >
+            Resources
+          </a>
+
+          <a
+            href={siteConfig.routes.about}
+            class="block text-sm text-gray-400 transition hover:text-white"
+          >
+            About
+          </a>
+
+          <a
+            href={siteConfig.routes.contact}
+            class="block text-sm text-gray-400 transition hover:text-white"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-white">
+          Contact
+        </h2>
+
+        <div class="mt-4 space-y-3 text-sm">
+
+          <a
+            href={`mailto:${siteConfig.contact.primaryEmail}`}
+            class="block text-gray-400 transition hover:text-white"
+          >
+            {siteConfig.contact.primaryEmail}
+          </a>
+
+          <a
+            href={`mailto:${siteConfig.contact.supportEmail}`}
+            class="block text-gray-400 transition hover:text-white"
+          >
+            {siteConfig.contact.supportEmail}
+          </a>
+
+          <a
+            href={siteConfig.contact.whatsapp.fullUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            WhatsApp: {siteConfig.contact.phone.display}
+          </a>
+
+          <p class="text-gray-500">
+            {siteConfig.contact.address.formatted}
+          </p>
+        </div>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a
+            href={siteConfig.routes.contact}
+            class="inline-flex items-center rounded-lg border border-gray-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-800"
+          >
+            Contact Us
+          </a>
+
+          <a
+            href={siteConfig.routes.bookCall}
+            class="inline-flex items-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-gray-950 transition hover:bg-gray-200"
+          >
+            Book a Strategy Call
+          </a>
+        </div>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-white">
+          Connect
+        </h2>
+
+        <div class="mt-4 space-y-3 text-sm">
+
+          <a
+            href={siteConfig.socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href={siteConfig.socialLinks.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            Facebook
+          </a>
+
+          <a
+            href={siteConfig.socialLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            Instagram
+          </a>
+
+          <a
+            href={siteConfig.socialLinks.threads}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            Threads
+          </a>
+
+          <a
+            href={siteConfig.socialLinks.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            TikTok
+          </a>
+
+          <a
+            href={siteConfig.socialLinks.pinterest}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            Pinterest
+          </a>
+
+          <a
+            href={siteConfig.socialLinks.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            YouTube
+          </a>
+
+          <a
+            href={siteConfig.integrations.gumroad.storeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-400 transition hover:text-white"
+          >
+            Gumroad Store
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div
+      class="mt-12 flex flex-col gap-4 border-t border-gray-800 pt-6 text-sm text-gray-500 md:flex-row md:items-center md:justify-between"
+    >
+      <p>
+        © {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.
+      </p>
+
+      <p>
+        {siteConfig.founder.name} · {siteConfig.founder.title}
+      </p>
+    </div>
+
+  </div>
+</footer>

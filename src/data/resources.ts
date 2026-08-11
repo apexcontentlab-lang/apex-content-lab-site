@@ -26,7 +26,7 @@ export const resourcesData: ResourceItem[] = [
     description:
       "The complete visual framework for turning short-form social attention into owned email subscribers and automated client acquisition.",
     downloadUrl:
-      siteConfig.integrations.mailerlite.defaultSubscribeUrl,
+      siteConfig.integrations.mailerlite.formPreviewUrl,
     badgeColor: {
       bg: "bg-blue-50",
       text: "text-[var(--color-apex-blue,#2563EB)]",
@@ -35,3 +35,5 @@ export const resourcesData: ResourceItem[] = [
     isFeatured: true
   }
 ];
+
+export default resourcesData;

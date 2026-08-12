@@ -76,43 +76,52 @@ const coreValues = [
     </section>
 
     <!-- Founder Section -->
-    <section id="founder" class="scroll-mt-28 py-16 lg:py-24 bg-gray-900 text-white">
-      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div class="bg-gray-800 rounded-3xl p-8 sm:p-12 border border-gray-700">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div class="lg:col-span-8 space-y-4">
-              <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-xs font-semibold text-blue-400 border border-blue-500/20">
-                Founder Profile
-              </div>
-              <h2 class="text-3xl font-bold text-white">{siteConfig.founder.name}</h2>
-              <p class="text-sm font-medium text-blue-400">{siteConfig.founder.role}</p>
-              
-              <p class="text-sm text-gray-300 leading-relaxed">
-                As the founder of Apex Content Lab, Ebua Hastings Etta combines growth strategy, technical web architecture, and automated email workflows to help creators, consultants, and brands monetize attention systematically.
-              </p>
+<section id="founder" class="scroll-mt-28 py-16 lg:py-24 bg-gray-900 text-white">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="bg-gray-800 rounded-3xl p-8 sm:p-12 border border-gray-700">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-              <div class="pt-4 flex items-center gap-4">
-                <a
-                  href={siteConfig.routes.contact}
-                  class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors focus-ring"
-                >
-                  Connect with Ebua
-                </a>
-              </div>
-            </div>
+        <div class="lg:col-span-8 space-y-4">
+          <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-xs font-semibold text-blue-400 border border-blue-500/20">
+            Founder Profile
+          </div>
 
-            <div class="lg:col-span-4 flex justify-center">
-              <div class="w-48 h-48 rounded-2xl bg-gray-700 border-2 border-blue-500/30 flex items-center justify-center text-gray-400 font-mono text-xs text-center p-4">
-                [/image/we/team/ebua-hastings-etta.png]
-              </div>
+          <h2 class="text-3xl font-bold text-white">
+            {siteConfig.founder.name}
+          </h2>
 
+          <p class="text-sm font-medium text-blue-400">
+            {siteConfig.founder.role}
+          </p>
+
+          <p class="text-sm text-gray-300 leading-relaxed">
+            As the founder of Apex Content Lab, Ebua Hastings Etta combines growth strategy, technical web architecture, and automated email workflows to help creators, consultants, and brands monetize attention systematically.
+          </p>
+
+          <div class="pt-4 flex items-center gap-4">
+            <a
+              href={siteConfig.routes.contact}
+              class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors focus-ring"
+            >
+              Connect with Ebua
+            </a>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <Footer />
-  <FloatingWhatsApp />
-</BaseLayout>
+        <!-- Founder Photo -->
+        <div class="lg:col-span-4 flex justify-center">
+          <div class="w-48 h-48 overflow-hidden rounded-2xl border-2 border-blue-500/30 bg-gray-700">
+            <img
+              src="/image/we/team/ebua-hastings-etta.png"
+              alt="Ebua Hastings Etta, Founder of Apex Content Lab"
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

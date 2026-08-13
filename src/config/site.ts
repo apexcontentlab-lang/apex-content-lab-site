@@ -64,15 +64,12 @@ export interface SiteConfig {
     youtube: string;
   };
 
-  brand: {
-    logo: string;
-  };
-
   seo: {
     defaultTitle: string;
     titleTemplate: string;
     defaultDescription: string;
     ogImage: string;
+    logo: string;
     locale: string;
     themeColor: string;
   };
@@ -201,10 +198,6 @@ export const siteConfig: SiteConfig = {
       "https://www.youtube.com/@ApexContentLab",
   },
 
-  brand: {
-    logo: "/images/we/apex-content-lab-logo.png",
-  },
-
   seo: {
     defaultTitle:
       "Apex Content Lab | Growth Systems Company",
@@ -217,6 +210,9 @@ export const siteConfig: SiteConfig = {
 
     ogImage:
       "/images/we/og-default.png",
+
+    logo:
+      "/images/we/apex-content-lab-logo.png",
 
     locale:
       "en_US",

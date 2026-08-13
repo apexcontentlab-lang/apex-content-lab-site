@@ -8,120 +8,882 @@ import { siteConfig } from '../config/site.ts';
 const coreValues = [
   {
     title: "Assets Over Campaigns",
-    description: "Campaigns expire. Growth infrastructure continues attracting, capturing, and converting leads 24/7."
+    description: "Campaigns expire. Growth infrastructure continues attracting, capturing, and converting leads long after a campaign ends."
   },
   {
     title: "Owned Audience First",
-    description: "Social platforms rent reach; email lists guarantee ownership. We build systems that turn rented attention into owned list assets."
+    description: "Social platforms provide rented reach. Email gives businesses a direct communication channel with the people who choose to hear from them."
   },
   {
     title: "Frictionless Integration",
-    description: "Simple, ultra-fast tech stacks (Astro, MailerLite, Vercel) outperform slow, complex legacy monoliths every time."
+    description: "We prefer practical, focused technology stacks that connect the important parts of the customer journey without unnecessary complexity."
   },
   {
     title: "Data-Backed Precision",
-    description: "No guesswork or vanity metrics. Every landing page and automated email workflow is optimized around direct ROI and conversion."
+    description: "We focus on meaningful actions and conversion signals rather than vanity metrics that look impressive but do not move the business forward."
+  }
+];
+
+const growthStages = [
+  {
+    number: "01",
+    title: "Attention",
+    description: "Create useful content and experiences that attract the right people."
+  },
+  {
+    number: "02",
+    title: "Lead Capture",
+    description: "Give interested prospects a clear reason to move from anonymous attention to an owned relationship."
+  },
+  {
+    number: "03",
+    title: "Nurture",
+    description: "Use email and automated journeys to educate, build trust, and maintain consistent follow-up."
+  },
+  {
+    number: "04",
+    title: "Conversion",
+    description: "Create clear pathways that move qualified prospects toward conversations, purchases, and business opportunities."
   }
 ];
 ---
 
 <BaseLayout
   title={`About ${siteConfig.name} | Founder ${siteConfig.founder.name}`}
-  description="Learn about Apex Content Lab, our core philosophy on permanent growth systems, and founder Ebua Hastings Etta."
+  description="Learn about Apex Content Lab, founder Ebua Hastings Etta, and the growth systems philosophy behind our approach to content, lead generation, email marketing, and automation."
 >
   <Header />
 
   <main class="flex-grow">
-    <!-- Header Hero -->
-    <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-16 lg:py-24 border-b border-gray-100">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto space-y-4">
-          <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">
-            <span>Our Story & Philosophy</span>
-          </div>
-          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-            Building Permanent Growth Infrastructure
-          </h1>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Apex Content Lab exists to help modern businesses replace random marketing efforts with predictable, automated client acquisition engines.
-          </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- Company Philosophy -->
-    <section class="py-16 lg:py-20 bg-white">
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-white py-20 lg:py-28 border-b border-gray-100">
       <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-4">
-            <h2 class="text-3xl font-bold text-gray-900">Why Apex Content Lab?</h2>
-            <p class="text-sm text-gray-600 leading-relaxed">
-              Most businesses fall into the social media treadmill: spending countless hours creating content only for the algorithm to dictate who sees it. When posting stops, revenue drops.
-            </p>
-            <p class="text-sm text-gray-600 leading-relaxed">
-              We build closed-loop systems that bridge the gap between social media visibility and email marketing automation—turning casual content viewers into lifetime clients.
-            </p>
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+
+          <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">
+            <span>About Apex Content Lab</span>
+            <span class="text-blue-300">•</span>
+            <span>Founder & Growth Systems</span>
           </div>
 
-          <div class="grid grid-cols-1 gap-4">
-            {coreValues.map((value) => (
-              <div class="p-5 rounded-2xl bg-gray-50 border border-gray-100">
-                <h3 class="text-base font-bold text-gray-900 mb-1">{value.title}</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">{value.description}</p>
-              </div>
-            ))}
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]">
+            Building the systems behind
+            <span class="text-[var(--color-apex-blue,#2563EB)]">
+              sustainable growth.
+            </span>
+          </h1>
+
+          <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-600 leading-relaxed">
+            Apex Content Lab helps businesses move from random marketing activities to structured growth systems that turn attention into leads, leads into relationships, and relationships into business opportunities.
+          </p>
+
+          <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+
+            <a
+              href={siteConfig.routes.bookCall}
+              class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors"
+            >
+              Book a Strategy Call
+            </a>
+
+            <a
+              href="/framework"
+              class="inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white px-8 py-4 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors"
+            >
+              Explore Our Framework
+            </a>
+
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Founder Section -->
-<section id="founder" class="scroll-mt-28 py-16 lg:py-24 bg-gray-900 text-white">
-  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-    <div class="bg-gray-800 rounded-3xl p-8 sm:p-12 border border-gray-700">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-        <div class="lg:col-span-8 space-y-4">
-          <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-xs font-semibold text-blue-400 border border-blue-500/20">
-            Founder Profile
+    <!-- WHY APEX EXISTS -->
+    <section class="py-20 lg:py-24 bg-white">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+          <div class="space-y-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+              Why Apex Content Lab Exists
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+              Most businesses don't have an attention problem.
+            </h2>
+
+            <p class="text-base text-gray-600 leading-relaxed">
+              They often have a system problem.
+            </p>
+
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+              A business can publish consistently, receive views, gain followers, run campaigns, and generate engagement while still having no reliable way to capture and nurture the people paying attention.
+            </p>
+
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+              When the content stops, the attention disappears. When the campaign ends, the activity disappears. And when follow-up depends entirely on the founder remembering to do it, valuable opportunities fall through the cracks.
+            </p>
+
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+              Apex Content Lab exists to solve that gap by connecting content, lead generation, email marketing, and automation into one practical growth system.
+            </p>
           </div>
 
-          <h2 class="text-3xl font-bold text-white">
-            {siteConfig.founder.name}
+          <div class="rounded-3xl bg-gray-50 border border-gray-200 p-7 sm:p-8">
+            <div class="space-y-6">
+
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-gray-400">
+                  The shift
+                </p>
+
+                <p class="mt-2 text-xl font-bold text-gray-900">
+                  From random marketing
+                </p>
+
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+                  Posting, promoting, chasing leads, and starting over every week.
+                </p>
+              </div>
+
+              <div class="flex items-center justify-center text-2xl font-bold text-[var(--color-apex-blue,#2563EB)]">
+                ↓
+              </div>
+
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+                  The goal
+                </p>
+
+                <p class="mt-2 text-xl font-bold text-gray-900">
+                  To structured growth
+                </p>
+
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+                  A connected system where attention has a destination, leads are captured, prospects are nurtured, and follow-up does not depend on manual effort alone.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CORE VALUES -->
+    <section class="py-20 lg:py-24 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+            What We Believe
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            The principles behind the work.
           </h2>
 
-          <p class="text-sm font-medium text-blue-400">
-            {siteConfig.founder.role}
+          <p class="text-base text-gray-600 leading-relaxed">
+            These principles shape how we think about content, infrastructure, email marketing, automation, and business growth.
           </p>
 
-          <p class="text-sm text-gray-300 leading-relaxed">
-            As the founder of Apex Content Lab, Ebua Hastings Etta combines growth strategy, technical web architecture, and automated email workflows to help creators, consultants, and brands monetize attention systematically.
-          </p>
-
-          <div class="pt-4 flex items-center gap-4">
-            <a
-              href={siteConfig.routes.contact}
-              class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors focus-ring"
-            >
-              Connect with Ebua
-            </a>
-          </div>
         </div>
 
-        <!-- Founder Photo -->
-        <div class="lg:col-span-4 flex justify-center">
-          <div class="w-48 h-48 overflow-hidden rounded-2xl border-2 border-blue-500/30 bg-gray-700">
-            <img
-              src="/image/we/team/ebua-hastings-etta.png"
-              alt="Ebua Hastings Etta, Founder of Apex Content Lab"
-              class="h-full w-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {coreValues.map((value, index) => (
+            <div class="rounded-2xl bg-white border border-gray-200 p-7 shadow-sm">
+
+              <div class="flex items-start gap-4">
+
+                <span class="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-xs font-bold text-[var(--color-apex-blue,#2563EB)]">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                <div>
+                  <h3 class="text-lg font-bold text-gray-900">
+                    {value.title}
+                  </h3>
+
+                  <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+                    {value.description}
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOUNDER -->
+    <section id="founder" class="scroll-mt-28 py-20 lg:py-28 bg-gray-900 text-white">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        <div class="rounded-3xl bg-gray-800 p-8 sm:p-12 border border-gray-700">
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+            <div class="lg:col-span-8 space-y-5">
+
+              <div class="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 border border-blue-500/20">
+                <span class="text-xs font-semibold text-blue-400">
+                  Founder & Growth Systems Strategist
+                </span>
+              </div>
+
+              <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                {siteConfig.founder.name}
+              </h2>
+
+              <p class="text-sm font-medium text-blue-400">
+                {siteConfig.founder.role}
+              </p>
+
+              <div class="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed">
+
+                <p>
+                  As the founder of Apex Content Lab, Ebua Hastings Etta focuses on the space between marketing attention and business growth.
+                </p>
+
+                <p>
+                  His work combines content strategy, web architecture, lead generation, email marketing, and automated customer journeys to help businesses build a more structured path from visibility to opportunity.
+                </p>
+
+                <p>
+                  The philosophy is straightforward: marketing should not only create attention. It should create assets and systems that continue working after the post has been published or the campaign has ended.
+                </p>
+
+              </div>
+
+              <div class="pt-3 flex flex-wrap gap-4">
+
+                <a
+                  href={siteConfig.routes.contact}
+                  class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors focus-ring"
+                >
+                  Connect with Hastings
+                </a>
+
+                <a
+                  href="/case-studies"
+                  class="inline-flex items-center justify-center rounded-xl border border-gray-600 px-6 py-3 text-sm font-medium text-gray-200 hover:bg-gray-700 transition-colors"
+                >
+                  See Our Work
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <!-- Founder Photo -->
+            <div class="lg:col-span-4 flex justify-center">
+
+              <div class="w-52 h-52 sm:w-60 sm:h-60 overflow-hidden rounded-3xl border-2 border-blue-500/30 bg-gray-700 shadow-xl">
+
+                <img
+                  src="/image/we/team/ebua-hastings-etta.png"
+                  alt="Ebua Hastings Etta, Founder of Apex Content Lab"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+
+              </div>
+
+            </div>
+
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOUNDER AUTHORITY -->
+    <section class="py-20 lg:py-24 bg-white">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center space-y-4">
+
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+            The Founder Perspective
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            Marketing should create an asset, not just an activity.
+          </h2>
+
+          <p class="max-w-3xl mx-auto text-base sm:text-lg text-gray-600 leading-relaxed">
+            The goal is not to make a business dependent on constant posting, advertising, or manual outreach. The goal is to build a system where every new piece of attention has a logical next step.
+          </p>
+
+        </div>
+
+
+        <div class="mt-12 space-y-6">
+
+          <div class="rounded-2xl border border-gray-200 bg-gray-50 p-7">
+
+            <h3 class="text-lg font-bold text-gray-900">
+              Attention should lead somewhere.
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              A viewer should have a meaningful next step. That might be reading a resource, joining an email list, downloading a lead magnet, starting a conversation, or exploring an offer.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl border border-gray-200 bg-gray-50 p-7">
+
+            <h3 class="text-lg font-bold text-gray-900">
+              Leads need more than a form.
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              Capturing an email address is only the beginning. A useful system delivers the promised resource, communicates consistently, learns from behavior, and creates relevant opportunities for the prospect to move forward.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl border border-gray-200 bg-gray-50 p-7">
+
+            <h3 class="text-lg font-bold text-gray-900">
+              Automation should support relationships.
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              Good automation does not mean sending more messages. It means reducing unnecessary manual work while making communication more timely and relevant.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl border border-gray-200 bg-gray-50 p-7">
+
+            <h3 class="text-lg font-bold text-gray-900">
+              The business should own the infrastructure.
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              The systems we build should become useful business assets: documented, connected, measurable, and capable of improving as the business grows.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- WHAT WE BUILD -->
+    <section class="py-20 lg:py-24 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        <div class="max-w-3xl space-y-4">
+
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+            What Apex Builds
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            Connecting the pieces of the customer journey.
+          </h2>
+
+          <p class="text-base text-gray-600 leading-relaxed">
+            Apex Content Lab works across the parts of marketing that sit between attention and conversion.
+          </p>
+
+        </div>
+
+
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-7">
+
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">
+              01
+            </span>
+
+            <h3 class="mt-3 text-xl font-bold text-gray-900">
+              Content & Attention
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              Content strategy and short-form content designed to attract relevant audiences and create meaningful attention.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-7">
+
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">
+              02
+            </span>
+
+            <h3 class="mt-3 text-xl font-bold text-gray-900">
+              Lead Generation
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              Lead magnets, capture pages, forms, and conversion pathways that turn anonymous attention into identifiable prospects.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-7">
+
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">
+              03
+            </span>
+
+            <h3 class="mt-3 text-xl font-bold text-gray-900">
+              Email Marketing Infrastructure
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              Email systems and nurture sequences that help businesses communicate consistently with subscribers and prospects.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-7">
+
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">
+              04
+            </span>
+
+            <h3 class="mt-3 text-xl font-bold text-gray-900">
+              Automation & CRM Journeys
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              Automated customer journeys connecting capture, segmentation, follow-up, and conversion events.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GROWTH SYSTEM -->
+    <section class="py-20 lg:py-24 bg-white">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center space-y-4">
+
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+            The Growth System
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            From attention to business opportunity.
+          </h2>
+
+          <p class="max-w-2xl mx-auto text-base text-gray-600 leading-relaxed">
+            The systems we build are designed around a connected customer journey.
+          </p>
+
+        </div>
+
+
+        <div class="mt-12 space-y-4">
+
+          {growthStages.map((stage, index) => (
+            <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6">
+
+              <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+
+                <span class="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-sm font-bold text-[var(--color-apex-blue,#2563EB)]">
+                  {stage.number}
+                </span>
+
+                <div class="flex-grow">
+
+                  <h3 class="text-lg font-bold text-gray-900">
+                    {stage.title}
+                  </h3>
+
+                  <p class="mt-1 text-sm text-gray-600 leading-relaxed">
+                    {stage.description}
+                  </p>
+
+                </div>
+
+                {index < growthStages.length - 1 && (
+                  <span class="hidden sm:block text-xl font-bold text-gray-300">
+                    →
+                  </span>
+                )}
+
+              </div>
+
+            </div>
+          ))}
+
         </div>
 
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
+
+    <!-- WHY APEX IS DIFFERENT -->
+    <section class="py-20 lg:py-24 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+
+                    <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+            Why Apex
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            We build the system behind the marketing.
+          </h2>
+
+          <p class="text-base text-gray-600 leading-relaxed">
+            Apex Content Lab is focused on connecting the parts of marketing that are often treated separately: content, lead generation, email marketing, automation, and conversion.
+          </p>
+
+        </div>
+
+
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-7 shadow-sm">
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[var(--color-apex-blue,#2563EB)] font-bold">
+              01
+            </div>
+
+            <h3 class="mt-5 text-lg font-bold text-gray-900">
+              Strategy Before Tools
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              Technology is useful only when it supports a clear customer journey. We start by understanding the audience, offer, conversion path, and business objective before deciding what needs to be built.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-7 shadow-sm">
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[var(--color-apex-blue,#2563EB)] font-bold">
+              02
+            </div>
+
+            <h3 class="mt-5 text-lg font-bold text-gray-900">
+              Systems Over Random Activity
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              The goal is not simply to produce more marketing activity. We create connected assets and workflows so that attention has somewhere to go and prospects have a clear path forward.
+            </p>
+
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-7 shadow-sm">
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[var(--color-apex-blue,#2563EB)] font-bold">
+              03
+            </div>
+
+            <h3 class="mt-5 text-lg font-bold text-gray-900">
+              Practical Implementation
+            </h3>
+
+            <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+              We care about the actual implementation: the pages, forms, emails, automations, integrations, and customer journeys that make the strategy usable in the real business.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROOF / WORK -->
+    <section class="py-20 lg:py-24 bg-white">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          <div class="space-y-5">
+
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+              Work & Proof
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+              We believe the work should be visible.
+            </h2>
+
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+              Rather than relying only on broad claims, Apex Content Lab documents the frameworks, resources, systems, and implementation work behind its approach.
+            </p>
+
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+              This gives prospective clients a chance to understand how we think and what we actually build before starting a project.
+            </p>
+
+            <div class="pt-2">
+
+              <a
+                href="/case-studies"
+                class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+              >
+                Explore Our Work →
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="rounded-3xl bg-gray-50 border border-gray-200 p-7 sm:p-8">
+
+            <div class="space-y-5">
+
+              <div class="flex items-start gap-4">
+
+                <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white border border-gray-200 text-xs font-bold text-[var(--color-apex-blue,#2563EB)]">
+                  ✓
+                </span>
+
+                <div>
+                  <h3 class="font-bold text-gray-900">
+                    Public frameworks
+                  </h3>
+
+                  <p class="mt-1 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    Educational frameworks that explain the systems behind attention, lead capture, nurture, and conversion.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="flex items-start gap-4">
+
+                <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white border border-gray-200 text-xs font-bold text-[var(--color-apex-blue,#2563EB)]">
+                  ✓
+                </span>
+
+                <div>
+                  <h3 class="font-bold text-gray-900">
+                    Digital assets
+                  </h3>
+
+                  <p class="mt-1 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    Lead magnets, resources, products, and practical marketing assets built around real business problems.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="flex items-start gap-4">
+
+                <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white border border-gray-200 text-xs font-bold text-[var(--color-apex-blue,#2563EB)]">
+                  ✓
+                </span>
+
+                <div>
+                  <h3 class="font-bold text-gray-900">
+                    Marketing infrastructure
+                  </h3>
+
+                  <p class="mt-1 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    Websites, capture pathways, email systems, and automated customer journeys designed to work together.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- WHO WE HELP -->
+    <section class="py-20 lg:py-24 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center space-y-4">
+
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+            Who We Work With
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
+            Built for businesses that already have something to say.
+          </h2>
+
+          <p class="max-w-2xl mx-auto text-base text-gray-600 leading-relaxed">
+            Apex Content Lab is particularly suited to businesses, founders, consultants, creators, and service providers that are generating attention but need a stronger system for turning that attention into opportunities.
+          </p>
+
+        </div>
+
+
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-6">
+            <h3 class="font-bold text-gray-900">
+              Service Businesses
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+              Build lead capture and nurture systems that make it easier to turn online interest into qualified conversations.
+            </p>
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-6">
+            <h3 class="font-bold text-gray-900">
+              Consultants & Experts
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+              Turn expertise and educational content into resources, subscribers, nurture journeys, and sales opportunities.
+            </p>
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-6">
+            <h3 class="font-bold text-gray-900">
+              Founders & Small Businesses
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+              Create practical marketing infrastructure without building an unnecessarily complicated technology stack.
+            </p>
+          </div>
+
+
+          <div class="rounded-2xl bg-white border border-gray-200 p-6">
+            <h3 class="font-bold text-gray-900">
+              Content-Led Brands
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+              Connect content distribution with lead capture, email marketing, and conversion instead of treating content as the entire marketing strategy.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FOUNDER CTA -->
+    <section class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+        <div class="rounded-3xl bg-gray-900 p-8 sm:p-12 text-center text-white">
+
+          <div class="max-w-2xl mx-auto space-y-5">
+
+            <span class="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 border border-blue-500/20 text-xs font-semibold text-blue-400">
+              Work With Apex Content Lab
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+              Ready to build the system behind your marketing?
+            </h2>
+
+            <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+              If your business is already creating content, attracting attention, or generating leads but the journey between attention and conversion feels disconnected, let's build the missing infrastructure.
+            </p>
+
+            <div class="pt-3 flex flex-wrap items-center justify-center gap-4">
+
+              <a
+                href={siteConfig.routes.bookCall}
+                class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-7 py-3.5 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+              >
+                Book a Strategy Call
+              </a>
+
+              <a
+                href={siteConfig.routes.contact}
+                class="inline-flex items-center justify-center rounded-xl border border-gray-600 px-7 py-3.5 text-sm font-medium text-gray-200 hover:bg-gray-800 transition-colors"
+              >
+                Contact Apex
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FINAL SITE NAVIGATION -->
+    <section class="py-12 bg-gray-50 border-t border-gray-100">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+
+          <a
+            href="/framework"
+            class="rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm font-semibold text-gray-700 hover:border-blue-300 hover:text-[var(--color-apex-blue,#2563EB)] transition-colors"
+          >
+            Explore Framework
+          </a>
+
+          <a
+            href="/case-studies"
+            class="rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm font-semibold text-gray-700 hover:border-blue-300 hover:text-[var(--color-apex-blue,#2563EB)] transition-colors"
+          >
+            View Case Studies
+          </a>
+
+          <a
+            href="/faqs/growth-systems-faq"
+            class="rounded-xl border border-gray-200 bg-white px-5 py-4 text-sm font-semibold text-gray-700 hover:border-blue-300 hover:text-[var(--color-apex-blue,#2563EB)] transition-colors"
+          >
+            Read Growth Systems FAQ
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+  <FloatingWhatsApp />
+
+</BaseLayout>
+
+               

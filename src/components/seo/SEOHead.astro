@@ -27,16 +27,27 @@ const fullImageUrl = image.startsWith('http')
   ? image
   : `${siteConfig.url}${image}`;
 
+const fullLogoUrl = siteConfig.seo.logo.startsWith('http')
+  ? siteConfig.seo.logo
+  : `${siteConfig.url}${siteConfig.seo.logo}`;
+
+
 /*
  * Stable entity identifiers
  *
- * These IDs allow different pages on the website to refer
- * back to the same organization, founder, and website.
+ * These IDs allow different pages across the website
+ * to refer to the same organization, founder, and website.
  */
+
 const organizationId = `${siteConfig.url}/#organization`;
 const founderId = `${siteConfig.url}/#founder`;
 const websiteId = `${siteConfig.url}/#website`;
 const webpageId = `${canonicalURL}#webpage`;
+
+
+/*
+ * ORGANIZATION
+ */
 
 const organizationSchema = {
   '@type': 'Organization',
@@ -49,7 +60,9 @@ const organizationSchema = {
 
   logo: {
     '@type': 'ImageObject',
-    url: fullImageUrl,
+    '@id': `${siteConfig.url}/#logo`,
+    url: fullLogoUrl,
+    contentUrl: fullLogoUrl,
   },
 
   founder: {
@@ -94,6 +107,11 @@ const organizationSchema = {
   ],
 };
 
+
+/*
+ * FOUNDER
+ */
+
 const founderSchema = {
   '@type': 'Person',
   '@id': founderId,
@@ -119,11 +137,17 @@ const founderSchema = {
   knowsAbout: siteConfig.founder.roles,
 };
 
+
+/*
+ * WEBSITE
+ */
+
 const websiteSchema = {
   '@type': 'WebSite',
   '@id': websiteId,
 
   name: siteConfig.name,
+
   url: siteConfig.url,
 
   description: siteConfig.seo.defaultDescription,
@@ -134,6 +158,11 @@ const websiteSchema = {
 
   inLanguage: 'en',
 };
+
+
+/*
+ * CURRENT WEBPAGE
+ */
 
 const webpageSchema = {
   '@type': 'WebPage',
@@ -160,6 +189,11 @@ const webpageSchema = {
   inLanguage: 'en',
 };
 
+
+/*
+ * COMPLETE ENTITY GRAPH
+ */
+
 const jsonLd = {
   '@context': 'https://schema.org',
 
@@ -173,9 +207,13 @@ const jsonLd = {
 ---
 
 <!-- Primary SEO Meta Tags -->
+
 <title>{formattedTitle}</title>
 
-<meta name="title" content={formattedTitle} />
+<meta
+  name="title"
+  content={formattedTitle}
+/>
 
 <meta
   name="description"
@@ -194,7 +232,8 @@ const jsonLd = {
   />
 )}
 
-<!-- Open Graph / Facebook -->
+
+<!-- Open Graph -->
 
 <meta
   property="og:type"
@@ -231,7 +270,8 @@ const jsonLd = {
   content={siteConfig.seo.locale}
 />
 
-<!-- Twitter -->
+
+<!-- Twitter / X Card -->
 
 <meta
   name="twitter:card"
@@ -258,10 +298,6 @@ const jsonLd = {
   content={fullImageUrl}
 />
 
-<meta
-  name="twitter:site"
-  content={siteConfig.seo.twitterHandle}
-/>
 
 <!-- GEO & Location Metadata -->
 
@@ -284,6 +320,7 @@ const jsonLd = {
   name="ICBM"
   content={siteConfig.geo.ICBM}
 />
+
 
 <!-- Structured Entity Graph -->
 

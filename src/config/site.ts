@@ -64,12 +64,15 @@ export interface SiteConfig {
     youtube: string;
   };
 
+  brand: {
+    logo: string;
+  };
+
   seo: {
     defaultTitle: string;
     titleTemplate: string;
     defaultDescription: string;
     ogImage: string;
-    twitterHandle: string;
     locale: string;
     themeColor: string;
   };
@@ -198,6 +201,10 @@ export const siteConfig: SiteConfig = {
       "https://www.youtube.com/@ApexContentLab",
   },
 
+  brand: {
+    logo: "/images/we/apex-content-lab-logo.png",
+  },
+
   seo: {
     defaultTitle:
       "Apex Content Lab | Growth Systems Company",
@@ -209,10 +216,7 @@ export const siteConfig: SiteConfig = {
       "Apex Content Lab builds marketing systems that turn online attention into qualified leads, email subscribers, and automated customer journeys.",
 
     ogImage:
-      "/images/og/og-default.png",
-
-    twitterHandle:
-      "@apexcontentlab",
+      "/images/we/og-default.png",
 
     locale:
       "en_US",

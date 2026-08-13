@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/common/Header.astro';
+import Footer from '../../components/common/Footer.astro';
+import FloatingWhatsApp from '../../components/common/FloatingWhatsApp.astro';
+import { siteConfig } from '../../config/site';
+
+const pageTitle = "Email Marketing Infrastructure Service | Apex Content Lab";
+const pageDescription = "Build automated email capture, nurture, and follow-up systems that turn online attention into qualified leads and long-term business growth.";
+const canonicalUrl = `${siteConfig.url}/services/email-marketing-infrastructure`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header />
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/40 via-white to-white py-20 lg:py-28">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">
+          <span>Growth Systems Service</span>
+          <span class="text-blue-300">•</span>
+          <span>Email & Nurture Infrastructure</span>
+        </div>
+
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.15]">
+          Email Marketing <span class="text-[var(--color-apex-blue,#2563EB)]">Infrastructure</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Build the automated email systems that capture, nurture, qualify, and follow up with leads without relying on manual communication or unstable social media algorithms.
+        </p>
+
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href={siteConfig.routes.bookCall}
+            class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors"
+          >
+            Book Strategy Call
+          </a>
+          <a
+            href="/resources"
+            class="inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white px-8 py-4 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors"
+          >
+            Free Attention-to-Leads Blueprint
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Main Content Body */}
+    <section class="py-16 bg-white">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-12 text-gray-700 leading-relaxed">
+
+        {/* Clear Standalone Definition for GEO/AI */}
+        <div class="p-6 rounded-2xl bg-blue-50/50 border border-blue-100 space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">What Is Email Marketing Infrastructure?</h2>
+          <p class="text-sm">
+            <strong>Email marketing infrastructure</strong> is the connected system of email capture, automated communication, segmentation, nurture, qualification, and conversion workflows that helps a business consistently move prospects from initial interest toward a business outcome.
+          </p>
+        </div>
+
+        {/* The Problem Section */}
+        <div class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">The Problem: Why Attention Fails to Convert</h2>
+          <p>
+            Many businesses succeed in generating online attention or capturing initial interest, yet experience disappointing conversion rates. This failure usually stems from operational gaps rather than poor content.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600 pl-4 list-disc">
+            <li><strong>Inconsistent Follow-up:</strong> Leads are handled manually, leading to missed opportunities and slow response times.</li>
+            <li><strong>Missing Nurture Sequences:</strong> Subscribers join a list but receive no structured educational journey or trust-building sequence.</li>
+            <li><strong>Disconnected Architecture:</strong> Lead capture forms and email delivery platforms operate in silos without behavioral segmentation or CRM tracking.</li>
+            <li><strong>Platform Vulnerability:</strong> Relying entirely on social media visibility leaves audience relationships vulnerable to algorithmic shifts.</li>
+          </ul>
+        </div>
+
+        {/* What the Infrastructure Contains */}
+        <div class="space-y-6">
+          <h2 class="text-2xl font-bold text-gray-900 tracking-tight">What Complete Email Infrastructure Contains</h2>
+          <p>
+            As part of our <a href="/framework/what-is-marketing-infrastructure" class="text-blue-600 underline">Growth Systems</a> framework, robust email infrastructure includes modular workflows engineered for predictable lead progression:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div class="p-5 rounded-xl border border-gray-200 bg-gray-50/50 space-y-2">
+              <h3 class="font-bold text-gray-900">1. Lead Capture & Opt-In</h3>
+              <p class="text-xs text-gray-600">Seamless integration between traffic channels, landing pages, and subscriber databases.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-gray-200 bg-gray-50/50 space-y-2">
+              <h3 class="font-bold text-gray-900">2. Instant Asset Delivery</h3>
+              <p class="text-xs text-gray-600">Automated delivery of lead magnets or resources immediately upon submission.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-gray-200 bg-gray-50/50 space-y-2">
+              <h3 class="font-bold text-gray-900">3. Welcome & Nurture Sequences</h3>
+              <p class="text-xs text-gray-600">Multi-step automated pathways that establish authority, build trust, and present core offers.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-gray-200 bg-gray-50/50 space-y-2">
+              <h3 class="font-bold text-gray-900">4. Segmentation & Behavioral Triggers</h3>
+              <p class="text-xs text-gray-600">Routing subscribers based on engagement, interest tags, or specific actions taken.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Comparison Table */}
+        <div class="space-y-4">
+          <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Email Marketing vs. Email Marketing Infrastructure</h2>
+          <div class="overflow-x-auto border border-gray-200 rounded-xl">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-gray-50 border-b border-gray-200 text-gray-900 font-semibold">
+                <tr>
+                  <th class="p-4">Dimension</th>
+                  <th class="p-4">Standard Email Marketing</th>
+                  <th class="p-4">Email Marketing Infrastructure</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr>
+                  <td class="p-4 font-medium text-gray-900">Core Focus</td>
+                  <td class="p-4">Sending broadcast newsletters or announcements</td>
+                  <td class="p-4">Engineered automated customer journeys</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-medium text-gray-900">Follow-up</td>
+                  <td class="p-4">Manual or ad-hoc</td>
+                  <td class="p-4">Systematized behavioral triggers</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-medium text-gray-900">Lead Progression</td>
+                  <td class="p-4">Unstructured</td>
+                  <td class="p-4">Clear qualification and conversion pathways</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-medium text-gray-900">Asset Value</td>
+                  <td class="p-4">Transient communication</td>
+                  <td class="p-4">Permanent, compounding operational asset</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Connection to Resources and Products */}
+        <div class="space-y-6 border-t border-gray-200 pt-8">
+          <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Connecting Lead Magnets to Email Systems</h2>
+          <p class="text-sm">
+            A lead magnet (such as our free <a href="/resources" class="text-blue-600 underline">Attention-to-Leads Blueprint</a>) captures initial interest, but its true value is unlocked when paired with an automated email nurture sequence. 
+          </p>
+          <p class="text-sm">
+            For founders seeking self-guided templates, our paid <a href="/products" class="text-blue-600 underline">Lead Magnet Blueprint</a> provides modular frameworks. For businesses requiring custom implementation, our professional service builds and connects the complete infrastructure.
+          </p>
+        </div>
+
+        {/* Who It Is For / Not For */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+          <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200 space-y-3">
+            <h3 class="font-bold text-gray-900 text-base">Who This Service Is For</h3>
+            <ul class="space-y-2 text-xs text-gray-600">
+              <li>• B2B founders and service providers with active traffic or lists that underperform.</li>
+              <li>• Businesses relying on manual follow-up who need automated nurture flows.</li>
+              <li>• Companies wanting a reliable owned communication channel independent of ad costs.</li>
+            </ul>
+          </div>
+          <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200 space-y-3">
+            <h3 class="font-bold text-gray-900 text-base">Who This Is NOT For</h3>
+            <ul class="space-y-2 text-xs text-gray-600">
+              <li>• Businesses seeking random newsletter design without strategic intent.</li>
+              <li>• Organizations looking for guaranteed instant revenue without building a customer journey.</li>
+              <li>• Anyone not ready to handle inbound prospect conversations.</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div class="space-y-6 pt-8 border-t border-gray-200">
+          <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Frequently Asked Questions</h2>
+          
+          <div class="space-y-6 text-sm">
+            <div class="space-y-2">
+              <h3 class="font-bold text-gray-900 text-base">What is email marketing infrastructure?</h3>
+              <p>It is the connected architecture of capture forms, automated sequences, segmentation, and conversion workflows designed to nurture and convert prospects systematically.</p>
+            </div>
+            
+            <div class="space-y-2">
+              <h3 class="font-bold text-gray-900 text-base">What is an email nurture sequence?</h3>
+              <p>A multi-step automated series of emails sent to new subscribers that builds authority, addresses common objections, and introduces your core offers over time.</p>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="font-bold text-gray-900 text-base">How does email automation generate leads?</h3>
+              <p>Automation handles consistent follow-up and segmentation in the background, ensuring no subscriber falls through the cracks and guiding warm prospects toward booking calls.</p>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="font-bold text-gray-900 text-base">Should I build an email system myself or hire a specialist?</h3>
+              <p>If you prefer a DIY route with established frameworks, our digital <a href="/products" class="text-blue-600 underline">products</a> offer guidance. If you need custom architecture built and tested for your business, our professional service provides end-to-end implementation.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA Box */}
+        <div class="p-8 rounded-2xl bg-gray-900 text-white space-y-4 text-center my-12">
+          <h2 class="text-2xl font-bold">Ready to Build Your Email Infrastructure?</h2>
+          <p class="text-gray-300 text-sm max-w-xl mx-auto">
+            Book a strategy session to review your current email and lead nurturing workflows.
+          </p>
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={siteConfig.routes.bookCall}
+              class="rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-600 transition-colors"
+            >
+              Book Strategy Call
+            </a>
+            <a
+              href="/services"
+              class="rounded-xl bg-gray-800 border border-gray-700 px-6 py-3 text-sm font-semibold text-white hover:bg-gray-700 transition-colors"
+            >
+              View All Services
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingWhatsApp />
+</BaseLayout>

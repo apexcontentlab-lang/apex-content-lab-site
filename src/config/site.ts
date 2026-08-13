@@ -69,7 +69,7 @@ export interface SiteConfig {
     titleTemplate: string;
     defaultDescription: string;
     ogImage: string;
-    twitterHandle: string;
+    logo: string;
     locale: string;
     themeColor: string;
   };
@@ -209,10 +209,10 @@ export const siteConfig: SiteConfig = {
       "Apex Content Lab builds marketing systems that turn online attention into qualified leads, email subscribers, and automated customer journeys.",
 
     ogImage:
-      "/images/og/og-default.png",
+      "/images/we/og-default.png",
 
-    twitterHandle:
-      "@apexcontentlab",
+    logo:
+      "/images/we/apex-content-lab-logo.png",
 
     locale:
       "en_US",

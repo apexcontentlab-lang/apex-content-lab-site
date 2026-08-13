@@ -19,41 +19,312 @@ const {
   noindex = false,
 } = Astro.props;
 
-const formattedTitle = title.includes(siteConfig.name) 
-  ? title 
+const formattedTitle = title.includes(siteConfig.name)
+  ? title
   : siteConfig.seo.titleTemplate.replace('%s', title);
 
-const fullImageUrl = image.startsWith('http') 
-  ? image 
+const fullImageUrl = image.startsWith('http')
+  ? image
   : `${siteConfig.url}${image}`;
+
+const fullLogoUrl = siteConfig.seo.logo.startsWith('http')
+  ? siteConfig.seo.logo
+  : `${siteConfig.url}${siteConfig.seo.logo}`;
+
+
+/*
+ * Stable entity identifiers
+ *
+ * These IDs allow different pages across the website
+ * to refer to the same organization, founder, and website.
+ */
+
+const organizationId = `${siteConfig.url}/#organization`;
+const founderId = `${siteConfig.url}/#founder`;
+const websiteId = `${siteConfig.url}/#website`;
+const webpageId = `${canonicalURL}#webpage`;
+
+
+/*
+ * ORGANIZATION
+ */
+
+const organizationSchema = {
+  '@type': 'Organization',
+  '@id': organizationId,
+
+  name: siteConfig.name,
+  legalName: siteConfig.legalName,
+  url: siteConfig.url,
+  description: siteConfig.description,
+
+  logo: {
+    '@type': 'ImageObject',
+    '@id': `${siteConfig.url}/#logo`,
+    url: fullLogoUrl,
+    contentUrl: fullLogoUrl,
+  },
+
+  founder: {
+    '@id': founderId,
+  },
+
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: siteConfig.contact.address.city,
+    addressRegion: siteConfig.contact.address.region,
+    addressCountry: siteConfig.contact.address.country,
+  },
+
+  telephone: siteConfig.contact.phone.raw,
+
+  email: siteConfig.contact.primaryEmail,
+
+  sameAs: [
+    siteConfig.socialLinks.linkedin,
+    siteConfig.socialLinks.facebook,
+    siteConfig.socialLinks.instagram,
+    siteConfig.socialLinks.threads,
+    siteConfig.socialLinks.tiktok,
+    siteConfig.socialLinks.pinterest,
+    siteConfig.socialLinks.youtube,
+  ].filter(Boolean),
+
+  areaServed: siteConfig.geo.targetMarkets.map((market) => ({
+    '@type': 'Place',
+    name: market,
+  })),
+
+  knowsAbout: [
+    'Content strategy',
+    'Short-form content',
+    'Lead generation',
+    'Email marketing',
+    'Marketing automation',
+    'CRM customer journeys',
+    'Marketing infrastructure',
+    'Growth systems',
+  ],
+};
+
+
+/*
+ * FOUNDER
+ */
+
+const founderSchema = {
+  '@type': 'Person',
+  '@id': founderId,
+
+  name: siteConfig.founder.name,
+
+  jobTitle: siteConfig.founder.title,
+
+  description: siteConfig.founder.bio,
+
+  email: siteConfig.founder.email,
+
+  url: `${siteConfig.url}${siteConfig.routes.about}#founder`,
+
+  sameAs: [
+    siteConfig.founder.linkedin,
+  ].filter(Boolean),
+
+  worksFor: {
+    '@id': organizationId,
+  },
+
+  knowsAbout: siteConfig.founder.roles,
+};
+
+
+/*
+ * WEBSITE
+ */
+
+const websiteSchema = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+
+  name: siteConfig.name,
+
+  url: siteConfig.url,
+
+  description: siteConfig.seo.defaultDescription,
+
+  publisher: {
+    '@id': organizationId,
+  },
+
+  inLanguage: 'en',
+};
+
+
+/*
+ * CURRENT WEBPAGE
+ */
+
+const webpageSchema = {
+  '@type': 'WebPage',
+  '@id': webpageId,
+
+  url: canonicalURL,
+
+  name: formattedTitle,
+
+  description,
+
+  isPartOf: {
+    '@id': websiteId,
+  },
+
+  about: {
+    '@id': organizationId,
+  },
+
+  publisher: {
+    '@id': organizationId,
+  },
+
+  inLanguage: 'en',
+};
+
+
+/*
+ * COMPLETE ENTITY GRAPH
+ */
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+
+  '@graph': [
+    organizationSchema,
+    founderSchema,
+    websiteSchema,
+    webpageSchema,
+  ],
+};
 ---
 
 <!-- Primary SEO Meta Tags -->
+
 <title>{formattedTitle}</title>
-<meta name="title" content={formattedTitle} />
-<meta name="description" content={description} />
-<link rel="canonical" href={canonicalURL} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content={type} />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={formattedTitle} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={fullImageUrl} />
-<meta property="og:site_name" content={siteConfig.name} />
-<meta property="og:locale" content={siteConfig.seo.locale} />
+<meta
+  name="title"
+  content={formattedTitle}
+/>
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content={canonicalURL} />
-<meta name="twitter:title" content={formattedTitle} />
-<meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={fullImageUrl} />
-<meta name="twitter:site" content={siteConfig.seo.twitterHandle} />
+<meta
+  name="description"
+  content={description}
+/>
 
-<!-- GEO & Location Metadata for AI Engines -->
-<meta name="geo.region" content={siteConfig.geo.region} />
-<meta name="geo.placename" content={siteConfig.geo.placename} />
-<meta name="geo.position" content={siteConfig.geo.position} />
-<meta name="ICBM" content={siteConfig.geo.ICBM} />
+<link
+  rel="canonical"
+  href={canonicalURL}
+/>
+
+{noindex && (
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  />
+)}
+
+
+<!-- Open Graph -->
+
+<meta
+  property="og:type"
+  content={type}
+/>
+
+<meta
+  property="og:url"
+  content={canonicalURL}
+/>
+
+<meta
+  property="og:title"
+  content={formattedTitle}
+/>
+
+<meta
+  property="og:description"
+  content={description}
+/>
+
+<meta
+  property="og:image"
+  content={fullImageUrl}
+/>
+
+<meta
+  property="og:site_name"
+  content={siteConfig.name}
+/>
+
+<meta
+  property="og:locale"
+  content={siteConfig.seo.locale}
+/>
+
+
+<!-- Twitter / X Card -->
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+/>
+
+<meta
+  name="twitter:url"
+  content={canonicalURL}
+/>
+
+<meta
+  name="twitter:title"
+  content={formattedTitle}
+/>
+
+<meta
+  name="twitter:description"
+  content={description}
+/>
+
+<meta
+  name="twitter:image"
+  content={fullImageUrl}
+/>
+
+
+<!-- GEO & Location Metadata -->
+
+<meta
+  name="geo.region"
+  content={siteConfig.geo.region}
+/>
+
+<meta
+  name="geo.placename"
+  content={siteConfig.geo.placename}
+/>
+
+<meta
+  name="geo.position"
+  content={siteConfig.geo.position}
+/>
+
+<meta
+  name="ICBM"
+  content={siteConfig.geo.ICBM}
+/>
+
+
+<!-- Structured Entity Graph -->
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(jsonLd)}
+/>

@@ -17,17 +17,11 @@ const { product, class: className = '' } = Astro.props;
 
 const hasProductImage = Boolean(product.coverImage);
 
-const ctaUrl =
-  product.deliveryType === 'mailerlite'
-    ? product.mailerliteUrl
-    : product.gumroadUrl;
+const ctaUrl = product.gumroadUrl;
 
 const isAvailable = Boolean(ctaUrl);
 
-const ctaLabel =
-  product.deliveryType === 'mailerlite'
-    ? 'Get the Free Blueprint'
-    : 'Get the Blueprint on Gumroad';
+const ctaLabel = 'Get the Blueprint on Gumroad';
 ---
 
 <article
@@ -46,6 +40,7 @@ const ctaLabel =
   )}
 
   <div class="space-y-6">
+
     <!-- Product Cover -->
     <div
       class:list={[
@@ -70,7 +65,7 @@ const ctaLabel =
 
           <div>
             <span class="text-[10px] font-mono font-bold tracking-widest uppercase text-[var(--color-text-gray)]">
-              Digital Asset
+              Premium Digital Asset
             </span>
 
             <h3 class="mt-1 text-lg font-bold text-[var(--color-dark-text)] leading-tight">
@@ -135,25 +130,16 @@ const ctaLabel =
     </div>
   </div>
 
-  <!-- Purchase / Download CTA -->
+  <!-- Purchase CTA -->
   <div class="pt-6 mt-6 border-t border-[var(--color-border-gray)]">
     {isAvailable ? (
       <a
         href={ctaUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class:list={[
-          'flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold text-sm transition-all duration-200',
-          product.isPopular
-            ? 'bg-[var(--color-strategic-orange)] text-white shadow-[var(--shadow-apex-cta)] hover:bg-[var(--color-strategic-orange-hover)]'
-            : 'bg-[var(--color-apex-blue)] text-white hover:bg-[var(--color-apex-blue-hover)]',
-        ]}
+        class="flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold text-sm transition-all duration-200 bg-[var(--color-apex-blue)] text-white hover:bg-[var(--color-apex-blue-hover)]"
       >
-        {product.deliveryType === 'mailerlite' ? (
-          <BookOpen class="h-4 w-4" />
-        ) : (
-          <ShoppingBag class="h-4 w-4" />
-        )}
+        <ShoppingBag class="h-4 w-4" />
 
         <span>{ctaLabel}</span>
 

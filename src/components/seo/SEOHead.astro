@@ -19,21 +19,104 @@ const {
   noindex = false,
 } = Astro.props;
 
-const formattedTitle = title.includes(siteConfig.name) 
-  ? title 
+const formattedTitle = title.includes(siteConfig.name)
+  ? title
   : siteConfig.seo.titleTemplate.replace('%s', title);
 
-const fullImageUrl = image.startsWith('http') 
-  ? image 
+const fullImageUrl = image.startsWith('http')
+  ? image
   : `${siteConfig.url}${image}`;
+
+/*
+ * Core entity identifiers.
+ *
+ * These IDs give search engines and AI systems stable references
+ * for the same entities across different pages.
+ */
+const organizationId = `${siteConfig.url}/#organization`;
+const websiteId = `${siteConfig.url}/#website`;
+const founderId = `${siteConfig.url}/#founder`;
+
+const organizationSchema = {
+  '@type': 'Organization',
+  '@id': organizationId,
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.seo.defaultDescription,
+  founder: {
+    '@id': founderId,
+  },
+  knowsAbout: [
+    'Content strategy',
+    'Lead generation',
+    'Email marketing',
+    'Marketing automation',
+    'CRM customer journeys',
+    'Marketing infrastructure',
+    'Growth systems',
+  ],
+};
+
+const founderSchema = {
+  '@type': 'Person',
+  '@id': founderId,
+  name: siteConfig.founder.name,
+  jobTitle: siteConfig.founder.role,
+  worksFor: {
+    '@id': organizationId,
+  },
+  url: `${siteConfig.url}/about`,
+};
+
+const websiteSchema = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.seo.defaultDescription,
+  publisher: {
+    '@id': organizationId,
+  },
+};
+
+const webpageSchema = {
+  '@type': 'WebPage',
+  '@id': `${canonicalURL}#webpage`,
+  url: canonicalURL,
+  name: formattedTitle,
+  description,
+  isPartOf: {
+    '@id': websiteId,
+  },
+  about: {
+    '@id': organizationId,
+  },
+  publisher: {
+    '@id': organizationId,
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    organizationSchema,
+    founderSchema,
+    websiteSchema,
+    webpageSchema,
+  ],
+};
 ---
 
 <!-- Primary SEO Meta Tags -->
 <title>{formattedTitle}</title>
 <meta name="title" content={formattedTitle} />
 <meta name="description" content={description} />
+
 <link rel="canonical" href={canonicalURL} />
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+{noindex && (
+  <meta name="robots" content="noindex, nofollow" />
+)}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -52,8 +135,14 @@ const fullImageUrl = image.startsWith('http')
 <meta name="twitter:image" content={fullImageUrl} />
 <meta name="twitter:site" content={siteConfig.seo.twitterHandle} />
 
-<!-- GEO & Location Metadata for AI Engines -->
+<!-- GEO & Location Metadata -->
 <meta name="geo.region" content={siteConfig.geo.region} />
 <meta name="geo.placename" content={siteConfig.geo.placename} />
 <meta name="geo.position" content={siteConfig.geo.position} />
 <meta name="ICBM" content={siteConfig.geo.ICBM} />
+
+<!-- Structured Entity Graph -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(jsonLd)}
+/>

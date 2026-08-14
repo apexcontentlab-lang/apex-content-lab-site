@@ -31,28 +31,20 @@ const fullLogoUrl = siteConfig.seo.logo.startsWith('http')
   ? siteConfig.seo.logo
   : `${siteConfig.url}${siteConfig.seo.logo}`;
 
-
 /*
- * Stable entity identifiers
- *
- * These IDs allow different pages across the website
- * to refer to the same organization, founder, and website.
+ * Stable entity identifiers.
+ * These IDs are the canonical references used across the site's
+ * structured-data graph. The richer service/content relationships
+ * are added in the entity/schema layer.
  */
-
 const organizationId = `${siteConfig.url}/#organization`;
 const founderId = `${siteConfig.url}/#founder`;
 const websiteId = `${siteConfig.url}/#website`;
 const webpageId = `${canonicalURL}#webpage`;
 
-
-/*
- * ORGANIZATION
- */
-
 const organizationSchema = {
   '@type': 'Organization',
   '@id': organizationId,
-
   name: siteConfig.name,
   legalName: siteConfig.legalName,
   url: siteConfig.url,
@@ -77,7 +69,6 @@ const organizationSchema = {
   },
 
   telephone: siteConfig.contact.phone.raw,
-
   email: siteConfig.contact.primaryEmail,
 
   sameAs: [
@@ -107,11 +98,6 @@ const organizationSchema = {
   ],
 };
 
-
-/*
- * FOUNDER
- */
-
 const founderSchema = {
   '@type': 'Person',
   '@id': founderId,
@@ -137,11 +123,6 @@ const founderSchema = {
   knowsAbout: siteConfig.founder.roles,
 };
 
-
-/*
- * WEBSITE
- */
-
 const websiteSchema = {
   '@type': 'WebSite',
   '@id': websiteId,
@@ -158,11 +139,6 @@ const websiteSchema = {
 
   inLanguage: 'en',
 };
-
-
-/*
- * CURRENT WEBPAGE
- */
 
 const webpageSchema = {
   '@type': 'WebPage',
@@ -189,11 +165,6 @@ const webpageSchema = {
   inLanguage: 'en',
 };
 
-
-/*
- * COMPLETE ENTITY GRAPH
- */
-
 const jsonLd = {
   '@context': 'https://schema.org',
 
@@ -206,7 +177,22 @@ const jsonLd = {
 };
 ---
 
-<!-- Primary SEO Meta Tags -->
+<meta charset="utf-8" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+/>
+
+<meta
+  name="theme-color"
+  content={siteConfig.seo.themeColor}
+/>
+
+<meta
+  name="author"
+  content={siteConfig.founder.name}
+/>
 
 <title>{formattedTitle}</title>
 
@@ -220,18 +206,28 @@ const jsonLd = {
   content={description}
 />
 
+<meta
+  name="robots"
+  content={noindex
+    ? 'noindex, nofollow'
+    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+/>
+
 <link
   rel="canonical"
   href={canonicalURL}
 />
 
-{noindex && (
-  <meta
-    name="robots"
-    content="noindex, nofollow"
-  />
-)}
+<link
+  rel="icon"
+  href="/favicon/favicon.svg"
+  type="image/svg+xml"
+/>
 
+<link
+  rel="alternate icon"
+  href="/favicon/favicon.ico"
+/>
 
 <!-- Open Graph -->
 
@@ -270,7 +266,6 @@ const jsonLd = {
   content={siteConfig.seo.locale}
 />
 
-
 <!-- Twitter / X Card -->
 
 <meta
@@ -298,7 +293,6 @@ const jsonLd = {
   content={fullImageUrl}
 />
 
-
 <!-- GEO & Location Metadata -->
 
 <meta
@@ -320,7 +314,6 @@ const jsonLd = {
   name="ICBM"
   content={siteConfig.geo.ICBM}
 />
-
 
 <!-- Structured Entity Graph -->
 

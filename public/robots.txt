@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://apexcontentlab.com/sitemap-index.xml
+# Keep public content discoverable while excluding non-public application paths.
+Disallow: /_astro/
+Disallow: /api/
+
+Sitemap: https://apex-content-lab.com/sitemap-index.xml

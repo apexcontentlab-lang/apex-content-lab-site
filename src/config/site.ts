@@ -198,7 +198,7 @@ export const siteConfig: SiteConfig = {
       "https://www.youtube.com/@ApexContentLab",
   },
 
-  seo: {
+    seo: {
     defaultTitle:
       "Apex Content Lab | Growth Systems Company",
 
@@ -209,10 +209,10 @@ export const siteConfig: SiteConfig = {
       "Apex Content Lab builds marketing systems that turn online attention into qualified leads, email subscribers, and automated customer journeys.",
 
     ogImage:
-      "/images/we/og-default.png",
+      "/image/we/og/og-default.png",
 
     logo:
-      "/images/we/apex-content-lab-logo.png",
+      "/logos/logo-primary.svg",
 
     locale:
       "en_US",

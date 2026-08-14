@@ -90,7 +90,7 @@ export const productsData: DigitalProduct[] = [
       'https://apexlab1.gumroad.com/l/ifevv',
 
     coverImage:
-      '/images/we/products/playbook-cover.png',
+      '/image/we/products/playbook-cover.png',
   },
 ];
 

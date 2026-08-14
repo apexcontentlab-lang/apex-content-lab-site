@@ -17,9 +17,7 @@ const { title, description } = Astro.props;
     <SEOHead title={title} description={description} />
   </head>
   <body>
-    <main>
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>
 
@@ -30,4 +28,3 @@ const { title, description } = Astro.props;
     font-family: sans-serif;
   }
 </style>
-

@@ -16,6 +16,128 @@ const sources = {
   googleAiSearch: "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
   icoElectronicMarketing: "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-direct-marketing-using-electronic-mail/"
 };
+
+const sourceReferences = [
+  {
+    id: "google-sender-guidelines",
+    name: "Google Email Sender Guidelines",
+    url: sources.googleSenderGuidelines,
+    publisher: "Google",
+    description: "Google's guidance for email senders, including sender requirements and email delivery practices."
+  },
+  {
+    id: "google-sender-issues",
+    name: "Google Sender Issues and Requirements",
+    url: sources.googleSenderIssues,
+    publisher: "Google",
+    description: "Google's guidance for senders experiencing delivery and compliance issues."
+  },
+  {
+    id: "google-postmaster-tools",
+    name: "Google Postmaster Tools",
+    url: sources.googlePostmasterTools,
+    publisher: "Google",
+    description: "Google's sender-data and email-delivery monitoring resource."
+  },
+  {
+    id: "google-helpful-content",
+    name: "Creating Helpful, Reliable, People-First Content",
+    url: sources.googleHelpfulContent,
+    publisher: "Google Search Central",
+    description: "Google's guidance on creating useful, reliable content for people."
+  },
+  {
+    id: "google-ai-search",
+    name: "AI Features and Your Website",
+    url: sources.googleAiSearch,
+    publisher: "Google Search Central",
+    description: "Google's guidance concerning website content and AI-powered search experiences."
+  },
+  {
+    id: "ico-electronic-marketing",
+    name: "Direct Marketing Using Electronic Mail",
+    url: sources.icoElectronicMarketing,
+    publisher: "Information Commissioner's Office",
+    description: "Regulatory guidance concerning direct marketing by electronic mail."
+  }
+];
+
+const faqSourceIds = {
+  emailDelivery: [
+    "google-sender-guidelines",
+    "google-sender-issues",
+    "google-postmaster-tools"
+  ],
+  helpfulContent: [
+    "google-helpful-content",
+    "google-ai-search"
+  ],
+  emailMarketingCompliance: [
+    "ico-electronic-marketing"
+  ]
+};
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": pageTitle,
+  "description": pageDescription,
+  "url": `${siteConfig.url}/faqs/growth-systems-faq`,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": siteConfig.name,
+    "url": siteConfig.url
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Growth systems and marketing infrastructure"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": siteConfig.name,
+    "url": siteConfig.url
+  }
+};
+
+const sourceCollectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Growth Systems & Marketing Infrastructure Sources",
+  "url": `${siteConfig.url}/faqs/growth-systems-faq`,
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Growth systems"
+    },
+    {
+      "@type": "Thing",
+      "name": "Marketing infrastructure"
+    },
+    {
+      "@type": "Thing",
+      "name": "Lead generation"
+    },
+    {
+      "@type": "Thing",
+      "name": "Email marketing"
+    },
+    {
+      "@type": "Thing",
+      "name": "Marketing automation"
+    }
+  ],
+  "hasPart": sourceReferences.map((source) => ({
+    "@type": "CreativeWork",
+    "@id": `${siteConfig.url}/faqs/growth-systems-faq#${source.id}`,
+    "name": source.name,
+    "url": source.url,
+    "publisher": {
+      "@type": "Organization",
+      "name": source.publisher
+    },
+    "description": source.description
+  }))
+};
 ---
 
 <BaseLayout
@@ -23,6 +145,16 @@ const sources = {
   description={pageDescription}
 >
   <Header />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(faqPageSchema)}
+  />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(sourceCollectionSchema)}
+  />
 
   <main class="flex-grow">
 
@@ -275,6 +407,31 @@ const sources = {
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">How is marketing infrastructure different from content marketing?</h3>
               <p>
+                Content marketing creates the material that generates attention; marketing infrastructure provides the capture and conversion architecture that ensures that attention yields business value.
+              </p>
+            </div>
+
+            <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
+              <h3 class="font-bold text-gray-900 text-base">How is marketing infrastructure different from marketing automation?</h3>
+              <p>
+                Marketing automation is the software layer executing tasks, whereas marketing infrastructure encompasses the broader strategic architecture and customer journey design.
+              </p>
+            </div>
+
+            <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
+              <h3 class="font-bold text-gray-900 text-base">Why is marketing infrastructure important?</h3>
+              <p>
+                It prevents lead leakage, reduces manual follow-up friction, and establishes predictable scaling pathways independent of algorithmic fluctuations.
+              </p>
+            </div>
+
+            <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
+              <h3 class="font-bold text-gray-900 text-base">What happens when a business has marketing activity but no infrastructure?</h3>
+              <p>
+                The business experiences high traffic or content engagement with low conversion rates, forcing a constant treadmill of manual outreach and ad spend.
+              </p>
+            </div>
+                             <p>
                 Content marketing creates the material that generates attention; marketing infrastructure provides the capture and conversion architecture that ensures that attention yields business value.
               </p>
             </div>
@@ -574,8 +731,7 @@ const sources = {
                 <a href="/services/email-marketing-infrastructure" class="text-blue-600 underline">Email Service</a>.
               </p>
             </div>
-
-            <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
+                          <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">Why do businesses need nurture sequences?</h3>
               <p>
                 Nurture sequences bridge the gap between initial curiosity and buying readiness, educating prospects over time.
@@ -755,7 +911,7 @@ const sources = {
               </p>
             </div>
 
-              <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
+            <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">How can I work with Apex Content Lab?</h3>
               <p>
                 You can explore our
@@ -824,6 +980,12 @@ const sources = {
               <h3 class="font-bold text-gray-900 text-base">Should I use email marketing or social media for lead generation?</h3>
               <p>
                 Use social media to attract attention, but transition that traffic to email marketing to build owned, long-term audience relationships.
+                <a
+                  href={sources.googleSenderGuidelines}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ml-1 text-blue-600 underline"
+                >Google email sender guidance</a>
               </p>
             </div>
 
@@ -843,6 +1005,62 @@ const sources = {
 
           </div>
         </div>
+
+
+        <!-- AUTHORITATIVE SOURCES -->
+        <section id="authoritative-sources" class="mt-16 border-t border-gray-200 pt-10">
+
+          <div class="max-w-3xl">
+
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+              Authoritative Sources
+            </span>
+
+            <h2 class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-950">
+              Sources used for externally verifiable guidance.
+            </h2>
+
+            <p class="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
+              Apex Content Lab's frameworks and opinions remain its own. The references below are included where an answer relies on external technical, search, email-sender, or privacy guidance.
+            </p>
+
+          </div>
+
+
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            {sourceList.map((source) => (
+
+              <article class="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                  {source.publisher}
+                </p>
+
+                <h3 class="mt-2 text-base font-bold text-gray-900">
+                  {source.name}
+                </h3>
+
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+                  {source.description}
+                </p>
+
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-3 inline-flex text-sm font-semibold text-blue-600 underline underline-offset-2"
+                >
+                  View source →
+                </a>
+
+              </article>
+
+            ))}
+
+          </div>
+
+        </section>
 
 
         <!-- Bottom CTA Box -->
@@ -873,12 +1091,18 @@ const sources = {
             </a>
 
           </div>
+
         </div>
+
 
       </div>
     </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSourceSchema)} />
+
   </main>
 
   <Footer />
   <FloatingWhatsApp />
+
 </BaseLayout>

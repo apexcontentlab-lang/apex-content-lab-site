@@ -741,6 +741,7 @@ export const productsData: DigitalProduct[] = [
     ),
   },
 
+fix/product-and-gumroad-integration
   {
     id: 'welcome-email-practical-resource-kit',
     slug: 'welcome-email-practical-resource-kit',
@@ -785,6 +786,8 @@ export const productsData: DigitalProduct[] = [
     gumroadUrl: gumroad(
       'welcome-email-practical-resource-kit'
     ),
+    coverImage:
+      '/image/we/products/playbook-cover.png', main
   },
 ];
 

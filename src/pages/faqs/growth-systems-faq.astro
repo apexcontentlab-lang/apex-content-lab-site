@@ -4,9 +4,42 @@ import Header from '../../components/common/Header.astro';
 import Footer from '../../components/common/Footer.astro';
 import FloatingWhatsApp from '../../components/common/FloatingWhatsApp.astro';
 import { siteConfig } from '../../config/site';
+import { authoritativeSources } from '../../data/sourceRegistry';
 
 const pageTitle = "Growth Systems & Marketing Infrastructure FAQ | Apex Content Lab";
 const pageDescription = "Get clear answers about growth systems, marketing infrastructure, lead generation, lead magnets, email automation, and how Apex Content Lab helps businesses build structured growth systems.";
+
+const sources = {
+  googleSenderGuidelines: authoritativeSources.googleSenderGuidelines.url,
+  googleSenderIssues: authoritativeSources.googleSenderIssues.url,
+  googlePostmasterTools: authoritativeSources.googlePostmasterTools.url,
+  googleHelpfulContent: authoritativeSources.googleHelpfulContent.url,
+  googleAiSearch: authoritativeSources.googleAiSearch.url,
+  icoElectronicMarketing: authoritativeSources.icoElectronicMarketing.url
+};
+
+const sourceList = Object.values(authoritativeSources);
+
+const faqSourceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${siteConfig.url}/faqs/growth-systems-faq#webpage`,
+  url: `${siteConfig.url}/faqs/growth-systems-faq`,
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: { '@id': `${siteConfig.url}/#website` },
+  about: { '@id': `${siteConfig.url}/#organization` },
+  citation: sourceList.map((source) => ({
+    '@type': 'CreativeWork',
+    '@id': source.id,
+    name: source.name,
+    url: source.url,
+    publisher: {
+      '@type': 'Organization',
+      name: source.publisher
+    }
+  }))
+};
 ---
 
 <BaseLayout
@@ -16,9 +49,11 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
   <Header />
 
   <main class="flex-grow">
+
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/40 via-white to-white py-20 lg:py-28">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+
         <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">
           <span>Knowledge Hub</span>
           <span class="text-blue-300">•</span>
@@ -35,6 +70,7 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
         </p>
 
         <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+
           <a
             href={siteConfig.routes.bookCall}
             class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors"
@@ -48,18 +84,23 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
           >
             Explore Our Framework
           </a>
+
         </div>
+
       </div>
     </section>
+
 
     <!-- Table of Contents / Quick Navigation -->
     <section class="py-8 bg-gray-50 border-y border-gray-200">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-4">
+
         <h2 class="text-xs font-bold uppercase tracking-wider text-gray-500 text-center sm:text-left">
           Quick Navigation — Table of Contents
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+
           <a
             href="#growth-systems"
             class="p-3 rounded-xl bg-white border border-gray-200 hover:border-[var(--color-apex-blue,#2563EB)] hover:text-[var(--color-apex-blue,#2563EB)] font-medium transition-colors flex items-center justify-between"
@@ -123,21 +164,26 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
             <span>8. Comparison</span>
             <span class="text-gray-400 text-xs">→</span>
           </a>
+
         </div>
       </div>
     </section>
+
 
     <!-- Main Content Body -->
     <section class="py-16 bg-white">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-16 text-gray-700 leading-relaxed">
 
+
         <!-- SECTION 1: GROWTH SYSTEMS -->
         <div id="growth-systems" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             1. Growth Systems
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What is a growth system?</h3>
               <p>
@@ -209,16 +255,20 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 B2B founders, service providers, and digital businesses that generate online attention or content but struggle to convert that traffic into predictable inbound leads need a growth system.
               </p>
             </div>
+
           </div>
         </div>
 
+
         <!-- SECTION 2: MARKETING INFRASTRUCTURE -->
         <div id="marketing-infrastructure" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             2. Marketing Infrastructure
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What is marketing infrastructure?</h3>
               <p>
@@ -289,16 +339,20 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 It provides structured opt-in pathways and automated follow-up sequences that systematically convert visitors into qualified prospects.
               </p>
             </div>
+
           </div>
         </div>
 
+
         <!-- SECTION 3: LEAD GENERATION -->
         <div id="lead-generation" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             3. Lead Generation
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What is lead generation?</h3>
               <p>
@@ -334,10 +388,22 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
               </p>
             </div>
 
-            <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
+             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">Why should businesses capture email addresses from website visitors?</h3>
               <p>
-                Email addresses represent direct, owned communication channels not subject to third-party ad costs or algorithmic suppression.
+                Email addresses represent direct, owned communication channels with subscribers who have chosen to hear from the business, rather than relying entirely on third-party platform distribution.
+              </p>
+
+              <p class="text-xs text-gray-500 border-t border-gray-200 pt-3">
+                For Gmail senders, Google recommends sending to recipients who explicitly opted in and respecting user choice.
+                <a
+                  href={sources.googleSenderIssues}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 underline"
+                >
+                  Google Gmail sender guidance
+                </a>
               </p>
             </div>
 
@@ -351,8 +417,8 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What should happen after someone becomes a lead?</h3>
               <p>
-  They should immediately receive their requested resource followed by an automated nurture sequence that builds trust and guides them toward a discovery call or purchase.
-</p>
+                They should immediately receive their requested resource followed by an automated nurture sequence that builds trust and guides them toward a discovery call or purchase.
+              </p>
             </div>
 
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
@@ -361,16 +427,20 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 Most prospects do not buy on first contact; consistent, automated follow-up ensures your brand remains top-of-mind when purchasing intent peaks.
               </p>
             </div>
+
           </div>
         </div>
 
+
         <!-- SECTION 4: LEAD MAGNETS -->
         <div id="lead-magnets" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             4. Lead Magnets
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What is a lead magnet?</h3>
               <p>
@@ -409,7 +479,7 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">Should a lead magnet be a PDF, checklist, template or guide?</h3>
               <p>
-                The format should match the content: actionable templates, checklists, and concise playbooks typically outperform lengthy, theoretical PDFs.
+                The format should match the content: actionable templates, checklists, and concise playbooks can be easier for prospects to consume and apply than lengthy theoretical PDFs.
               </p>
             </div>
 
@@ -450,16 +520,20 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 is our comprehensive paid digital product.
               </p>
             </div>
+
           </div>
         </div>
 
+
         <!-- SECTION 5: EMAIL MARKETING INFRASTRUCTURE -->
         <div id="email-marketing-infrastructure" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             5. Email Marketing Infrastructure
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What is email marketing infrastructure?</h3>
               <p>
@@ -484,7 +558,19 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">How does email automation help generate leads?</h3>
               <p>
-                It ensures consistent touchpoints and systematic follow-up, converting cold subscribers into warm prospects ready for sales calls.
+                It ensures consistent touchpoints and systematic follow-up, helping convert subscribers into warmer prospects ready for sales conversations.
+              </p>
+
+              <p class="text-xs text-gray-500 border-t border-gray-200 pt-3">
+                Google recommends that senders authenticate their messages, respect recipient choice, and avoid unwanted or unsolicited email.
+                <a
+                  href={sources.googleSenderGuidelines}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 underline"
+                >
+                  Google Email Sender Guidelines
+                </a>
               </p>
             </div>
 
@@ -492,6 +578,18 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
               <h3 class="font-bold text-gray-900 text-base">What happens after someone joins an email list?</h3>
               <p>
                 They receive their lead magnet and enter an automated welcome and nurture sequence tailored to their interests.
+              </p>
+
+              <p class="text-xs text-gray-500 border-t border-gray-200 pt-3">
+                Email marketing should respect applicable consent, opt-out, and direct-marketing requirements. For example, UK PECR guidance requires organizations to respect electronic-mail marketing opt-outs and withdrawals of consent where applicable.
+                <a
+                  href={sources.icoElectronicMarketing}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 underline"
+                >
+                  ICO electronic marketing guidance
+                </a>
               </p>
             </div>
 
@@ -530,16 +628,19 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 Core customer journeys and nurture flows should be automated, while periodic updates or announcements can be sent as broadcasts.
               </p>
             </div>
+
           </div>
         </div>
 
         <!-- SECTION 6: MARKETING AUTOMATION -->
         <div id="marketing-automation" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             6. Marketing Automation
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What is marketing automation?</h3>
               <p>
@@ -595,16 +696,20 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 It creates complex, hard-to-maintain funnels that confuse prospects and fail to generate conversions.
               </p>
             </div>
+
           </div>
         </div>
 
+
         <!-- SECTION 7: APEX CONTENT LAB -->
         <div id="apex-content-lab" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             7. Apex Content Lab
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">What is Apex Content Lab?</h3>
               <p>
@@ -694,16 +799,20 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 page.
               </p>
             </div>
+
           </div>
         </div>
 
+
         <!-- SECTION 8: COMPARISON QUESTIONS -->
         <div id="comparison-evaluation" class="space-y-8 pt-4">
+
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
             8. Comparison & Evaluation
           </h2>
 
           <div class="space-y-6 text-sm">
+
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
               <h3 class="font-bold text-gray-900 text-base">Should I hire a marketing agency or build marketing infrastructure?</h3>
               <p>
@@ -756,18 +865,76 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
                 No. Automation requires sound positioning, compelling lead magnets, and strategic customer journey design to produce results.
               </p>
             </div>
+
           </div>
         </div>
 
+
+        <!-- AUTHORITATIVE SOURCES -->
+        <section id="authoritative-sources" class="mt-16 border-t border-gray-200 pt-10">
+
+          <div class="max-w-3xl">
+
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
+              Authoritative Sources
+            </span>
+
+            <h2 class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-950">
+              Sources used for externally verifiable guidance.
+            </h2>
+
+            <p class="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
+              Apex Content Lab's frameworks and opinions remain its own. The references below are included where an answer relies on external technical, search, email-sender, or privacy guidance.
+            </p>
+
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            {sourceList.map((source) => (
+              <article class="rounded-2xl border border-gray-200 bg-gray-50 p-5">
+
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                  {source.publisher}
+                </p>
+
+                <h3 class="mt-2 text-base font-bold text-gray-900">
+                  {source.name}
+                </h3>
+
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+                  {source.description}
+                </p>
+
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-3 inline-flex text-sm font-semibold text-blue-600 underline underline-offset-2"
+                >
+                  View source →
+                </a>
+
+              </article>
+            ))}
+
+          </div>
+        </section>
+
+
         <!-- Bottom CTA Box -->
         <div class="p-8 rounded-2xl bg-gray-900 text-white space-y-4 text-center my-12">
-          <h2 class="text-2xl font-bold">Have More Questions About Growth Systems?</h2>
+
+          <h2 class="text-2xl font-bold">
+            Have More Questions About Growth Systems?
+          </h2>
 
           <p class="text-gray-300 text-sm max-w-xl mx-auto">
             Book a strategy session with Apex Content Lab to discuss your business and explore our infrastructure framework.
           </p>
 
           <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
+
             <a
               href={siteConfig.routes.bookCall}
               class="rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-sm font-semibold text-white hover:bg-blue-600 transition-colors"
@@ -781,14 +948,18 @@ const pageDescription = "Get clear answers about growth systems, marketing infra
             >
               View Our Framework
             </a>
+
           </div>
+
         </div>
 
       </div>
     </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSourceSchema)} />
+
   </main>
 
   <Footer />
   <FloatingWhatsApp />
 </BaseLayout>
-                

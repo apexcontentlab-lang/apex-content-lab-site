@@ -6,8 +6,11 @@ import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
 import ProductCard from '../components/cards/ProductCard.astro';
 import { productsData } from '../data/products';
 
+fix/product-and-gumroad-integration
 const leadMagnetProducts = productsData.filter(
   (product) => product.category === 'Lead Magnet'
+const paidProducts = productsData.filter(
+  (product) => product.price.amount main
 );
 
 const welcomeProducts = productsData.filter(

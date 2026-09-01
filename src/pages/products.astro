@@ -6,9 +6,105 @@ import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
 import ProductCard from '../components/cards/ProductCard.astro';
 import { productsData } from '../data/products';
 
-const paidProducts = productsData.filter(
-  (product) => Number(product.price) > 0
+const leadMagnetProducts = productsData.filter(
+  (product) => product.category === 'Lead Magnet'
 );
+
+const welcomeProducts = productsData.filter(
+  (product) => product.category === 'Welcome Email System'
+);
+
+const practicalProducts = productsData.filter(
+  (product) => product.category === 'Practical Resource Kit'
+);
+
+const productPageUrl =
+  'https://apex-content-lab.com/products';
+
+const productItemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${productPageUrl}#product-list`,
+  name: 'Apex Content Lab Premium Products',
+  url: productPageUrl,
+  numberOfItems: productsData.length,
+
+  itemListElement: productsData.map((product, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: product.title,
+    url: `${productPageUrl}#${product.slug}`,
+
+    item: {
+      '@type': 'Product',
+      '@id': `${productPageUrl}#${product.slug}`,
+      name: product.title,
+      description: product.description,
+      category: product.category,
+
+      brand: {
+        '@type': 'Brand',
+        name: 'Apex Content Lab',
+      },
+
+      offers: {
+        '@type': 'Offer',
+        price: product.price.amount,
+        priceCurrency: product.price.currency,
+        availability: 'https://schema.org/InStock',
+        url: product.gumroadUrl,
+      },
+    },
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${productPageUrl}#faq`,
+
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Who are the premium resources for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'They are designed for founders, service businesses, creators, consultants, and teams that want practical frameworks for improving lead generation, lead magnets, email marketing, and marketing infrastructure.',
+      },
+    },
+
+    {
+      '@type': 'Question',
+      name: 'Are these products the same as the free resources?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'No. The free resources provide accessible educational starting points. The premium resources go further into specific problems and provide more structured implementation guidance.',
+      },
+    },
+
+    {
+      '@type': 'Question',
+      name: 'How do the premium resources fit into a growth system?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'They help you solve individual parts of the wider customer journey. For example, a lead magnet framework can support lead capture, which can then connect to email nurture and the broader marketing infrastructure.',
+      },
+    },
+
+    {
+      '@type': 'Question',
+      name: 'Do I need the premium resources to work with Apex Content Lab?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text:
+          'No. The products are designed to be useful as standalone resources. Businesses that need help implementing a complete system can also explore Apex Content Lab professional services.',
+      },
+    },
+  ],
+};
 ---
 
 <BaseLayout
@@ -17,7 +113,17 @@ const paidProducts = productsData.filter(
 >
   <Header />
 
-  <main class="flex-grow">
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(productItemList)}
+></script>
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(faqSchema)}
+></script>
+
+<main class="flex-grow">
 
     <!-- Header Hero -->
     <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-white py-16 lg:py-24 border-b border-gray-100">

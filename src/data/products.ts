@@ -786,7 +786,7 @@ export const productsData: DigitalProduct[] = [
       'welcome-email-practical-resource-kit'
     ),
     coverImage:
-      '/image/we/products/playbook-cover.png', main
+      '/image/we/products/playbook-cover.png', 
   },
 ];
 

@@ -147,6 +147,7 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, service businesses, NGOs, creators, course creators, personal brands, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('10-welcome-email-templetes'),
+    coverImage: '/image/we/products/10-welcome-email-templetes.png',
   },
 
   {
@@ -185,6 +186,7 @@ export const productsData: DigitalProduct[] = [
       'Businesses and marketers that need practical structure and guidance for writing welcome emails.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-writing-kit'),
+    coverImage: '/image/we/products/welcome-email-writing-kit.png',
   },
 
   {
@@ -223,6 +225,7 @@ export const productsData: DigitalProduct[] = [
       'Businesses building or improving subscriber onboarding after a subscriber joins their email list.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-sequence-implementation'),
+    coverImage: '/image/we/products/welcome-sequence-implementation.png',
   },
 
   {
@@ -261,6 +264,8 @@ export const productsData: DigitalProduct[] = [
       'Businesses and marketers setting up or improving an automated welcome email journey inside an email marketing platform.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-automation-implementation'),
+    coverImage:
+      '/image/we/products/welcome-email-automation-implementation.png',
   },
 
   {
@@ -299,6 +304,7 @@ export const productsData: DigitalProduct[] = [
       'Businesses with email subscriber lists that need more relevant communication for different subscriber groups.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('segmentation-personalization'),
+    coverImage: '/image/we/products/segmentation-personalization.png',
   },
 
   {
@@ -337,6 +343,7 @@ export const productsData: DigitalProduct[] = [
       'Businesses using email to guide subscribers toward a specific action, offer, or conversion.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-conversion-element'),
+    coverImage: '/image/we/products/welcome-email-conversion-element.png',
   },
 
   {
@@ -375,6 +382,7 @@ export const productsData: DigitalProduct[] = [
       'Businesses and marketers improving an existing welcome email sequence through testing and ongoing optimization.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-testing-optimization'),
+    coverImage: '/image/we/products/welcome-email-testing-optimization.png',
   },
 
   {
@@ -416,6 +424,7 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, service businesses, creators, NGOs, small businesses, and marketers who want the complete welcome email system in one purchase.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-system'),
+    coverImage: '/image/we/products/welcome-email-system.png',
   },
 
   // =========================================================
@@ -455,6 +464,8 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-template-writing-worksheet'),
+    coverImage:
+      '/image/we/products/welcome-email-template-writing-worksheet.png',
   },
 
   {
@@ -490,6 +501,7 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('subject-line-wipe-file'),
+    coverImage: '/image/we/products/subject-line-wipe-file.png',
   },
 
   {
@@ -525,6 +537,7 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-hooks-cta-bank-'),
+    coverImage: '/image/we/products/welcome-email-hooks-cta-bank.png',
   },
 
   {
@@ -560,6 +573,7 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('benefit-offer-transition-kit'),
+    coverImage: '/image/we/products/benefit-offer-transition-kit.png',
   },
 
   {
@@ -597,6 +611,8 @@ export const productsData: DigitalProduct[] = [
     gumroadUrl: gumroad(
       'welcome-email-system-automation-mapping-sheet'
     ),
+    coverImage:
+      '/image/we/products/welcome-email-system-automation-mapping-sheet.png',
   },
 
   {
@@ -632,6 +648,7 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('segmentation-worksheet'),
+    coverImage: '/image/we/products/segmentation-worksheet.png',
   },
 
   {
@@ -667,6 +684,8 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('email-editing-quality-checklist'),
+    coverImage:
+      '/image/we/products/email-editing-quality-checklist.png',
   },
 
   {
@@ -702,6 +721,8 @@ export const productsData: DigitalProduct[] = [
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-sequence-launch-checklist'),
+    coverImage:
+      '/image/we/products/welcome-sequence-launch-checklist.png',
   },
 
   {
@@ -739,6 +760,8 @@ export const productsData: DigitalProduct[] = [
     gumroadUrl: gumroad(
       'welcome-email-system-master-worksheet'
     ),
+    coverImage:
+      '/image/we/products/welcome-email-system-master-worksheet.png',
   },
 
   {
@@ -786,7 +809,7 @@ export const productsData: DigitalProduct[] = [
       'welcome-email-practical-resource-kit'
     ),
     coverImage:
-      '/image/we/products/playbook-cover.png', 
+      '/image/we/products/welcome-email-practical-resource-kit.png',
   },
 ];
 

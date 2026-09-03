@@ -741,7 +741,6 @@ export const productsData: DigitalProduct[] = [
     ),
   },
 
-fix/product-and-gumroad-integration
   {
     id: 'welcome-email-practical-resource-kit',
     slug: 'welcome-email-practical-resource-kit',

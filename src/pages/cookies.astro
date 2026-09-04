@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
+import { siteConfig } from '../config/site';
+const lastUpdated = 'September 3, 2026';
+---
+<BaseLayout title={`Cookie Policy | ${siteConfig.name}`} description={`Cookie and similar technology information for ${siteConfig.name}.`}>
+  <Header />
+  <main id="main-content" class="flex-grow">
+    <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-12 lg:py-16 border-b border-gray-100"><div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3"><h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Cookie Policy</h1><p class="text-xs font-mono text-gray-500">Last Updated: {lastUpdated}</p></div></section>
+    <section class="py-12 lg:py-16 bg-white"><div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-8 text-sm text-gray-700 leading-relaxed">
+      <div><h2 class="text-lg font-bold text-gray-900">1. What cookies are</h2><p class="mt-2">Cookies and similar technologies are small data files or browser mechanisms used to support website functionality, preferences, security, and measurement.</p></div>
+      <div><h2 class="text-lg font-bold text-gray-900">2. How Apex may use them</h2><p class="mt-2">Depending on the live configuration of the website, Apex may use essential technologies for site operation and analytics technologies to understand website usage and improve the customer journey.</p></div>
+      <div><h2 class="text-lg font-bold text-gray-900">3. Third-party services</h2><p class="mt-2">Third-party services used for scheduling, analytics, email delivery, payments, hosting, or embedded content may set their own cookies or similar technologies. Their treatment of data is governed by their respective policies.</p></div>
+      <div><h2 class="text-lg font-bold text-gray-900">4. Managing cookies</h2><p class="mt-2">You can generally manage cookies through your browser settings. Disabling some technologies may affect website functionality.</p></div>
+      <div><h2 class="text-lg font-bold text-gray-900">5. Questions</h2><p class="mt-2">For questions about this policy, contact {siteConfig.contact.primaryEmail}.</p></div>
+    </div></section>
+  </main>
+  <Footer /><FloatingWhatsApp />
+</BaseLayout>

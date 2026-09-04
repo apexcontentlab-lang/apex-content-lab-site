@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/common/Header.astro';
+import Footer from '../../components/common/Footer.astro';
+import FloatingWhatsApp from '../../components/common/FloatingWhatsApp.astro';
+import { siteConfig } from '../../config/site';
+
+const pageTitle = 'SEO, GEO and AEO for Business Websites | Apex Content Lab';
+const pageDescription = 'A practical Apex Content Lab guide to SEO, generative AI search visibility, and answer-oriented website architecture without relying on unsupported search hacks.';
+const answers = [
+  ['What is SEO?', 'Search engine optimization is the practice of making a website technically accessible, useful, understandable, and relevant so search systems can discover, interpret, and rank its content.'],
+  ['What is GEO?', 'Generative Engine Optimization is a common industry term for improving the likelihood that useful website information is discovered and represented in generative AI search experiences. It is not a separate magic ranking system.'],
+  ['What is AEO?', 'Answer Engine Optimization is a common term for structuring content so systems that answer questions can understand the page, extract relevant information, and connect users with a useful source.'],
+  ['How does Apex approach SEO, GEO and AEO?', 'Apex treats them as one connected information-discovery problem: crawlable technical structure, clear entities, useful original content, answer-oriented headings, strong internal linking, accessible HTML, appropriate structured data, trustworthy authorship, and measurable conversion paths.'],
+  ['Does Apex use an llms.txt file as a ranking tactic?', 'No. Google states that special AI text files such as llms.txt are not required for Google Search or its generative AI features. Apex prioritizes crawlability, useful content, technical SEO, and accurate structured data instead.'],
+  ['Can GEO or AEO guarantee AI citations?', 'No. No ethical implementation can guarantee that a search engine or AI system will cite a page. The goal is to make the site easy to discover, understand, verify, and use when it is relevant to a query.'],
+];
+---
+<BaseLayout title={pageTitle} description={pageDescription} type="article" dateModified="2026-09-03" keywords={['SEO for business websites','GEO','AEO','generative AI search','answer engine optimization','technical SEO']}>
+  <Header />
+  <main id="main-content" class="flex-grow">
+    <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/40 via-white to-white py-20 lg:py-28 border-b border-gray-100">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+        <span class="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">Search & AI Discoverability</span>
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">SEO, GEO and AEO for business websites.</h1>
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">A practical approach to making a business website easier for search engines, answer systems, and AI-powered discovery experiences to crawl, understand, verify, and connect with.</p>
+        <p class="text-xs text-gray-500">Written by Ebua Hastings Etta, Founder & Growth Systems Strategist · Updated September 3, 2026</p>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20 bg-white">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="space-y-4"><h2 class="text-2xl sm:text-3xl font-bold text-gray-900">The short answer</h2><p class="text-gray-700 leading-relaxed">SEO, GEO, and AEO should not be treated as three unrelated sets of hacks. Strong technical SEO and useful, original content remain foundational to generative AI search visibility. Google Search Central explains that its AI search experiences use core Search systems and do not require additional technical requirements or special schema.</p></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">{answers.slice(0,3).map(([q,a]) => <article class="rounded-2xl bg-gray-50 border border-gray-200 p-6"><h3 class="text-lg font-bold text-gray-900">{q}</h3><p class="mt-3 text-sm text-gray-600 leading-relaxed">{a}</p></article>)}</div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl"><h2 class="text-2xl sm:text-3xl font-bold text-gray-900">The Apex discoverability standard</h2><p class="mt-4 text-gray-600 leading-relaxed">We build the website so its information architecture supports both people and machines. The implementation focuses on fundamentals that remain useful across classic search and generative search.</p></div>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            ['1. Crawlability', 'Allow important public pages to be crawled and indexed. Keep robots rules, canonical URLs, sitemap generation, and deployment behavior coherent.'],
+            ['2. Information architecture', 'Use clear page hierarchy, descriptive headings, meaningful URLs, internal links, and explicit relationships between services, people, resources, and concepts.'],
+            ['3. Answer-oriented content', 'Answer real questions directly. Use definitions, comparisons, processes, decision criteria, and concise explanations rather than padding pages with keyword variations.'],
+            ['4. Entity clarity', 'Make the organization, founder, services, location, audience, relationships, and official profiles understandable and consistent across pages and structured data.'],
+            ['5. Structured data', 'Use Schema.org types where they accurately describe visible content. Keep structured data synchronized with the page rather than marking up unsupported claims.'],
+            ['6. Experience and accessibility', 'Use readable HTML, responsive layouts, useful images, descriptive alternative text, accessible navigation, and strong page experience.'],
+            ['7. Evidence and authorship', 'Identify who is responsible for important content, keep dates meaningful, distinguish first-hand work from general explanation, and avoid fabricated proof.'],
+            ['8. Measurement', 'Use Search Console and analytics to evaluate discovery, search performance, engagement, and business conversions rather than relying on third-party promises of AI rankings.'],
+          ].map(([title,description]) => <article class="rounded-2xl bg-white border border-gray-200 p-7 shadow-sm"><h3 class="text-lg font-bold text-gray-900">{title}</h3><p class="mt-2 text-sm text-gray-600 leading-relaxed">{description}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-20 bg-white">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-10">
+        <div><h2 class="text-2xl sm:text-3xl font-bold text-gray-900">What Apex will not do</h2><div class="mt-6 space-y-3 text-sm text-gray-700"><p>We will not create hundreds of near-duplicate pages simply to target every possible query variation.</p><p>We will not promise guaranteed AI citations, guaranteed rankings, or access to proprietary search-engine ranking signals.</p><p>We will not add structured data that does not represent visible page content.</p><p>We will not substitute keyword stuffing for useful information.</p></div></div>
+        <div class="rounded-2xl bg-blue-50 border border-blue-100 p-7"><h2 class="text-xl font-bold text-gray-900">Why this matters for Apex</h2><p class="mt-3 text-sm text-gray-700 leading-relaxed">Apex is a Growth Systems Company. The website itself therefore has to behave like an information system: clear entities, connected pages, explicit answers, reliable technical signals, and a customer journey that moves from discovery to understanding to action.</p></div>
+        <div class="space-y-4"><h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Frequently asked questions</h2>{answers.slice(3).map(([q,a]) => <article class="border-b border-gray-200 pb-5"><h3 class="text-lg font-bold text-gray-900">{q}</h3><p class="mt-2 text-sm text-gray-600 leading-relaxed">{a}</p></article>)}</div>
+        <div class="pt-4 text-xs text-gray-500"><p>Reference guidance: <a class="underline" href="https://developers.google.com/search/docs/appearance/ai-features">Google Search Central — AI features and your website</a>; <a class="underline" href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide">Google Search Central — Generative AI search optimization guide</a>; <a class="underline" href="https://help.openai.com/en/articles/12627856-publishers-and-developers-faq">OpenAI — Publishers and Developers FAQ</a>.</p></div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-900 text-white text-center"><div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-5"><h2 class="text-3xl sm:text-4xl font-bold">Build a website that can be understood.</h2><p class="text-gray-400">Explore the Apex framework or start with a growth-system diagnostic.</p><div class="flex flex-col sm:flex-row justify-center gap-4"><a href="/framework" class="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-gray-900 hover:bg-gray-100">Explore Framework</a><a href={siteConfig.routes.bookCall} class="inline-flex items-center justify-center rounded-xl bg-[var(--color-strategic-orange,#D97706)] px-7 py-3.5 text-sm font-semibold text-white hover:bg-amber-700">Diagnose Your Growth System</a></div></div></section>
+  </main>
+  <Footer /><FloatingWhatsApp />
+</BaseLayout>

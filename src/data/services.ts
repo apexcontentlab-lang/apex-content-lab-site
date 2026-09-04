@@ -13,227 +13,146 @@ export interface ServiceOffer {
   purpose: string;
   summary: string;
   isFlagship?: boolean;
-  accentColor: {
-    bg: string;
-    text: string;
-    border: string;
-  };
+  startingPrice?: string;
+  accentColor: { bg: string; text: string; border: string };
   deliverables: ServiceDeliverable[];
   keyFeatures: string[];
-  cta: {
-    text: string;
-    href: string;
-  };
+  cta: { text: string; href: string };
+  growthStage: string[];
 }
+
+const cta = { text: 'Discuss This System', href: siteConfig.routes.bookCall };
 
 export const servicesData: ServiceOffer[] = [
   {
-    id: "lead-magnet-launchpad",
-    slug: "lead-magnet-launchpad",
-    badge: "Entry Offer",
-    title: "Lead Magnet Launchpad",
-    purpose: "Turn attention into active, owned email subscribers.",
-    summary: "A focused implementation designed to solve subscriber acquisition friction. We research your ideal customer psychology, build a high-converting lead magnet, design landing pages, and connect automated welcome emails.",
-    accentColor: {
-      bg: "bg-blue-50",
-      text: "text-[var(--color-apex-blue,#2563EB)]",
-      border: "border-blue-200"
-    },
+    id: 'lead-capture-system', slug: 'lead-capture-system', badge: 'Capture', title: 'Lead Capture System',
+    purpose: 'Turn relevant attention into owned leads.',
+    summary: 'Design and implementation of the capture layer connecting an offer, value asset, landing experience, form, delivery, and initial follow-up.',
+    startingPrice: 'From $1,200',
+    accentColor: { bg: 'bg-blue-50', text: 'text-[var(--color-apex-blue,#2563EB)]', border: 'border-blue-200' },
     deliverables: [
-      {
-        title: "Audience Research & Psychology",
-        description: "Deep research into client pain points to engineer an irresistible lead magnet resource."
-      },
-      {
-        title: "Lead Magnet Strategy & Structure",
-        description: "Designing the blueprint, checklist, or guide for maximum perceived value and immediate consumption."
-      },
-      {
-        title: "High-Converting Landing Page",
-        description: "Distraction-free, mobile-optimized landing page focused purely on opt-in conversions."
-      },
-      {
-        title: "MailerLite Email Capture",
-        description: "Seamless form integration and technical setup to route subscribers reliably into your list."
-      },
-      {
-        title: "5-Stage Welcome Sequence",
-        description: "Pre-written, automated onboarding sequence to build authority and deliver immediate value."
-      }
+      { title: 'Audience & Offer Alignment', description: 'Clarify the audience problem, value proposition, and conversion event the capture system must support.' },
+      { title: 'Lead Asset Architecture', description: 'Plan or refine a useful lead asset that gives the right prospect a reason to exchange contact information.' },
+      { title: 'Landing Page & Capture Flow', description: 'Build a focused, mobile-ready path from intent to opt-in and resource delivery.' },
+      { title: 'Welcome Handoff', description: 'Connect capture to the appropriate onboarding and follow-up journey.' },
+      { title: 'Measurement Setup', description: 'Define the events and conversion points needed to evaluate the capture layer.' },
     ],
-    keyFeatures: [
-      "Audience Research & Customer Psychology",
-      "Lead Magnet Strategy & Structure",
-      "High-Converting Landing Page Design",
-      "MailerLite Email Capture Integration",
-      "5-Stage Automated Welcome Sequence"
-    ],
-    cta: {
-      text: "Launch Lead Magnet",
-      href: siteConfig.routes.bookCall
-    }
+    keyFeatures: ['Audience and offer alignment', 'Lead asset architecture', 'Landing page and form', 'Welcome handoff', 'Conversion measurement'],
+    cta, growthStage: ['Capture', 'Onboard'],
   },
   {
-    id: "lead-nurture-system",
-    slug: "lead-nurture-system",
-    badge: "Retention Offer",
-    title: "Lead Nurture & Growth System",
-    purpose: "Turn email subscribers into repeat clients and buyers.",
-    summary: "Engineered to eliminate list coldness. We establish structured weekly newsletter frameworks, behavioral segmentation, and automated lead nurture sequences that build deep trust on autopilot.",
-    accentColor: {
-      bg: "bg-cyan-50",
-      text: "text-[var(--color-growth-cyan,#0891B2)]",
-      border: "border-cyan-200"
-    },
+    id: 'lead-nurture-system', slug: 'lead-nurture-system', badge: 'Nurture', title: 'Lead Nurture System',
+    purpose: 'Turn subscribers into informed, qualified opportunities.',
+    summary: 'A structured nurture system combining email journeys, segmentation, recurring communication, intent signals, and conversion pathways.',
+    startingPrice: 'From $1,500',
+    accentColor: { bg: 'bg-cyan-50', text: 'text-[var(--color-growth-cyan,#0891B2)]', border: 'border-cyan-200' },
     deliverables: [
-      {
-        title: "Strategic Newsletter Architecture",
-        description: "Recurring content pillars and templates designed for consistency and high engagement."
-      },
-      {
-        title: "Automated Nurture Workflows",
-        description: "Behavior-triggered automated sequences that send relevant follow-ups based on link clicks."
-      },
-      {
-        title: "Subscriber Segmentation Engine",
-        description: "Organizing your list by interest, engagement level, and buyer readiness."
-      },
-      {
-        title: "Broadcast & Campaign Framework",
-        description: "Turnkey promotional email structures for product launches and promotional pushes."
-      },
-      {
-        title: "Customer Journey Mapping",
-        description: "Visualizing touchpoints from prospect opt-in to long-term client retention."
-      }
+      { title: 'Nurture Architecture', description: 'Map what subscribers need to understand, trust, and do at each stage of the journey.' },
+      { title: 'Automated Workflows', description: 'Build relevant follow-up sequences triggered by lifecycle stage, interests, or meaningful behavior.' },
+      { title: 'Segmentation Model', description: 'Separate subscribers using declared information and behavioral signals that support better communication.' },
+      { title: 'Broadcast Framework', description: 'Create a repeatable structure for newsletters, campaigns, and offer communication.' },
+      { title: 'Conversion Path', description: 'Connect nurture activity to a clear next action such as booking, inquiry, or purchase.' },
     ],
-    keyFeatures: [
-      "Strategic Newsletter Framework",
-      "Automated Nurture Workflows",
-      "Broadcast & Campaign Strategy",
-      "Subscriber Segmentation Engine",
-      "Customer Journey Mapping"
-    ],
-    cta: {
-      text: "Build Nurture System",
-      href: siteConfig.routes.bookCall
-    }
+    keyFeatures: ['Email nurture architecture', 'Behavioral segmentation', 'Automated follow-up', 'Newsletter framework', 'Conversion pathways'],
+    cta, growthStage: ['Onboard', 'Nurture', 'Segment'],
   },
   {
-    id: "attention-to-leads-system",
-    slug: "attention-to-leads-system",
-    badge: "Flagship Offer",
-    isFlagship: true,
-    title: "Attention-to-Leads Growth System",
-    purpose: "Build a complete, end-to-end lead generation engine.",
-    summary: "Our flagship marketing infrastructure implementation. We connect organic short-form video distribution directly to dedicated lead capture engines, MailerLite automation, CRM workflows, and sales pipelines.",
-    accentColor: {
-      bg: "bg-amber-50",
-      text: "text-[var(--color-strategic-orange,#D97706)]",
-      border: "border-amber-200"
-    },
+    id: 'attention-to-leads-growth-system', slug: 'attention-to-leads-growth-system', badge: 'Flagship System', title: 'Attention-to-Leads Growth System',
+    purpose: 'Build a complete, end-to-end customer acquisition engine.',
+    summary: 'The flagship Apex engagement for businesses with an established offer, meaningful acquisition activity, and fragmented infrastructure. It connects content, distribution, capture, CRM, nurture, conversion, analytics, and optimization.',
+    startingPrice: 'From $5,000', isFlagship: true,
+    accentColor: { bg: 'bg-amber-50', text: 'text-[var(--color-strategic-orange,#D97706)]', border: 'border-amber-200' },
     deliverables: [
-      {
-        title: "Omnichannel Content Strategy",
-        description: "Systematic topic engineering and short-form video workflows across Reels, TikTok, and Shorts."
-      },
-      {
-        title: "End-to-End Email Automation",
-        description: "Complete email funnel architecture including welcome, nurture, pitch, and re-engagement flows."
-      },
-      {
-        title: "CRM & Workflow Integration",
-        description: "Connecting lead capture seamlessly with sales pipelines, WhatsApp, or scheduling tools."
-      },
-      {
-        title: "Custom Lead Capture Architecture",
-        description: "Bespoke landing page systems built for high conversion and minimal load times."
-      },
-      {
-        title: "Growth Analytics & Tracking",
-        description: "Custom dashboards to monitor subscriber acquisition costs, opt-in rates, and conversions."
-      },
-      {
-        title: "Continuous System Iteration",
-        description: "Data-backed optimization to eliminate conversion bottlenecks across the funnel."
-      }
+      { title: 'Customer Journey Map', description: 'Document the journey from first discovery through lead capture, nurture, conversion, and post-conversion stages.' },
+      { title: 'Funnel & System Architecture', description: 'Define the connected architecture for acquisition, capture, CRM, nurture, sales handoff, and measurement.' },
+      { title: 'Lead Capture Architecture', description: 'Build the landing, value-asset, form, and delivery layer required to convert attention into owned leads.' },
+      { title: 'Email & Nurture Automation', description: 'Implement lifecycle communication, segmentation, intent signals, and appropriate conversion journeys.' },
+      { title: 'CRM & Workflow Integration', description: 'Connect relevant customer data and handoffs across the existing client ecosystem.' },
+      { title: 'Analytics & Optimization Plan', description: 'Establish meaningful events, reporting, bottleneck identification, and an iteration plan.' },
     ],
-    keyFeatures: [
-      "Omnichannel Content Strategy",
-      "End-to-End Email Marketing Automation",
-      "Full CRM & Workflow Integration",
-      "Custom Lead Capture & Magnet Architecture",
-      "Growth Analytics & Conversion Tracking",
-      "System Optimization & Iteration"
-    ],
-    cta: {
-      text: "Build Complete Engine",
-      href: siteConfig.routes.bookCall
-    }
+    keyFeatures: ['Customer journey architecture', 'Content-to-lead architecture', 'CRM integration', 'Email automation', 'Conversion workflow', 'Analytics and optimization'],
+    cta, growthStage: ['Attract', 'Capture', 'Onboard', 'Nurture', 'Segment', 'Convert', 'Optimize'],
   },
   {
-    id: "content-visibility-system",
-    slug: "content-visibility-system",
-    badge: "Visibility Offer",
-    title: "Content & Visibility Growth System",
-    purpose: "Expand market reach through structured short-form content.",
-    summary: "Engineered to scale reach without burnout. We establish structured production workflows, repurposing frameworks, and short-form video distribution systems tailored for multi-platform dominance.",
-    accentColor: {
-      bg: "bg-emerald-50",
-      text: "text-[var(--color-growth-green,#059669)]",
-      border: "border-emerald-200"
-    },
+    id: 'content-acquisition-system', slug: 'content-acquisition-system', badge: 'Attract', title: 'Content Acquisition System',
+    purpose: 'Turn content activity into a repeatable acquisition pathway.',
+    summary: 'A structured content system designed around audience problems, distribution, calls to action, capture, and downstream conversion rather than visibility alone.',
+    startingPrice: 'From $1,500/month',
+    accentColor: { bg: 'bg-emerald-50', text: 'text-[var(--color-growth-green,#059669)]', border: 'border-emerald-200' },
     deliverables: [
-      {
-        title: "Short-Form Video Content Strategy",
-        description: "Structuring high-intent video scripts and concepts that solve buyer problems."
-      },
-      {
-        title: "Platform Repurposing Workflows",
-        description: "Turn key long-form assets or single short videos into content across multiple channels."
-      },
-      {
-        title: "Multi-Channel Distribution",
-        description: "Systematized posting schedules for Instagram Reels, TikTok, YouTube Shorts, and Facebook Reels."
-      },
-      {
-        title: "Audience Engagement Architecture",
-        description: "Workflows to route social media engagement off social platforms into owned email channels."
-      }
+      { title: 'Content Acquisition Strategy', description: 'Define content themes and buyer problems that support acquisition goals.' },
+      { title: 'Short-Form Production Workflow', description: 'Create repeatable workflows for scripts, production, editing, review, and publishing.' },
+      { title: 'Distribution Architecture', description: 'Organize platform distribution and repurposing around the audience rather than vanity volume.' },
+      { title: 'CTA & Capture Routing', description: 'Connect useful content to an appropriate next step, landing experience, or owned audience channel.' },
+      { title: 'Performance Loop', description: 'Use meaningful acquisition and conversion signals to improve topics, hooks, calls to action, and routing.' },
     ],
-    keyFeatures: [
-      "Short-Form Video Content Strategy",
-      "Instagram Reels & TikTok Workflows",
-      "YouTube Shorts & Facebook Reels Distribution",
-      "Content Repurposing Infrastructure",
-      "Audience Engagement Architecture"
+    keyFeatures: ['Content strategy', 'Short-form workflows', 'Distribution', 'Repurposing', 'CTA routing', 'Acquisition measurement'],
+    cta, growthStage: ['Attract', 'Capture'],
+  },
+  {
+    id: 'growth-systems-optimization', slug: 'growth-systems-optimization', badge: 'Optimize', title: 'Growth Systems Optimization',
+    purpose: 'Improve the performance of an existing growth system.',
+    summary: 'Ongoing diagnostic and optimization support for businesses that already have acquisition infrastructure but need better conversion, efficiency, measurement, or system reliability.',
+    startingPrice: 'From $1,500/month',
+    accentColor: { bg: 'bg-violet-50', text: 'text-violet-700', border: 'border-violet-200' },
+    deliverables: [
+      { title: 'Performance Review', description: 'Review agreed business, acquisition, conversion, and system health indicators.' },
+      { title: 'Bottleneck Diagnosis', description: 'Identify the highest-impact constraints instead of optimizing isolated vanity metrics.' },
+      { title: 'Experiment Plan', description: 'Prioritize practical changes to messaging, capture, nurture, conversion, or workflow logic.' },
+      { title: 'Implementation Support', description: 'Apply approved improvements and verify that the system continues to work as intended.' },
+      { title: 'Optimization Reporting', description: 'Document changes, observations, outcomes, and next priorities.' },
     ],
-    cta: {
-      text: "Scale Visibility",
-      href: siteConfig.routes.bookCall
-    }
-  }
+    keyFeatures: ['System diagnostics', 'Conversion optimization', 'Workflow improvement', 'Measurement review', 'Continuous iteration'],
+    cta, growthStage: ['Optimize'],
+  },
+  {
+    id: 'growth-systems-consulting', slug: 'growth-systems-consulting', badge: 'Advisory', title: 'Growth Systems Consulting',
+    purpose: 'Get expert direction before, during, or between implementations.',
+    summary: 'Focused strategic consulting for founders and teams that need help diagnosing growth-system problems, evaluating architecture, prioritizing work, or making implementation decisions.',
+    startingPrice: '$100/hour',
+    accentColor: { bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200' },
+    deliverables: [
+      { title: 'Problem Diagnosis', description: 'Clarify the actual business-system problem before selecting a solution.' },
+      { title: 'Architecture Review', description: 'Evaluate an existing funnel, customer journey, CRM, automation, or acquisition system.' },
+      { title: 'Priority Roadmap', description: 'Identify what should happen now, later, or not at all.' },
+      { title: 'Implementation Guidance', description: 'Provide decision support for internal teams or external implementation partners.' },
+    ],
+    keyFeatures: ['Strategic diagnosis', 'Architecture review', 'Prioritization', 'Implementation guidance'],
+    cta, growthStage: ['Diagnose', 'Strategize', 'Architect'],
+  },
+  {
+    id: 'growth-systems-training', slug: 'growth-systems-training', badge: 'Capability', title: 'Growth Systems Training',
+    purpose: 'Help teams understand, operate, and improve their growth systems.',
+    summary: 'Practical training for founders, marketers, and teams covering customer journeys, acquisition systems, lead capture, nurture, automation, measurement, and system adoption.',
+    startingPrice: 'From $150',
+    accentColor: { bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200' },
+    deliverables: [
+      { title: 'Systems Training', description: 'Explain how the components of a growth system work together.' },
+      { title: 'Platform Walkthroughs', description: 'Train users on the relevant tools and workflows within the client ecosystem.' },
+      { title: 'Hands-On Exercises', description: 'Move from explanation to demonstration and supervised execution.' },
+      { title: 'Adoption Support', description: 'Confirm competence and document repeatable operating procedures.' },
+    ],
+    keyFeatures: ['Founder training', 'Team workshops', 'Platform walkthroughs', 'Hands-on system adoption'],
+    cta, growthStage: ['All stages as relevant'],
+  },
+];
+
+export const diagnosticOffers = [
+  { name: 'Rapid Growth Audit', price: '$250', description: 'Focused diagnostic for a defined growth bottleneck.' },
+  { name: 'Growth Infrastructure Diagnostic', price: '$650', description: 'Structured review of the customer-acquisition infrastructure and major handoffs.' },
+  { name: 'Comprehensive Systems Audit', price: '$1,250', description: 'Deep review across customer journey, acquisition, capture, nurture, conversion, automation, and measurement.' },
 ];
 
 export const processSteps = [
-  {
-    number: "01",
-    title: "Audit & Architecture",
-    description: "We analyze your audience, offers, and existing touchpoints to design a custom Growth System blueprint tailored to your business goals."
-  },
-  {
-    number: "02",
-    title: "Infrastructure Build",
-    description: "We engineer your lead magnets, landing pages, MailerLite automations, CRM workflows, and email sequences."
-  },
-  {
-    number: "03",
-    title: "System Integration",
-    description: "We connect your content distribution channels to your new lead capture engine, ensuring seamless data flow."
-  },
-  {
-    number: "04",
-    title: "Launch & Optimization",
-    description: "We deploy the growth system, monitor initial metrics, and optimize conversions for continuous hands-free lead generation."
-  }
+  { number: '01', title: 'Diagnose', description: 'Understand the business, customer journey, existing systems, constraints, evidence, and bottlenecks.' },
+  { number: '02', title: 'Strategize', description: 'Define the objective, priorities, audience, offer logic, and intervention required.' },
+  { number: '03', title: 'Architect', description: 'Design the customer journey, system logic, data flow, workflows, and measurement structure.' },
+  { number: '04', title: 'Build', description: 'Create the approved assets, pages, content systems, workflows, and infrastructure.' },
+  { number: '05', title: 'Connect', description: 'Integrate the relevant tools, data sources, customer touchpoints, and handoffs.' },
+  { number: '06', title: 'Automate', description: 'Automate repetitive administration while keeping strategic judgment under human control.' },
+  { number: '07', title: 'Train', description: 'Explain, demonstrate, supervise, and confirm that the client can operate the system.' },
+  { number: '08', title: 'Test', description: 'Run strategic, production, technical, and customer-experience QA before launch.' },
+  { number: '09', title: 'Launch', description: 'Deploy the approved system and verify the live customer journey.' },
+  { number: '10', title: 'Measure', description: 'Monitor agreed business, acquisition, conversion, and system-health signals.' },
+  { number: '11', title: 'Optimize', description: 'Use evidence to identify bottlenecks and improve the system continuously.' },
 ];

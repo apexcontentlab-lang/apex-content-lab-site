@@ -4,126 +4,69 @@ import Header from '../../components/common/Header.astro';
 import Footer from '../../components/common/Footer.astro';
 import FloatingWhatsApp from '../../components/common/FloatingWhatsApp.astro';
 import { siteConfig } from '../../config/site';
+import { processSteps } from '../../data/services';
+import { generateBreadcrumbSchema } from '../../schemas/masterSchema';
 
-const frameworkStages = [
-  {
-    number: "01",
-    title: "Attention & Content Engineering",
-    badge: "Attract",
-    description: "Systematic short-form video creation and topic modeling designed to capture target audience attention across Reels, TikTok, and YouTube Shorts without relying on vanity trends."
-  },
-  {
-    number: "02",
-    title: "Lead Capture & Value Assets",
-    badge: "Capture",
-    description: "High-converting, mobile-optimized landing pages and irresistible lead magnets engineered to convert passing views into owned email subscribers."
-  },
-  {
-    number: "03",
-    title: "Automated Onboarding & Delivery",
-    badge: "Onboard",
-    description: "Instant delivery of value assets paired with an automated 5-stage welcome email sequence that establishes immediate brand authority and sets customer expectations."
-  },
-  {
-    number: "04",
-    title: "Subscriber Nurture & Trust Building",
-    badge: "Nurture",
-    description: "Structured recurring newsletter frameworks and automated nurture workflows that deliver ongoing value and keep your brand top-of-mind."
-  },
-  {
-    number: "05",
-    title: "Segmentation & Intent Tracking",
-    badge: "Segment",
-    description: "Behavior-based subscriber tags and interest groups inside MailerLite that monitor subscriber interaction and signal high commercial intent."
-  },
-  {
-    number: "06",
-    title: "Conversion & Offer Positioning",
-    badge: "Convert",
-    description: "Targeted promotional email pushes, direct-response offers, and streamlined scheduling flows that seamlessly convert nurtured leads into paying clients."
-  },
-  {
-    number: "07",
-    title: "System Feedback & Optimization",
-    badge: "Optimize",
-    description: "Data collection across opt-in rates, click-throughs, and sales metrics to continuously refine content topics, landing page copy, and funnel performance."
-  }
+const growthStages = [
+  { number: '01', title: 'Attract', description: 'Create useful, relevant acquisition activity that brings the right audience into the customer journey.' },
+  { number: '02', title: 'Capture', description: 'Give interested people a clear reason and path to move from anonymous attention to an owned relationship.' },
+  { number: '03', title: 'Onboard', description: 'Deliver the promised value, establish expectations, and make the next step clear immediately after capture.' },
+  { number: '04', title: 'Nurture', description: 'Educate, build trust, maintain relevance, and develop commercial intent through appropriate follow-up.' },
+  { number: '05', title: 'Segment', description: 'Use declared information and meaningful behavior to make communication and next actions more relevant.' },
+  { number: '06', title: 'Convert', description: 'Provide a clear pathway from qualified intent to a conversation, purchase, booking, or other business outcome.' },
+  { number: '07', title: 'Optimize', description: 'Measure the journey, identify the highest-impact constraint, and improve the system continuously.' },
 ];
+
+const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Framework', item: '/framework' }]);
 ---
-
-<BaseLayout
-  title="The Apex Framework | Closed-Loop Growth Architecture"
-  description="Explore the 7-stage closed-loop growth architecture engineered by Apex Content Lab to transform short-form online attention into owned email leads and predictable business growth."
->
+<BaseLayout title="The Apex Growth System | Customer Acquisition Framework" description="Learn the seven-stage Apex Growth System: Attract, Capture, Onboard, Nurture, Segment, Convert, and Optimize." keywords={['Apex Growth System','customer acquisition framework','growth system framework','GEO SEO AEO']}>
   <Header />
-
-  <main class="flex-grow">
-    <!-- Header Hero -->
+  <main id="main-content" class="flex-grow">
     <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-16 lg:py-24 border-b border-gray-100">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto space-y-4">
-          <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">
-            <span>The Closed-Loop Engine</span>
-          </div>
-          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-            The 7-Stage Apex Framework
-          </h1>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            A permanent marketing infrastructure designed to systematically convert fragmented online attention into qualified email subscribers, nurtured relationships, and closed clients.
-          </p>
+        <div class="text-center max-w-4xl mx-auto space-y-5">
+          <span class="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">The Apex Growth System</span>
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">From attention to measurable growth.</h1>
+          <p class="text-lg text-gray-600 leading-relaxed">A seven-stage model for understanding how a business attracts the right people, captures interest, develops relationships, converts qualified intent, and improves the system over time.</p>
         </div>
       </div>
     </section>
 
-    <!-- Framework Stages List -->
     <section class="py-16 lg:py-24 bg-white">
-      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-12">
-        {frameworkStages.map((stage) => (
-          <div class="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-blue-300 hover:shadow-md">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-8">
+        {growthStages.map((stage) => (
+          <article id={stage.title.toLowerCase()} class="scroll-mt-24 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-              <div class="flex items-center gap-4">
-                <span class="text-3xl font-black text-[var(--color-apex-blue,#2563EB)] font-mono">{stage.number}</span>
-                <h2 class="text-2xl font-bold text-gray-900">{stage.title}</h2>
-              </div>
-              <span class="self-start sm:self-auto inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)] border border-blue-200">
-                {stage.badge}
-              </span>
+              <div class="flex items-center gap-4"><span class="text-3xl font-black text-[var(--color-apex-blue,#2563EB)] font-mono">{stage.number}</span><h2 class="text-2xl font-bold text-gray-900">{stage.title}</h2></div>
+              <span class="self-start sm:self-auto inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)] border border-blue-200">{stage.title}</span>
             </div>
-            <p class="text-base text-gray-600 leading-relaxed sm:pl-12">
-              {stage.description}
-            </p>
-          </div>
+            <p class="text-base text-gray-600 leading-relaxed sm:pl-12">{stage.description}</p>
+          </article>
         ))}
       </div>
     </section>
 
-    <!-- Bottom Call to Action -->
-    <section class="py-16 bg-gray-900 text-white text-center">
-      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-6">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Ready to Implement the Apex Framework?</h2>
-        <p class="text-gray-400 text-base">
-          Stop relying on temporary algorithms. Build a permanent marketing growth system tailored for your business.
-        </p>
-        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={siteConfig.routes.bookCall}
-            class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-8 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors focus-ring"
-          >
-            Book Strategy Call
-          </a>
-          <a
-            href={siteConfig.integrations.mailerlite.formPreviewUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-gray-700 bg-gray-800 px-8 py-3.5 text-base font-medium text-white shadow-sm hover:bg-gray-700 transition-colors focus-ring"
-          >
-            Get Free Blueprint
-          </a>
+    <section class="py-20 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-4"><span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">Apex delivery methodology</span><h2 class="text-3xl sm:text-4xl font-bold text-gray-900">How we build the system.</h2><p class="text-gray-600">The seven customer-growth stages are different from the eleven-stage Apex delivery process.</p></div>
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {processSteps.map((step) => <article class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"><span class="text-3xl font-extrabold text-[var(--color-apex-blue,#2563EB)] font-mono">{step.number}</span><h3 class="mt-3 text-lg font-bold text-gray-900">{step.title}</h3><p class="mt-2 text-sm text-gray-600 leading-relaxed">{step.description}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-gray-900 p-8 sm:p-12 text-white">
+          <h2 class="text-3xl sm:text-4xl font-bold">The operating principle</h2>
+          <p class="mt-5 text-gray-300 leading-relaxed">Learn the customer journey first. Configure software second. Apex does not prescribe a tool because it is familiar; the platform, CRM, email system, automation layer, and analytics stack are selected according to the business problem and existing ecosystem.</p>
+          <p class="mt-4 text-gray-300 leading-relaxed">Automation is used for repetitive administration. Strategic judgment remains human-led.</p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4"><a href={siteConfig.routes.services} class="inline-flex items-center justify-center rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-gray-900 hover:bg-gray-100">Explore Services</a><a href="/knowledge/seo-geo-aeo-for-business-websites" class="inline-flex items-center justify-center rounded-xl border border-gray-700 bg-gray-800 px-7 py-3.5 text-sm font-semibold text-white hover:bg-gray-700">SEO, GEO & AEO Guide</a><a href={siteConfig.routes.bookCall} class="inline-flex items-center justify-center rounded-xl bg-[var(--color-strategic-orange,#D97706)] px-7 py-3.5 text-sm font-semibold text-white hover:bg-amber-700">Diagnose Your System</a></div>
         </div>
       </div>
     </section>
   </main>
-
   <Footer />
   <FloatingWhatsApp />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>

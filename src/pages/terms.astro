@@ -5,20 +5,21 @@ import Footer from '../components/common/Footer.astro';
 import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
 import { siteConfig } from '../config/site';
 
-const lastUpdated = 'September 3, 2026';
+const lastUpdated = "August 5, 2026";
 ---
 
 <BaseLayout
-  title={`Terms of Service | ${siteConfig.name}`}
-  description={`Terms of Service for ${siteConfig.name}.`}
+  title={`Terms & Conditions | ${siteConfig.name}`}
+  description={`Terms and Conditions for ${siteConfig.name}. Please review the terms governing the use of our growth systems, website, and digital products.`}
 >
   <Header />
 
   <main id="main-content" class="flex-grow">
+    <!-- Header Hero -->
     <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-12 lg:py-16 border-b border-gray-100">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
         <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          Terms of Service
+          Terms & Conditions
         </h1>
         <p class="text-xs font-mono text-gray-500">
           Last Updated: {lastUpdated}
@@ -26,69 +27,56 @@ const lastUpdated = 'September 3, 2026';
       </div>
     </section>
 
+    <!-- Content Area -->
     <section class="py-12 lg:py-16 bg-white">
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-8 text-sm text-gray-700 leading-relaxed">
-
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">1. General</h2>
-          <p class="mt-2">
-            These Terms of Service govern your use of the Apex Content Lab website, resources, and services. By using the website or engaging Apex Content Lab for services, you agree to these terms and any applicable project-specific agreement or Statement of Work.
+        
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">1. Acceptance of Terms</h2>
+          <p>
+            By accessing or using the website, growth systems, blueprints, or digital products provided by {siteConfig.name} ("Apex Content Lab", "we", "us", or "our"), you agree to be bound by these Terms & Conditions. If you do not agree, please refrain from using our services.
           </p>
         </div>
 
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">2. Services</h2>
-          <p class="mt-2">
-            Services are provided according to the scope, deliverables, timelines, responsibilities, and commercial terms agreed for each engagement. A proposal or Statement of Work may contain additional terms specific to a project.
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">2. Intellectual Property Rights</h2>
+          <p>
+            All content, web layout architecture, text, design frameworks, code, and digital assets published on this site belong exclusively to {siteConfig.legalName} unless otherwise stated. Unauthorised distribution, duplication, or reselling of our proprietary frameworks or digital resources is strictly prohibited.
           </p>
         </div>
 
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">3. Client Responsibilities</h2>
-          <p class="mt-2">
-            Clients are responsible for providing accurate information, required access, materials, approvals, and other inputs necessary for delivery. Client delays or missing dependencies may affect the agreed timeline.
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">3. Growth Systems & Digital Products</h2>
+          <p>
+            Our growth systems, lead generation blueprints, and digital templates are designed to build marketing infrastructure for your business. Results may vary depending on market conditions, execution, and external platform algorithms.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-gray-600">
+            <li><strong>Digital Products:</strong> Access and fulfillment of downloadable resources or templates bought via Gumroad are subject to Gumroad's terms of service and delivery mechanisms.</li>
+            <li><strong>Custom Implementation Services:</strong> Scope, deliverables, timelines, and payment structures for turnkey installations are governed by individual client agreements signed prior to project kick-off.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">4. Limitation of Liability</h2>
+          <p>
+            In no event shall {siteConfig.name}, founder {siteConfig.founder.name}, or team members be held liable for indirect, incidental, or consequential damages resulting from platform downtime, algorithm shifts, or technical disruptions on third-party services (such as MailerLite, Vercel, or Cloudflare).
           </p>
         </div>
 
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">4. Payments</h2>
-          <p class="mt-2">
-            Payment terms are defined in the applicable proposal, Statement of Work, invoice, or agreement. Apex Content Lab may delay or suspend work when required payments have not been received.
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">5. Modifications to Terms</h2>
+          <p>
+            We reserve the right to update these terms at any time. Changes will be posted on this page with an updated "Last Updated" revision date.
           </p>
         </div>
 
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">5. Intellectual Property</h2>
-          <p class="mt-2">
-            Ownership and permitted use of project deliverables, third-party materials, software, templates, frameworks, and other intellectual property are determined by the applicable project agreement or Statement of Work.
+        <div class="space-y-3">
+          <h2 class="text-lg font-bold text-gray-900">6. Contact Information</h2>
+          <p>
+            If you have any questions regarding these Terms & Conditions, please contact us:
           </p>
-        </div>
-
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">6. Third-Party Platforms</h2>
-          <p class="mt-2">
-            Projects may depend on third-party platforms and services. Apex Content Lab is not responsible for outages, pricing changes, feature changes, policy changes, limitations, or failures originating from third-party providers.
-          </p>
-        </div>
-
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">7. Results and Performance</h2>
-          <p class="mt-2">
-            Growth, marketing, conversion, and revenue outcomes depend on factors beyond Apex Content Lab's control. No specific business result is guaranteed unless expressly stated in a written agreement.
-          </p>
-        </div>
-
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">8. Changes to These Terms</h2>
-          <p class="mt-2">
-            These terms may be updated when our services, operating practices, or legal requirements change. The updated version will be published on this page with a revised date.
-          </p>
-        </div>
-
-        <div>
-          <h2 class="text-lg font-bold text-gray-900">9. Contact</h2>
-          <p class="mt-2">
-            Questions about these terms can be directed to {siteConfig.contact.primaryEmail}.
+          <p class="font-mono text-xs text-[var(--color-apex-blue,#2563EB)]">
+            Email: {siteConfig.contact.primaryEmail}
           </p>
         </div>
 

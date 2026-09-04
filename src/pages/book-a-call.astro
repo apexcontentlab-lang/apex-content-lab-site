@@ -5,110 +5,118 @@ import Footer from '../components/common/Footer.astro';
 import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
 import { siteConfig } from '../config/site';
 
-const callHighlights = [
-  "Audit your current audience touchpoints & lead capture rate",
-  "Identify leaks in your lead nurture and email conversion funnel",
-  "Map out a tailored closed-loop growth system architecture",
-  "Define clear technical requirements & implementation timeline"
-];
+const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp.number.replace('+', '')}?text=${encodeURIComponent(siteConfig.contact.whatsapp.defaultMessage)}`;
 ---
 
 <BaseLayout
-  title={`Book a Strategy Call | ${siteConfig.name}`}
-  description="Schedule a 1-on-1 strategy session with Apex Content Lab founder Ebua Hastings Etta to architect your custom marketing growth system."
+  title={`Contact Us | ${siteConfig.name}`}
+  description="Get in touch with Apex Content Lab. Contact us via email, WhatsApp, or schedule a strategy call to build your growth system."
 >
   <Header />
 
-  <main class="flex-grow">
+  <main id="main-content" class="flex-grow">
     <!-- Header Hero -->
-    <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-12 lg:py-16 border-b border-gray-100">
+    <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-16 lg:py-24 border-b border-gray-100">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
           <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">
-            <span>1-on-1 Discovery Session</span>
+            <span>Direct Channels</span>
           </div>
-          <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            Schedule Your Growth Strategy Call
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+            Let's Build Your Growth System
           </h1>
-          <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-            Let's design a permanent marketing system tailored to your business goals.
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Have questions about our implementations or want to discuss custom growth infrastructure? Reach out to us directly.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Main Content Area: Information + Embed -->
-    <section class="py-12 lg:py-20 bg-white">
+    <!-- Contact Options Grid -->
+    <section class="py-16 lg:py-24 bg-white">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          <!-- Left Column: Expectations & Context -->
-          <div class="lg:col-span-5 space-y-8">
+          <!-- Card 1: Fast-Track WhatsApp -->
+          <div class="rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-50/40 via-white to-white p-8 shadow-sm flex flex-col justify-between">
             <div class="space-y-4">
-              <h2 class="text-2xl font-bold text-gray-900">What We Cover On This Call</h2>
+              <div class="w-12 h-12 rounded-2xl bg-[#25D366]/10 flex items-center justify-center text-[#25D366]">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.445 4.43-9.874 9.877-9.874 2.636 0 5.115 1.028 6.977 2.89a9.816 9.816 0 012.88 6.982c-.001 5.447-4.432 9.876-9.871 9.876m0-18.016A11.72 11.72 0 003.8 12.012a11.7 11.7 0 001.732 6.131l-1.84 6.72 6.873-1.803a11.752 11.752 0 005.688 1.48h.005c6.471 0 11.738-5.267 11.74-11.739A11.68 11.68 0 0020.572 4.38a11.682 11.682 0 00-8.522-3.606"></path>
+                </svg>
+              </div>
+              <span class="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800">
+                Fastest Response
+              </span>
+              <h2 class="text-2xl font-bold text-gray-900">WhatsApp Direct</h2>
               <p class="text-sm text-gray-600 leading-relaxed">
-                This is a focused session with founder Ebua Hastings Etta to review your current lead generation flow and evaluate if an Apex Growth System is the right fit.
+                Chat directly with founder Ebua Hastings Etta for quick answers regarding system features or timeline availability.
               </p>
             </div>
 
-            <!-- Call Agenda Highlights -->
-            <div class="space-y-4">
-              {callHighlights.map((highlight) => (
-                <div class="flex items-start gap-3">
-                  <div class="rounded-lg bg-blue-100 p-1.5 text-[var(--color-apex-blue,#2563EB)] shrink-0 mt-0.5">
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p class="text-sm font-medium text-gray-700 leading-snug">{highlight}</p>
-                </div>
-              ))}
-            </div>
-
-            <!-- Direct Contact Alternative -->
-            <div class="rounded-2xl bg-gray-50 p-6 border border-gray-200 space-y-3">
-              <h3 class="text-sm font-bold text-gray-900">Need a faster answer?</h3>
-              <p class="text-xs text-gray-600 leading-relaxed">
-                If you have a quick technical question or immediate project deadline, reach out on WhatsApp directly for a quick response.
-              </p>
+            <div class="pt-8">
               <a
-                href={`https://wa.me/${siteConfig.contact.whatsapp.number.replace('+', '')}?text=${encodeURIComponent(siteConfig.contact.whatsapp.defaultMessage)}`}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center text-xs font-semibold text-[#25D366] hover:underline gap-1"
+                class="w-full inline-flex items-center justify-center rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-[#20ba5a] transition-colors focus-ring"
               >
-                Message on WhatsApp
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                Chat on WhatsApp
               </a>
             </div>
           </div>
 
-          <!-- Right Column: Calendar Booking Widget / Container -->
-          <div class="lg:col-span-7 rounded-3xl border border-gray-200 bg-white p-4 sm:p-8 shadow-md">
-            <div class="min-h-[550px] w-full flex flex-col items-center justify-center rounded-2xl bg-gray-50 border border-dashed border-gray-300 p-6 text-center">
-              
-              <!-- Placeholder for External Calendar Embed (Cal.com / Google Calendar / TidyCal) -->
-              <div class="max-w-md space-y-4">
-                <div class="mx-auto w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-[var(--color-apex-blue,#2563EB)]">
-                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900">Calendar Integration Ready</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                  Connect your preferred scheduling link (Cal.com, Calendly, or TidyCal embed script) here.
-                </p>
-                
-                <a
-                  href={`mailto:${siteConfig.contact.primaryEmail}?subject=Strategy%20Call%20Booking%20Request`}
-                  class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3 text-xs font-semibold text-white shadow hover:bg-blue-700 transition-colors focus-ring"
-                >
-                  Request Appointment via Email
-                </a>
+          <!-- Card 2: Strategy Booking Call -->
+          <div class="rounded-3xl border border-[var(--color-apex-blue,#2563EB)] bg-gradient-to-br from-blue-50/40 via-white to-white p-8 shadow-md ring-1 ring-blue-500/20 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-[var(--color-apex-blue,#2563EB)]">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
               </div>
+              <span class="inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-800">
+                1-on-1 Consultation
+              </span>
+              <h2 class="text-2xl font-bold text-gray-900">Book Strategy Call</h2>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Schedule a dedicated 1-on-1 discovery session to audit your current marketing touchpoints and outline a tailored growth blueprint.
+              </p>
+            </div>
 
+            <div class="pt-8">
+              <a
+                href={siteConfig.routes.bookCall}
+                class="w-full inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition-colors focus-ring"
+              >
+                Schedule Call
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Direct Email Support -->
+          <div class="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center text-gray-700">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span class="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
+                Official Inquiries
+              </span>
+              <h2 class="text-2xl font-bold text-gray-900">Direct Email</h2>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Send formal RFP details, partnership proposals, or general inquiries directly to our team inbox.
+              </p>
+            </div>
+
+            <div class="pt-8">
+              <a
+                href={`mailto:${siteConfig.contact.primaryEmail}`}
+                class="w-full inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-3.5 text-sm font-semibold text-gray-800 shadow-sm hover:bg-gray-50 transition-colors focus-ring"
+              >
+                {siteConfig.contact.primaryEmail}
+              </a>
             </div>
           </div>
 

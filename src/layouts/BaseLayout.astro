@@ -1,30 +1,61 @@
 ---
-// BaseLayout.astro
 import SEOHead from '../components/seo/SEOHead.astro';
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import FloatingWhatsApp from '../components/common/FloatingWhatsApp.astro';
 import '../styles/global.css';
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+  noindex?: boolean;
+  imageAlt?: string;
+  keywords?: string[];
+  dateModified?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  canonicalURL,
+  type,
+  noindex,
+  imageAlt,
+  keywords,
+  dateModified,
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <SEOHead title={title} description={description} />
+    <SEOHead
+      title={title}
+      description={description}
+      image={image}
+      canonicalURL={canonicalURL}
+      type={type}
+      noindex={noindex}
+      imageAlt={imageAlt}
+      keywords={keywords}
+      dateModified={dateModified}
+    />
   </head>
+
   <body>
-    <slot />
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <Header />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer />
+    <FloatingWhatsApp />
   </body>
 </html>
-
-<style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-</style>

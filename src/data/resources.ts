@@ -1,37 +1,41 @@
-export interface Resource {
+import { siteConfig } from '../config/site';
+
+export interface ResourceItem {
   id: string;
   title: string;
-  description: string;
-  category: string;
-  format: string;
+  category: "Blueprints" | "Templates" | "Guides" | "Frameworks";
   readTime: string;
+  format: string;
+  description: string;
   downloadUrl: string;
   coverImage?: string;
-  isFeatured?: boolean;
   badgeColor: {
     bg: string;
     text: string;
+    border: string;
   };
+  isFeatured?: boolean;
 }
 
-export const resourcesData: Resource[] = [
+export const resourcesData: ResourceItem[] = [
   {
-    id: 'attention-to-leads-blueprint',
-    title: 'Attention-to-Leads Blueprint',
+    id: "attention-to-leads-blueprint",
+    title: "Attention-to-Leads Master Blueprint",
+    category: "Blueprints",
+    readTime: "12 min read",
+    format: "PDF Guide",
     description:
-      'A practical framework for understanding how to turn content attention into captured leads, email relationships, and business opportunities.',
-    category: 'Growth System',
-    format: 'PDF',
-    readTime: '10 min',
+      "The complete visual framework for turning short-form social attention into owned email subscribers and automated client acquisition.",
     downloadUrl:
-      'https://apexlab1.gumroad.com/l/attention-to-leads-blueprint',
-    coverImage: '/image/we/resources/blueprint-preview.png',
-    isFeatured: true,
+      siteConfig.integrations.mailerlite.defaultSubscribeUrl,
+    coverImage: "/image/we/resources/blueprint-preview.png",
     badgeColor: {
-      bg: 'bg-blue-50',
-      text: 'text-blue-700',
+      bg: "bg-blue-50",
+      text: "text-[var(--color-apex-blue,#2563EB)]",
+      border: "border-blue-200"
     },
-  },
+    isFeatured: true
+  }
 ];
 
 export default resourcesData;

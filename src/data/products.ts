@@ -500,7 +500,7 @@ export const productsData: DigitalProduct[] = [
     targetAudience:
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
-    gumroadUrl: gumroad('subject-line-wipe-file'),
+    gumroadUrl: gumroad('subject-lind-wipe-File'),
     coverImage: '/image/we/products/subject-line-wipe-file.png',
   },
 

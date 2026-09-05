@@ -25,26 +25,13 @@ const coreValues = [
 ];
 
 const growthStages = [
-  {
-    number: "01",
-    title: "Attention",
-    description: "Create useful content and experiences that attract the right people."
-  },
-  {
-    number: "02",
-    title: "Lead Capture",
-    description: "Give interested prospects a clear reason to move from anonymous attention to an owned relationship."
-  },
-  {
-    number: "03",
-    title: "Nurture",
-    description: "Use email and automated journeys to educate, build trust, and maintain consistent follow-up."
-  },
-  {
-    number: "04",
-    title: "Conversion",
-    description: "Create clear pathways that move qualified prospects toward conversations, purchases, and business opportunities."
-  }
+  { number: "01", title: "Attract", description: "Create useful, relevant acquisition activity that brings the right audience into the customer journey." },
+  { number: "02", title: "Capture", description: "Give interested people a clear path from attention to an owned relationship." },
+  { number: "03", title: "Onboard", description: "Deliver promised value and make the next step clear after capture." },
+  { number: "04", title: "Nurture", description: "Build trust and develop intent through relevant follow-up." },
+  { number: "05", title: "Segment", description: "Use declared information and meaningful behavior to improve relevance." },
+  { number: "06", title: "Convert", description: "Create a clear path from qualified intent to a business outcome." },
+  { number: "07", title: "Optimize", description: "Measure the journey, identify constraints, and improve the system continuously." }
 ];
 ---
 
@@ -54,7 +41,7 @@ const growthStages = [
 >
   <Header />
 
-  <main class="flex-grow">
+  <main id="main-content" class="flex-grow">
 
     <!-- HERO -->
     <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-white py-20 lg:py-28 border-b border-gray-100">
@@ -84,7 +71,7 @@ const growthStages = [
               href={siteConfig.routes.bookCall}
               class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors"
             >
-              Book a Strategy Call
+              Diagnose Your Growth System
             </a>
 
             <a
@@ -227,7 +214,7 @@ const growthStages = [
     </section>
 
 
-    <!-- FOUNDER -->
+        <!-- FOUNDER -->
     <section id="founder" class="scroll-mt-28 py-20 lg:py-28 bg-gray-900 text-white">
       <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
@@ -254,15 +241,15 @@ const growthStages = [
               <div class="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed">
 
                 <p>
-                  As the founder of Apex Content Lab, Ebua Hastings Etta focuses on the space between marketing attention and business growth.
+                  As the founder of Apex Content Lab, I focus on the space between marketing attention and business growth.
                 </p>
 
                 <p>
-                  His work combines content strategy, web architecture, lead generation, email marketing, and automated customer journeys to help businesses build a more structured path from visibility to opportunity.
+                  My work combines content strategy, web architecture, lead generation, email marketing, and automated customer journeys to help businesses build a more structured path from attention to measurable business opportunity.
                 </p>
 
                 <p>
-                  The philosophy is straightforward: marketing should not only create attention. It should create assets and systems that continue working after the post has been published or the campaign has ended.
+                  My philosophy is straightforward: marketing should not only create attention. It should create assets and systems that continue working after the post has been published or the campaign has ended.
                 </p>
 
               </div>
@@ -454,7 +441,7 @@ const growthStages = [
             </span>
 
             <h3 class="mt-3 text-xl font-bold text-gray-900">
-              Email Marketing Infrastructure
+              Lead Nurture System
             </h3>
 
             <p class="mt-3 text-sm text-gray-600 leading-relaxed">
@@ -827,7 +814,7 @@ const growthStages = [
                 href={siteConfig.routes.bookCall}
                 class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-7 py-3.5 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
               >
-                Book a Strategy Call
+                Diagnose Your Growth System
               </a>
 
               <a
@@ -885,5 +872,3 @@ const growthStages = [
   <FloatingWhatsApp />
 
 </BaseLayout>
-
-               

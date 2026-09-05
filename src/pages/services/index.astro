@@ -1,504 +1,107 @@
 ---
-import Layout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/common/Header.astro';
+import Footer from '../../components/common/Footer.astro';
+import FloatingWhatsApp from '../../components/common/FloatingWhatsApp.astro';
 import { siteConfig } from '../../config/site';
-import {
-  Magnet,
-  MailCheck,
-  Workflow,
-  Video,
-  CheckCircle2,
-  ArrowRight,
-  Compass,
-  Layers,
-  Zap,
-  BarChart3,
-  Settings,
-  ShieldCheck
-} from 'lucide-astro';
+import { servicesData, diagnosticOffers, processSteps } from '../../data/services';
 
-// SEO & GEO Configuration
-const pageTitle = `Growth Systems & Marketing Infrastructure Services | ${siteConfig.name}`;
-const pageDescription = "Explore Apex Content Lab's growth system offerings: Lead Magnet Launchpad, Lead Nurture & Growth System, Attention-to-Leads Growth System, and Content & Visibility System.";
-const canonicalURL = new URL(siteConfig.routes.services, siteConfig.url).href;
-
-// Service Schema Definition for GEO & Search Engine Entity Extraction
-const servicesSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Growth Systems & Marketing Automation Consultancy",
-  "provider": {
-    "@type": "Organization",
-    "name": siteConfig.name,
-    "url": siteConfig.url
-  },
-  "areaServed": "Global",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Apex Core Growth Systems",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Lead Magnet Launchpad",
-          "description": "Turn attention into subscribers with audience research, lead magnet strategy, landing page design, email capture, and a welcome sequence."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Lead Nurture & Growth System",
-          "description": "Turn subscribers into long-term customers through automated email newsletters, customer journey automation, and segmentation."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Attention-to-Leads Growth System (Flagship)",
-          "description": "Complete marketing engine combining content strategy, email funnels, CRM workflows, lead generation, and growth analytics."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Content & Visibility Growth System",
-          "description": "Grow brand visibility through short-form video strategy across Instagram Reels, TikTok, YouTube Shorts, and content repurposing."
-        }
-      }
-    ]
-  }
-};
-
-// Core Offers Dataset
-const offers = [
-  {
-    id: "offer-one",
-    badge: "Entry Offer",
-    title: "Lead Magnet Launchpad",
-    purpose: "Turn attention into active email subscribers.",
-    icon: Magnet,
-    accentColor: "bg-blue-50 text-[var(--color-apex-blue)] border-blue-200",
-    includes: [
-      "Audience Research & Customer Psychology",
-      "Lead Magnet Strategy & Structure",
-      "High-Converting Landing Page Design",
-      "MailerLite Email Capture Integration",
-      "5-Stage Automated Welcome Sequence"
-    ],
-    ctaText: "Launch Lead Magnet",
-    ctaHref: siteConfig.routes.bookCall
-  },
-  {
-    id: "offer-two",
-    badge: "Retention Offer",
-    title: "Lead Nurture & Growth System",
-    purpose: "Turn subscribers into repeat customers.",
-    icon: MailCheck,
-    accentColor: "bg-cyan-50 text-[var(--color-growth-cyan)] border-cyan-200",
-    includes: [
-      "Strategic Newsletter Framework",
-      "Automated Nurture Workflows",
-      "Broadcast & Campaign Strategy",
-      "Subscriber Segmentation Engine",
-      "Customer Journey Mapping"
-    ],
-    ctaText: "Build Nurture System",
-    ctaHref: siteConfig.routes.bookCall
-  },
-  {
-    id: "offer-three",
-    badge: "Flagship Offer",
-    isFlagship: true,
-    title: "Attention-to-Leads Growth System",
-    purpose: "Build a complete, end-to-end lead generation engine.",
-    icon: Workflow,
-    accentColor: "bg-amber-50 text-[var(--color-strategic-orange)] border-amber-200",
-    includes: [
-      "Omnichannel Content Strategy",
-      "End-to-End Email Marketing Automation",
-      "Full CRM & Workflow Integration",
-      "Custom Lead Capture & Magnet Architecture",
-      "Growth Analytics & Conversion Tracking",
-      "System Optimization & Iteration"
-    ],
-    ctaText: "Build Complete Engine",
-    ctaHref: siteConfig.routes.bookCall
-  },
-  {
-    id: "offer-four",
-    badge: "Visibility Offer",
-    title: "Content & Visibility Growth System",
-    purpose: "Expand market reach through structured short-form content.",
-    icon: Video,
-    accentColor: "bg-emerald-50 text-[var(--color-growth-green)] border-emerald-200",
-    includes: [
-      "Short-Form Video Content Strategy",
-      "Instagram Reels & TikTok Workflows",
-      "YouTube Shorts & Facebook Reels Distribution",
-      "Content Repurposing Infrastructure",
-      "Audience Engagement Architecture"
-    ],
-    ctaText: "Scale Visibility",
-    ctaHref: siteConfig.routes.bookCall
-  }
-];
-
-// Implementation Methodology Steps
-const processSteps = [
-  {
-    number: "01",
-    title: "Audit & Architecture",
-    description: "We analyze your audience, offers, and existing touchpoints to design a custom Growth System blueprint tailored to your growth goals."
-  },
-  {
-    number: "02",
-    title: "Infrastructure Build",
-    description: "We engineer your lead magnets, landing pages, MailerLite automations, CRM workflows, and email sequences."
-  },
-  {
-    number: "03",
-    title: "System Integration",
-    description: "We connect your content distribution channels to your new lead capture engine, ensuring seamless data flow."
-  },
-  {
-    number: "04",
-    title: "Launch & Optimization",
-    description: "We deploy the growth system, monitor initial metrics, and optimize conversions for continuous hands-free lead generation."
-  }
-];
+const pageTitle = 'Growth Systems & Services';
+const pageDescription = 'Explore Apex Content Lab growth systems, diagnostics, optimization, consulting, and training for businesses that want a connected path from customer attention to measurable growth.';
 ---
-
-<Layout title={pageTitle} description={pageDescription}>
-
-  <!-- Service Structured Data -->
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(servicesSchema)}
-  />
-
-  <!-- HERO SECTION -->
-  <section class="relative bg-white pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-[var(--color-border-gray)] overflow-hidden">
-    <div class="aria-hidden: true pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">
-      <div class="h-[450px] w-[450px] rounded-full bg-gradient-to-tr from-[var(--color-apex-blue-light)] to-[var(--color-growth-cyan-light)] opacity-50 blur-3xl"></div>
-    </div>
-
-    <div class="container-apex text-center space-y-6">
-      <div class="inline-flex items-center gap-2 rounded-full border border-[var(--color-apex-blue)]/20 bg-[var(--color-apex-blue-light)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-apex-blue)]">
-        <Settings class="h-3.5 w-3.5 animate-spin" style="animation-duration: 8s;" />
-        <span>Core Growth Solutions</span>
-      </div>
-
-      <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[var(--color-dark-text)] leading-[1.1] max-w-4xl mx-auto">
-        Structured Marketing Systems Built for <span class="text-[var(--color-apex-blue)]">Predictable Scale.</span>
-      </h1>
-
-      <p class="text-lg sm:text-xl text-[var(--color-text-gray)] leading-relaxed max-w-2xl mx-auto">
-        We don't sell disposable campaigns or vanity metrics. We engineer permanent marketing infrastructure that attracts qualified prospects and automates customer journeys.
-      </p>
-
-      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href={siteConfig.routes.bookCall}
-          class="inline-flex h-14 items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-[var(--color-strategic-orange)] px-8 text-lg font-semibold text-white shadow-[var(--shadow-apex-cta)] transition-all duration-250 hover:bg-[var(--color-strategic-orange-hover)] hover:-translate-y-0.5"
-        >
-          <span>Book a Strategy Call</span>
-          <ArrowRight class="h-5 w-5" />
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- OVERVIEW / PHILOSOPHY SECTION -->
-  <section class="section-padding-md bg-[var(--color-soft-gray-bg)] border-b border-[var(--color-border-gray)]">
-    <div class="container-apex">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-        <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)]">
-            <Compass class="h-3.5 w-3.5 text-[var(--color-apex-blue)]" />
-            <span>Why Systems Win</span>
-          </div>
-
-          <h2 class="text-3xl sm:text-4xl font-bold text-[var(--color-dark-text)] leading-tight">
-            Stop Trading Hours for Temporary Reach.
-          </h2>
-
-          <p class="text-base text-[var(--color-text-gray)] leading-relaxed">
-            Most businesses struggle because their marketing relies entirely on continuous manual labor. When you stop posting, lead generation stops completely.
-          </p>
-
-          <p class="text-base text-[var(--color-text-gray)] leading-relaxed">
-            Apex Content Lab builds <strong>Growth Systems</strong> that decouple your business generation from your time. By connecting strategic short-form content with automated lead capture, MailerLite sequences, and customer journey architecture, your business builds assets that work 24/7.
-          </p>
-
-          <div class="grid grid-cols-2 gap-4 pt-2">
-            <div class="p-4 rounded-xl border border-[var(--color-border-gray)] bg-white">
-              <div class="text-2xl font-bold text-[var(--color-apex-blue)]">Build Once</div>
-              <p class="text-xs text-[var(--color-text-gray)] mt-1">Permanent assets that continue generating leads.</p>
-            </div>
-
-            <div class="p-4 rounded-xl border border-[var(--color-border-gray)] bg-white">
-              <div class="text-2xl font-bold text-[var(--color-growth-green)]">Grow Always</div>
-              <p class="text-xs text-[var(--color-text-gray)] mt-1">Automated conversion even when you're offline.</p>
-            </div>
+<BaseLayout title={pageTitle} description={pageDescription} keywords={['growth systems company','customer acquisition systems','lead capture system','lead nurture system','content acquisition system','growth systems optimization']}>
+  <Header />
+  <main id="main-content" class="flex-grow">
+    <section class="bg-gradient-to-b from-blue-50/50 via-white to-white py-16 lg:py-24 border-b border-gray-100">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center space-y-5">
+          <span class="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold text-[var(--color-apex-blue,#2563EB)]">Growth Systems Company</span>
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Growth systems built around the customer journey.</h1>
+          <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">Apex diagnoses the constraint first, then designs and implements the system required to connect acquisition, capture, nurture, conversion, and measurement.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4 pt-3">
+            <a href="#diagnostics" class="inline-flex items-center justify-center rounded-xl bg-[var(--color-apex-blue,#2563EB)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-blue-700">Start With a Diagnostic</a>
+            <a href={siteConfig.routes.framework} class="inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white px-7 py-3.5 text-sm font-semibold text-gray-700 hover:bg-gray-50">See the Apex Framework</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="lg:col-span-6 flex justify-center">
-          <div class="w-full max-w-lg rounded-[var(--radius-container)] border border-[var(--color-border-gray)] bg-white p-8 shadow-xl space-y-6">
-
-            <div class="flex items-center justify-between border-b border-[var(--color-border-gray)] pb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-gray)]">
-                System Architecture Comparison
-              </span>
-
-              <ShieldCheck class="h-5 w-5 text-[var(--color-apex-blue)]" />
-            </div>
-
-            <div class="space-y-4 text-sm">
-
-              <div class="p-4 rounded-xl bg-red-50 border border-red-100 space-y-1">
-                <span class="font-bold text-red-600 block">
-                  [Traditional Agency Work]
-                </span>
-
-                <p class="text-xs text-red-800">
-                  One-off campaigns, random posting schedules, no email list, zero follow-up automation, unpredictable client acquisition.
-                </p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-100 space-y-1">
-                <span class="font-bold text-emerald-700 block">
-                  [Apex Growth Systems]
-                </span>
-
-                <p class="text-xs text-emerald-900">
-                  Structured lead magnets, dedicated welcome funnels, MailerLite automation, segmented audience journeys, predictable growth.
-                </p>
-              </div>
-
-            </div>
-          </div>
+    <section id="diagnostics" class="scroll-mt-24 py-20 lg:py-24 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">Diagnose before you build</span>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Start with the right level of diagnosis.</h2>
+          <p class="text-gray-600">Not every business needs a full systems rebuild. Apex uses the smallest appropriate diagnostic that can establish the problem, evidence, priority, and next intervention.</p>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUR CORE SERVICES CARDS GRID -->
-  <section class="section-padding-lg bg-white border-b border-[var(--color-border-gray)]">
-    <div class="container-apex space-y-16">
-
-      <div class="text-center max-w-3xl mx-auto space-y-4">
-
-        <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--color-apex-blue)]">
-          <Layers class="h-3.5 w-3.5" />
-          <span>Core Offers</span>
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {diagnosticOffers.map((diagnostic) => (
+            <article class="rounded-2xl bg-white border border-gray-200 p-7 shadow-sm">
+              <p class="text-xs font-bold uppercase tracking-wider text-gray-400">Diagnostic</p>
+              <h3 class="mt-3 text-xl font-bold text-gray-900">{diagnostic.name}</h3>
+              <p class="mt-3 text-2xl font-extrabold text-[var(--color-apex-blue,#2563EB)]">{diagnostic.price}</p>
+              <p class="mt-3 text-sm text-gray-600 leading-relaxed">{diagnostic.description}</p>
+              <a href={siteConfig.routes.bookCall} class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-gray-900 px-4 py-3 text-sm font-semibold text-white hover:bg-gray-800">Discuss the Diagnostic</a>
+            </article>
+          ))}
         </div>
-
-        <h2 class="text-3xl sm:text-4xl font-bold text-[var(--color-dark-text)]">
-          Four Specialized Growth Infrastructure Solutions
-        </h2>
-
-        <p class="text-lg text-[var(--color-text-gray)]">
-          Select an entry-level launchpad or deploy a complete end-to-end attention-to-leads growth system.
-        </p>
-
       </div>
+    </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        {offers.map((offer) => {
-          const IconComp = offer.icon;
-
-          return (
-            <div
-              id={offer.id}
-              class:list={[
-                "relative rounded-[var(--radius-card)] border p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-[var(--shadow-apex-hover)]",
-                offer.isFlagship
-                  ? "border-2 border-[var(--color-apex-blue)] bg-white ring-4 ring-[var(--color-apex-blue-light)]"
-                  : "border-[var(--color-border-gray)] bg-white"
-              ]}
-            >
-
-              {offer.isFlagship && (
-                <div class="absolute -top-3.5 right-8 rounded-full bg-[var(--color-apex-blue)] px-4 py-1 text-xs font-bold text-white uppercase tracking-wider shadow-md">
-                  Flagship Solution
-                </div>
-              )}
-
-              <div class="space-y-6">
-
-                <div class="flex items-center justify-between">
-
-                  <div class={`flex h-14 w-14 items-center justify-center rounded-2xl border ${offer.accentColor}`}>
-                    <IconComp class="h-7 w-7" />
-                  </div>
-
-                  <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-text-gray)] bg-[var(--color-soft-gray-bg)] px-3 py-1 rounded-md border border-[var(--color-border-gray)]">
-                    {offer.badge}
-                  </span>
-
-                </div>
-
-                <div class="space-y-2">
-                  <h3 class="text-2xl font-bold text-[var(--color-dark-text)]">
-                    {offer.title}
-                  </h3>
-
-                  <p class="text-base font-semibold text-[var(--color-apex-blue)]">
-                    {offer.purpose}
-                  </p>
-                </div>
-
-                <div class="pt-4 border-t border-[var(--color-border-gray)] space-y-3">
-
-                  <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)] block">
-                    System Deliverables:
-                  </span>
-
-                  <ul class="space-y-2.5">
-
-                    {offer.includes.map((item) => (
-                      <li class="flex items-start gap-2.5 text-sm text-[var(--color-dark-text)]">
-
-                        <CheckCircle2 class="h-4 w-4 text-[var(--color-growth-green)] shrink-0 mt-0.5" />
-
-                        <span>{item}</span>
-
-                      </li>
-                    ))}
-
-                  </ul>
-
-                </div>
-
-              </div>
-
-              <div class="pt-8 mt-6 border-t border-[var(--color-border-gray)]">
-
-                <a
-                  href={offer.ctaHref}
-                  class:list={[
-                    "flex h-13 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] font-semibold text-base transition-all duration-200",
-                    offer.isFlagship
-                      ? "bg-[var(--color-strategic-orange)] text-white shadow-[var(--shadow-apex-cta)] hover:bg-[var(--color-strategic-orange-hover)]"
-                      : "bg-[var(--color-soft-gray-bg)] text-[var(--color-dark-text)] border border-[var(--color-border-gray)] hover:border-[var(--color-apex-blue)] hover:text-[var(--color-apex-blue)]"
-                  ]}
-                >
-                  <span>{offer.ctaText}</span>
-                  <ArrowRight class="h-4 w-4" />
-                </a>
-
-              </div>
-
-            </div>
-          );
-        })}
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS / METHODOLOGY SECTION -->
-  <section class="section-padding-lg bg-[var(--color-soft-gray-bg)] border-b border-[var(--color-border-gray)]">
-
-    <div class="container-apex space-y-16">
-
-      <div class="text-center max-w-2xl mx-auto space-y-3">
-
-        <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--color-dark-text)]">
-          <Zap class="h-3.5 w-3.5 text-[var(--color-strategic-orange)]" />
-          <span>Execution Roadmap</span>
+    <section class="py-20 lg:py-24 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">Build & Improve</span>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">Choose the system that matches the bottleneck.</h2>
+          <p class="text-gray-600">Apex services are modular. A client can enter at one stage or build a connected acquisition system across multiple stages.</p>
         </div>
-
-        <h2 class="text-3xl sm:text-4xl font-bold text-[var(--color-dark-text)]">
-          How We Build Your System
-        </h2>
-
-        <p class="text-base text-[var(--color-text-gray)]">
-          A predictable, 4-stage engineering process designed to deploy your infrastructure smoothly.
-        </p>
-
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {servicesData.map((service) => (
+            <article id={service.id} class={`scroll-mt-24 rounded-2xl bg-white p-8 shadow-sm border ${service.isFlagship ? 'border-[var(--color-apex-blue,#2563EB)] ring-1 ring-blue-500/20' : 'border-gray-200'} flex flex-col justify-between`}>
+              <div>
+                <div class="flex items-center justify-between gap-3 mb-4">
+                  <span class={`px-3 py-1 rounded-full text-xs font-semibold ${service.accentColor.bg} ${service.accentColor.text}`}>{service.badge}</span>
+                  {service.startingPrice && <span class="text-xs font-semibold text-gray-500">{service.startingPrice}</span>}
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">{service.title}</h3>
+                <p class="mt-2 font-medium text-gray-800">{service.purpose}</p>
+                <p class="mt-4 text-sm text-gray-600 leading-relaxed">{service.summary}</p>
+                <ul class="mt-6 space-y-2 text-sm text-gray-700">
+                  {service.keyFeatures.slice(0, 5).map((feature) => <li class="flex items-start gap-2"><span class="mt-1 text-emerald-600">✓</span><span>{feature}</span></li>)}
+                </ul>
+              </div>
+              <a href={`/services/${service.slug}`} class="mt-8 inline-flex items-center justify-center w-full rounded-lg bg-gray-900 px-4 py-3 text-sm font-semibold text-white hover:bg-gray-800">Explore {service.title}</a>
+            </article>
+          ))}
+        </div>
       </div>
+    </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        {processSteps.map((step) => (
-          <div class="rounded-[var(--radius-card)] border border-[var(--color-border-gray)] bg-white p-6 space-y-4 flex flex-col justify-between">
-
-            <div class="space-y-3">
-
-              <span class="text-3xl font-extrabold text-[var(--color-apex-blue)] font-mono block">
-                {step.number}
-              </span>
-
-              <h3 class="text-xl font-bold text-[var(--color-dark-text)]">
-                {step.title}
-              </h3>
-
-              <p class="text-sm text-[var(--color-text-gray)] leading-relaxed">
-                {step.description}
-              </p>
-
+    <section class="py-20 lg:py-24 bg-gray-50 border-y border-gray-100">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">How Apex works</span>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">From diagnosis to continuous optimization.</h2>
+        </div>
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {processSteps.map((step) => (
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <span class="text-3xl font-extrabold text-[var(--color-apex-blue,#2563EB)] font-mono">{step.number}</span>
+              <h3 class="mt-3 text-lg font-bold text-gray-900">{step.title}</h3>
+              <p class="mt-2 text-sm text-gray-600 leading-relaxed">{step.description}</p>
             </div>
-
-          </div>
-        ))}
-
+          ))}
+        </div>
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-  <!-- FINAL CALL TO ACTION SECTION -->
-  <section class="section-padding-lg bg-[var(--color-apex-blue)] text-white relative overflow-hidden">
-
-    <div class="aria-hidden: true pointer-events-none absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-white/10 blur-3xl"></div>
-
-    <div class="container-apex text-center space-y-8 relative z-10 max-w-4xl mx-auto">
-
-      <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
-        <BarChart3 class="h-3.5 w-3.5" />
-        <span>Ready to Replace Scattered Marketing?</span>
+    <section class="py-20 bg-gray-900 text-white text-center">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-5">
+        <h2 class="text-3xl sm:text-4xl font-bold">Not sure which system you need?</h2>
+        <p class="text-gray-400">That is what diagnosis is for. Start with the business problem, not the tool or deliverable.</p>
+        <a href={siteConfig.routes.bookCall} class="inline-flex items-center justify-center rounded-xl bg-[var(--color-strategic-orange,#D97706)] px-8 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-amber-700">Diagnose Your Growth System</a>
       </div>
-
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
-        Let's Build a Growth System That Generates Leads Continuously.
-      </h2>
-
-      <p class="text-lg text-blue-100 max-w-2xl mx-auto">
-        Book a direct strategy session with Ebua Hastings Etta to identify the ideal marketing infrastructure for your business.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-
-        <a
-          href={siteConfig.routes.bookCall}
-          class="inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-[var(--color-strategic-orange)] px-8 text-lg font-semibold text-white shadow-[var(--shadow-apex-cta)] transition-all duration-250 hover:bg-[var(--color-strategic-orange-hover)] hover:-translate-y-0.5"
-        >
-          <span>Book a Strategy Call</span>
-          <ArrowRight class="h-5 w-5" />
-        </a>
-
-        <a
-          href={siteConfig.integrations.mailerlite.formPreviewUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-[var(--radius-btn)] border-2 border-white/30 bg-white/10 px-8 text-lg font-semibold text-white backdrop-blur-md transition-all duration-250 hover:bg-white/20"
-        >
-          <span>Download Free Blueprint</span>
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</Layout>
+    </section>
+  </main>
+  <Footer />
+  <FloatingWhatsApp />
+</BaseLayout>            

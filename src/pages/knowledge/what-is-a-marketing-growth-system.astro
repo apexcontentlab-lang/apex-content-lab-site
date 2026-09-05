@@ -37,30 +37,13 @@ const faqs = [
 ];
 
 const growthStages = [
-  {
-    number: '01',
-    title: 'Attention',
-    description:
-      'Useful content, social media, search, partnerships, and other channels attract people who may have a problem your business can help solve.'
-  },
-  {
-    number: '02',
-    title: 'Lead Capture',
-    description:
-      'A relevant offer or resource gives interested people a reason to take the next step and enter an owned communication channel.'
-  },
-  {
-    number: '03',
-    title: 'Nurture',
-    description:
-      'Email and automated customer journeys provide useful information, build trust, and keep the business present while prospects evaluate their options.'
-  },
-  {
-    number: '04',
-    title: 'Conversion',
-    description:
-      'Clear offers, calls to action, conversations, purchases, or other business outcomes give qualified prospects a path toward becoming customers or clients.'
-  }
+  { number: '01', title: 'Attract', description: 'Useful content, search, social, partnerships, and other channels bring relevant people into the journey.' },
+  { number: '02', title: 'Capture', description: 'A relevant offer or resource gives interested people a reason to enter an owned relationship.' },
+  { number: '03', title: 'Onboard', description: 'The promised value is delivered and the next step is made clear immediately after capture.' },
+  { number: '04', title: 'Nurture', description: 'Email and other appropriate follow-up educate prospects, build trust, and develop intent.' },
+  { number: '05', title: 'Segment', description: 'Declared information and meaningful behavior help determine relevant communication and next actions.' },
+  { number: '06', title: 'Convert', description: 'Offers, conversations, bookings, purchases, or other defined outcomes provide a path from qualified intent to business value.' },
+  { number: '07', title: 'Optimize', description: 'Performance data reveals constraints so the highest-impact part of the system can be improved.' }
 ];
 
 const relatedLinks = [
@@ -96,13 +79,15 @@ const websiteId = `${siteConfig.url}/#website`;
 ---
 
 <BaseLayout
+  type="article"
+  dateModified="2026-09-03"
   title="What Is a Marketing Growth System? | Apex Content Lab"
   description="Learn what a marketing growth system is, how attention becomes leads, how email and automation fit into the customer journey, and why connected marketing systems matter."
 >
 
   <Header />
 
-  <main class="flex-grow">
+  <main id="main-content" class="flex-grow">
 
     <!-- HERO -->
 
@@ -123,6 +108,8 @@ const websiteId = `${siteConfig.url}/#website`;
           <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-600 leading-relaxed">
             A practical explanation of how businesses can connect content, lead generation, email marketing, automation, and conversion into one customer journey.
           </p>
+
+          <p class="text-xs text-gray-500">Written by Ebua Hastings Etta, Founder & Growth Systems Strategist · Updated September 3, 2026</p>
 
         </div>
 
@@ -272,8 +259,8 @@ const websiteId = `${siteConfig.url}/#website`;
 
         </div>
 
-
-        <div class="mt-12 space-y-4">
+    </section>
+              <div class="mt-12 space-y-4">
 
           {growthStages.map((stage, index) => (
 
@@ -531,8 +518,8 @@ const websiteId = `${siteConfig.url}/#website`;
     <section class="py-16 lg:py-24 bg-white">
 
       <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-
-        <div class="max-w-3xl space-y-4">
+    
+      <div class="max-w-3xl space-y-4">
 
           <span class="text-xs font-bold uppercase tracking-wider text-[var(--color-apex-blue,#2563EB)]">
             Continue Learning

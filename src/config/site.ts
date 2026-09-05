@@ -26,18 +26,31 @@ export interface SiteConfig {
   };
 
   integrations: {
-    mailerlite: { accountGroupId: string; formPreviewUrl: string; defaultSubscribeUrl: string };
-    gumroad: { storeUrl: string; handle: string };
+  mailerlite: {
+    accountGroupId: string;
+    formPreviewUrl: string;
+    defaultSubscribeUrl: string;
   };
 
-  socialLinks: {
-    linkedin: string;
-    instagram: string;
-    threads: string;
-    tiktok: string;
-    pinterest: string;
-    youtube: string;
+  gumroad: {
+    storeUrl: string;
+    handle: string;
   };
+
+  calendly: {
+    url: string;
+  };
+},
+  socialLinks: {
+  linkedin: string;
+  instagram: string;
+  threads: string;
+  tiktok: string;
+  pinterest: string;
+  youtube: string;
+  facebook: string;
+  upwork: string;
+};
 
   seo: {
     defaultTitle: string;
@@ -115,24 +128,46 @@ export const siteConfig: SiteConfig = {
       formatted: "Buea, Southwest Region, Cameroon",
     },
   },
-
-  integrations: {
-    mailerlite: {
-      accountGroupId: "2453071",
-      formPreviewUrl: "https://preview.mailerlite.io/preview/2453071/forms/190605752159700691",
-      defaultSubscribeUrl: "https://preview.mailerlite.io/preview/2453071/forms/190605752159700691",
-    },
-    gumroad: { storeUrl: "https://apexlab1.gumroad.com/", handle: "apexlab1" },
+  
+integrations: {
+  mailerlite: {
+    accountGroupId: "2453071",
+    formPreviewUrl: "https://preview.mailerlite.io/preview/2453071/forms/190605752159700691",
+    defaultSubscribeUrl: "https://preview.mailerlite.io/preview/2453071/forms/190605752159700691",
   },
+
+  gumroad: {
+    storeUrl: "https://apexlab1.gumroad.com/",
+    handle: "apexlab1",
+  },
+
+  calendly: {
+    url: "https://calendly.com/apexcontentlab",
+  },
+},
+
+socialLinks: {
+  linkedin: "https://www.linkedin.com/in/ebua-hastings-ba05173a2",
+  instagram: "https://www.instagram.com/apexcontentlab",
+  threads: "https://www.threads.com/@apexcontentlab",
+  tiktok: "https://www.tiktok.com/@apex.content.lab",
+  pinterest: "https://pin.it/1ZAbYcTKX",
+  youtube: "https://www.youtube.com/@ApexContentLab",
+  facebook: "https://www.facebook.com/profile.php?id=61592196512458",
+  upwork: "https://www.upwork.com/freelancers/~01f573f1e34d5f9ce3?mp_source=share",
+},
+  
 
   socialLinks: {
-    linkedin: "https://www.linkedin.com/in/ebua-hastings-ba05173a2",
-    instagram: "https://www.instagram.com/apexcontentlab",
-    threads: "https://www.threads.com/@apexcontentlab",
-    tiktok: "https://www.tiktok.com/@apex.content.lab",
-    pinterest: "https://pin.it/1ZAbYcTKX",
-    youtube: "https://www.youtube.com/@ApexContentLab",
-  },
+  linkedin: "https://www.linkedin.com/in/ebua-hastings-ba05173a2",
+  instagram: "https://www.instagram.com/apexcontentlab",
+  threads: "https://www.threads.com/@apexcontentlab",
+  tiktok: "https://www.tiktok.com/@apex.content.lab",
+  pinterest: "https://pin.it/1ZAbYcTKX",
+  youtube: "https://www.youtube.com/@ApexContentLab",
+  facebook: "https://www.facebook.com/profile.php?id=61592196512458",
+  upwork: "https://www.upwork.com/freelancers/~01f573f1e34d5f9ce3?mp_source=share",
+},
 
   seo: {
     defaultTitle: "Apex Content Lab | Growth Systems Company",

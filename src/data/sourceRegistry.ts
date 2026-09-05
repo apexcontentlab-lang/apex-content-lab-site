@@ -61,4 +61,12 @@ export const authoritativeSources: Record<string, AuthoritativeSource> = {
     description: 'ICO guidance covering electronic-mail direct marketing, consent, and opt-out requirements under UK rules.',
     url: 'https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-direct-marketing-using-electronic-mail/',
   },
+  openAiPublisherGuidance: {
+    id: 'https://help.openai.com/en/articles/12627856-publishers-and-developers-faq',
+    name: 'Publishers and Developers FAQ',
+    publisher: 'OpenAI',
+    description: 'OpenAI guidance for publishers on website discovery, crawler access, and ChatGPT search visibility.',
+    url: 'https://help.openai.com/en/articles/12627856-publishers-and-developers-faq',
+  },
+
 };

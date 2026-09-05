@@ -285,115 +285,37 @@ export const productsData: DigitalProduct[] = [
     category: 'Welcome Email System',
     accentColor: welcomeAccent,
     features: [
-      'Segmentation framework with types, examples, and flows',
-      'Segmentation audit',
-      'Personalization framework and worksheet',
-      'Practical examples',
+      'Segmentation and personalization framework',
       'Audience grouping guidance',
-      'Personalization plan',
-      'Subscriber characteristic and behavior mapping',
-      'Step-by-step implementation guidance',
+      'Subscriber source mapping',
+      'Interest and behavior segmentation',
+      'Engagement-based segmentation',
+      'Customer status segmentation',
+      'Personalization opportunities',
+      'Implementation guidance',
     ],
     deliverables: [
-      'Segmentation & Personalization Resource',
-      'Segmentation framework and audit',
-      'Personalization worksheet and plan',
+      'Segmentation & Personalization framework',
+      'Audience grouping guidance',
+      'Segmentation worksheet',
       'Implementation guidance',
     ],
     targetAudience:
-      'Businesses with email subscriber lists that need more relevant communication for different subscriber groups.',
+      'Businesses and marketers that want to make email communication more relevant through practical audience segmentation and personalization.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('segmentation-personalization'),
     coverImage: '/image/we/products/segmentation-personalization.png',
   },
 
   {
-    id: 'welcome-email-conversion-element',
-    slug: 'welcome-email-conversion-element',
-    title: 'Welcome Email Conversion Element',
-    badge: 'Welcome Email System',
-    tagline:
-      'Use CTAs & Conversion-Focused Email Elements to Guide the Next Action.',
-    description:
-      'Learn how to use conversion-focused email elements and CTAs to guide subscribers toward the intended next action, including hooks, benefits, offer transitions, offer presentation, and conversion audits.',
-    price: {
-      display: '$13',
-      amount: 13,
-      currency: 'USD',
-    },
-    category: 'Welcome Email System',
-    accentColor: welcomeAccent,
-    features: [
-      'Conversion framework and conversion chain',
-      'CTA framework and CTA bank',
-      'Subject line/formulas bank',
-      'Hook bank',
-      'Benefit statement bank',
-      'Offer transition and offer presentation framework',
-      'Benefit-led offer copy and P.S. formula',
-      'Conversion Element Builder, CTA matching worksheet, and conversion audit',
-    ],
-    deliverables: [
-      'Conversion Framework',
-      'Conversion Element Builder',
-      'CTA matching worksheet',
-      'Conversion audit and practical examples',
-    ],
-    targetAudience:
-      'Businesses using email to guide subscribers toward a specific action, offer, or conversion.',
-    deliveryType: 'gumroad',
-    gumroadUrl: gumroad('welcome-email-conversion-element'),
-    coverImage: '/image/we/products/welcome-email-conversion-element.png',
-  },
-
-  {
-    id: 'welcome-email-testing-optimization',
-    slug: 'welcome-email-testing-optimization',
-    title: 'Welcome Email Testing & Optimization',
-    badge: 'Welcome Email System',
-    tagline:
-      'Improve Your Welcome Emails with Practical Testing, Diagnostics & Optimization.',
-    description:
-      'Learn how to test and improve your welcome emails using practical testing frameworks, diagnostics, controlled changes, A/B testing, performance tracking, troubleshooting, and a 30-day optimization plan.',
-    price: {
-      display: '$16',
-      amount: 16,
-      currency: 'USD',
-    },
-    category: 'Welcome Email System',
-    accentColor: welcomeAccent,
-    features: [
-      'Testing framework and optimization framework',
-      'The 5-email check',
-      'The metric that matters most',
-      'Problem/email diagnostic and the one-change rule',
-      'A/B testing and time optimization',
-      'Troubleshooting guide and when-to-stop guidance',
-      '30-day optimization plan and performance tracker',
-      'Optimization loop, final system check, examples, and implementation steps',
-    ],
-    deliverables: [
-      'Testing Framework',
-      'Optimization Framework',
-      'Performance Tracker',
-      '30-Day Optimization Plan and worksheet',
-    ],
-    targetAudience:
-      'Businesses and marketers improving an existing welcome email sequence through testing and ongoing optimization.',
-    deliveryType: 'gumroad',
-    gumroadUrl: gumroad('welcome-email-testing-optimization'),
-    coverImage: '/image/we/products/welcome-email-testing-optimization.png',
-  },
-
-  {
-    id: 'welcome-email-system',
-    slug: 'welcome-email-system',
-    title: 'Welcome Email System',
+    id: 'welcome-email-system-bundle',
+    slug: 'welcome-email-system-bundle',
+    title: 'Welcome Email System Bundle',
     badge: 'Complete Bundle',
     tagline:
-      'Turn New Subscribers Into Engaged Prospects with the Complete Welcome Email System.',
+      'Build Your Complete Welcome Email System.',
     description:
-      'The Welcome Email System gives you the practical resources to plan, write, sequence, automate, personalize, convert, test, and optimize your welcome emails.',
+      'Get the complete Welcome Email System collection with templates, writing frameworks, sequence implementation, automation, segmentation, and personalization resources in one bundle.',
     price: {
       display: '$110',
       amount: 110,
@@ -408,27 +330,28 @@ export const productsData: DigitalProduct[] = [
     isFlagship: true,
     accentColor: welcomeAccent,
     features: [
-      '10 Welcome Email Templates — $25',
-      'Welcome Email Writing Kit — $22',
-      'Welcome Sequence Implementation — $15',
-      'Welcome Email Automation & Implementation — $22',
-      'Segmentation & Personalization — $16',
-      'Welcome Email Conversion Element — $13',
-      'Welcome Email Testing & Optimization — $16',
-      'Plan → Write → Sequence → Automate → Segment → Convert → Test → Optimize',
-    ],
+  '10 Welcome Email Templates — $25',
+  'Welcome Email Writing Kit — $22',
+  'Welcome Sequence Implementation — $15',
+  'Welcome Email Automation & Implementation — $22',
+  'Segmentation & Personalization — $16',
+  'Welcome Email Conversion Element — $13',
+  'Welcome Email Testing & Optimization — $16',
+  'Plan → Write → Sequence → Automate → Segment → Convert → Test → Optimize',
+],
+    
     deliverables: [
-      'Complete Welcome Email System — 7 standalone resources',
-    ],
+  'Complete Welcome Email System — 7 standalone resources',
+],
     targetAudience:
-      'Coaches, consultants, agencies, service businesses, creators, NGOs, small businesses, and marketers who want the complete welcome email system in one purchase.',
+      'Businesses, marketers, coaches, consultants, agencies, creators, NGOs, and small teams that want a complete welcome email system.',
     deliveryType: 'gumroad',
     gumroadUrl: gumroad('welcome-email-system'),
     coverImage: '/image/we/products/welcome-email-system.png',
   },
 
   // =========================================================
-  // PRACTICAL RESOURCE KIT — 9 STANDALONES + BUNDLE
+  // PRACTICAL RESOURCE KIT
   // =========================================================
 
   {
@@ -437,9 +360,9 @@ export const productsData: DigitalProduct[] = [
     title: 'Welcome Email Template & Writing Worksheet',
     badge: 'Practical Resource',
     tagline:
-      'Write Stronger Welcome Emails with a Practical Template, Writing Framework, Examples, and CTA Guidance.',
+      'Plan and write a stronger welcome email without starting from a blank page.',
     description:
-      'Create a clear, engaging welcome email without starting from a blank page. This worksheet guides you through the key elements of a welcome email and helps you turn your ideas into a structured message.',
+      'A practical worksheet for planning your welcome email from audience and objective through subject line, opening, value, transition, CTA, and final review.',
     price: {
       display: '$10',
       amount: 10,
@@ -448,14 +371,14 @@ export const productsData: DigitalProduct[] = [
     category: 'Practical Resource Kit',
     accentColor: resourceAccent,
     features: [
-      'Welcome email writing template',
-      'Step-by-step writing worksheet',
-      'Email purpose and audience prompts',
-      'Opening/hook guidance',
-      'Value and benefit framework',
-      'Main message structure',
-      'CTA guidance and examples',
-      'Practical examples and space to draft and refine',
+      'Welcome Email planning framework',
+      'Audience and objective prompts',
+      'Subject line and preheader planning',
+      'Opening and hook structure',
+      'Main message and value planning',
+      'Transition and CTA planning',
+      'Closing structure',
+      'Final review checklist',
     ],
     deliverables: [
       'Welcome Email Template & Writing Worksheet',
@@ -474,9 +397,9 @@ export const productsData: DigitalProduct[] = [
     title: 'Subject Line Swipe File',
     badge: 'Practical Resource',
     tagline:
-      'Find Stronger Subject-Line Angles Faster with Practical Examples and Frameworks.',
+      'Build stronger subject lines with practical formulas and examples.',
     description:
-      'Create subject lines that give your welcome emails a clear reason to be opened. This swipe file provides examples, frameworks, angles, formulas, and adaptable wording patterns.',
+      'A practical swipe file for generating and reviewing welcome email subject lines using proven structural patterns, examples, and planning prompts.',
     price: {
       display: '$7',
       amount: 7,
@@ -485,14 +408,14 @@ export const productsData: DigitalProduct[] = [
     category: 'Practical Resource Kit',
     accentColor: resourceAccent,
     features: [
-      'Subject-line swipe examples',
-      'Subject-line frameworks',
-      'Different subject-line angles',
-      'Examples, formulas, and exercises',
-      'Adaptable wording patterns',
-      'Practical prompts',
-      'Email-purpose matching',
-      'Variation and selection guidance',
+      'Subject line framework',
+      'Subject line formulas',
+      'Practical examples',
+      'Curiosity-based structures',
+      'Benefit-focused structures',
+      'Clarity and relevance checks',
+      'Subject line planning prompts',
+      'Final subject line review',
     ],
     deliverables: [
       'Subject Line Swipe File',
@@ -510,9 +433,9 @@ export const productsData: DigitalProduct[] = [
     title: 'Welcome Email Hooks & CTA Bank',
     badge: 'Practical Resource',
     tagline:
-      'Build Stronger Email Openings and Clearer Calls to Action with Practical Hooks and CTAs.',
+      'Open stronger and guide subscribers toward the next action.',
     description:
-      'Create welcome emails that capture attention and guide subscribers toward the next step with practical hooks, CTA examples, formulas, exercises, frameworks, and opening angles.',
+      'A practical resource for creating stronger welcome email openings and calls to action using hook structures, CTA formulas, examples, and implementation prompts.',
     price: {
       display: '$15',
       amount: 15,
@@ -521,14 +444,14 @@ export const productsData: DigitalProduct[] = [
     category: 'Practical Resource Kit',
     accentColor: resourceAccent,
     features: [
-      'Hook bank and hook examples',
-      'Hook formulas and exercises',
-      'Email-specific hook bank',
-      'Hook frameworks and opening angles',
-      'CTA bank and CTA examples',
-      'CTA formulas and exercises',
-      'CTA by email purpose and CTA frameworks',
-      'Guidance for matching hooks and CTAs to the desired action',
+      'Welcome Email hook framework',
+      'Hook examples',
+      'Opening structures',
+      'CTA framework',
+      'CTA examples',
+      'Action-oriented CTA formulas',
+      'Hook → value → CTA structure',
+      'CTA review checklist',
     ],
     deliverables: [
       'Welcome Email Hooks & CTA Bank',
@@ -536,7 +459,7 @@ export const productsData: DigitalProduct[] = [
     targetAudience:
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
-    gumroadUrl: gumroad('welcome-email-hooks-cta-bank-'),
+    gumroadUrl: gumroad('welcome-email-hooks-cta-bank'),
     coverImage: '/image/we/products/welcome-email-hooks-cta-bank.png',
   },
 

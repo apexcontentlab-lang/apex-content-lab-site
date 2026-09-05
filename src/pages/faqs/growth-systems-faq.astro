@@ -43,12 +43,15 @@ const faqSourceSchema = {
 ---
 
 <BaseLayout
+  type="article"
+  dateModified="2026-09-03"
   title={pageTitle}
   description={pageDescription}
+  keywords={['growth systems FAQ', 'Apex Content Lab FAQ', 'customer acquisition', 'lead capture', 'lead nurture', 'marketing automation', 'SEO GEO AEO']}
 >
   <Header />
 
-  <main class="flex-grow">
+  <main id="main-content" class="flex-grow">
 
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/40 via-white to-white py-20 lg:py-28">
@@ -69,6 +72,8 @@ const faqSourceSchema = {
           Comprehensive, standalone answers regarding growth systems, marketing infrastructure, lead generation, email automation, and the Apex Content Lab methodology.
         </p>
 
+        <p class="text-xs text-gray-500">Maintained by Ebua Hastings Etta, Founder & Growth Systems Strategist · Updated September 3, 2026</p>
+
         <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
 
           <a
@@ -83,6 +88,13 @@ const faqSourceSchema = {
             class="inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white px-8 py-4 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors"
           >
             Explore Our Framework
+          </a>
+
+          <a
+            href="/knowledge/seo-geo-aeo-for-business-websites"
+            class="inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white px-8 py-4 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 transition-colors"
+          >
+            SEO, GEO & AEO Guide
           </a>
 
         </div>
@@ -496,15 +508,15 @@ const faqSourceSchema = {
                 You can build it yourself using our paid
                 <a href="/products" class="text-blue-600 underline">Lead Magnet Blueprint</a>
                 product, or hire our team via our
-                <a href="/services/lead-magnet-launchpad" class="text-blue-600 underline">Lead Magnet Launchpad</a>
+                <a href="/services/lead-capture-system" class="text-blue-600 underline">Lead Capture System</a>
                 service.
               </p>
             </div>
 
             <div class="space-y-2 p-6 rounded-2xl bg-gray-50 border border-gray-200">
-              <h3 class="font-bold text-gray-900 text-base">What is the Lead Magnet Launchpad?</h3>
+              <h3 class="font-bold text-gray-900 text-base">What is the Lead Capture System?</h3>
               <p>
-                The Lead Magnet Launchpad is a professional service by
+                The Lead Capture System is a professional service by
                 <a href="/about" class="text-blue-600 underline">Apex Content Lab</a>
                 that researches, designs, builds, and connects lead magnets into functional lead-generation systems.
               </p>
@@ -529,7 +541,7 @@ const faqSourceSchema = {
         <div id="email-marketing-infrastructure" class="space-y-8 pt-4">
 
           <h2 class="text-2xl sm:text-3xl font-bold text-gray-950 tracking-tight border-b pb-4">
-            5. Email Marketing Infrastructure
+            5. Lead Nurture System
           </h2>
 
           <div class="space-y-6 text-sm">
@@ -597,7 +609,7 @@ const faqSourceSchema = {
               <h3 class="font-bold text-gray-900 text-base">What is the difference between email marketing and email marketing infrastructure?</h3>
               <p>
                 Standard email marketing focuses on broadcasting newsletters, whereas email marketing infrastructure builds automated, compounding conversion journeys as outlined in our
-                <a href="/services/email-marketing-infrastructure" class="text-blue-600 underline">Email Service</a>.
+                <a href="/services/lead-nurture-system" class="text-blue-600 underline">Email Service</a>.
               </p>
             </div>
 
@@ -764,9 +776,9 @@ const faqSourceSchema = {
               <h3 class="font-bold text-gray-900 text-base">What services does Apex Content Lab provide?</h3>
               <p>
                 We provide professional implementation services including our
-                <a href="/services/lead-magnet-launchpad" class="text-blue-600 underline">Lead Magnet Launchpad</a>
+                <a href="/services/lead-capture-system" class="text-blue-600 underline">Lead Capture System</a>
                 and
-                <a href="/services/email-marketing-infrastructure" class="text-blue-600 underline">Email Marketing Infrastructure</a>
+                <a href="/services/lead-nurture-system" class="text-blue-600 underline">Lead Nurture System</a>
                 services.
               </p>
             </div>
@@ -963,3 +975,4 @@ const faqSourceSchema = {
   <Footer />
   <FloatingWhatsApp />
 </BaseLayout>
+        

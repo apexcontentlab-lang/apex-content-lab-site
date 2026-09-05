@@ -2,44 +2,20 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: "General" | "Services" | "Products" | "Technical";
+  category: 'General' | 'Services' | 'Products' | 'Technical';
 }
 
 export const faqsData: FAQItem[] = [
-  {
-    id: "what-is-a-growth-system",
-    category: "General",
-    question: "What is a Growth System?",
-    answer: "A Growth System is a connected marketing infrastructure combining short-form content, lead magnets, landing pages, email automations, and CRM workflows that convert attention into qualified leads 24/7."
-  },
-  {
-    id: "agency-vs-growth-systems",
-    category: "General",
-    question: "How is Apex Content Lab different from a traditional marketing agency?",
-    answer: "Traditional agencies sell one-off creative campaigns or manual monthly labor. Apex Content Lab builds permanent marketing infrastructure that continues working automatically even when you are offline."
-  },
-  {
-    id: "why-email-marketing",
-    category: "General",
-    question: "Do I need email marketing if I already have a social media following?",
-    answer: "Yes. Social media followers belong to algorithm platforms that can suppress your reach at any time. An email list is an owned business asset that guarantees direct access to your audience."
-  },
-  {
-    id: "how-to-get-started",
-    category: "General",
-    question: "How do I get started with Apex Content Lab?",
-    answer: "You can download our free Attention-to-Leads Blueprint on the Resources page, explore our digital products on Gumroad, or book a direct 1-on-1 strategy call with Founder Ebua Hastings Etta."
-  },
-  {
-    id: "how-long-does-implementation-take",
-    category: "Services",
-    question: "How long does a full Growth System implementation take?",
-    answer: "Turnkey systems typically take 2 to 4 weeks depending on complexity, including audience research, lead magnet design, landing page creation, MailerLite automation, and CRM integrations."
-  },
-  {
-    id: "what-tech-stack-do-you-use",
-    category: "Technical",
-    question: "What tools and software do you integrate?",
-    answer: "We primarily build and integrate with MailerLite, Gumroad, Astro, Tailwind CSS, Vercel, Cloudflare, and custom CRM webhooks to ensure maximum speed, security, and simplicity."
-  }
+  { id: 'what-is-a-growth-system', category: 'General', question: 'What is a growth system?', answer: 'A growth system is a connected set of customer-acquisition processes, assets, data, workflows, and measurement that moves people from attention through capture, onboarding, nurture, segmentation, conversion, and optimization.' },
+  { id: 'what-does-apex-do', category: 'General', question: 'What does Apex Content Lab do?', answer: 'Apex Content Lab diagnoses customer-acquisition bottlenecks and designs, implements, connects, automates, tests, measures, and optimizes the systems required to turn relevant attention into measurable business opportunities.' },
+  { id: 'apex-vs-agency', category: 'General', question: 'How is Apex different from a traditional marketing agency?', answer: 'Apex focuses on the system connecting marketing activity to business outcomes. Campaigns and content can be components of that system, but the objective is a connected customer journey with clear capture, nurture, conversion, and measurement logic.' },
+  { id: 'services', category: 'Services', question: 'What services does Apex offer?', answer: 'Apex offers Lead Capture System, Lead Nurture System, Attention-to-Leads Growth System, Content Acquisition System, Growth Systems Optimization, Growth Systems Consulting, and Growth Systems Training. Three diagnostic offers provide different levels of initial assessment.' },
+  { id: 'diagnostic', category: 'Services', question: 'Which growth diagnostic should I choose?', answer: 'The Rapid Growth Audit is for a defined bottleneck. The Growth Infrastructure Diagnostic is for a broader review of acquisition infrastructure. The Comprehensive Systems Audit is for a deeper end-to-end assessment. Apex selects the appropriate diagnostic after understanding the problem.' },
+  { id: 'attention-to-leads', category: 'Services', question: 'What is the Attention-to-Leads Growth System?', answer: 'It is Apex Content Lab’s flagship end-to-end acquisition engagement. It connects content and distribution to landing pages, lead capture, CRM, classification, automated follow-up, nurture, sales handoff, booking, conversion, reporting, and optimization.' },
+  { id: 'content-acquisition', category: 'Services', question: 'What is a Content Acquisition System?', answer: 'A Content Acquisition System treats content as an acquisition mechanism rather than a visibility output. It connects audience problems and content strategy to distribution, calls to action, capture, nurture, and conversion.' },
+  { id: 'tools', category: 'Technical', question: 'Which tools does Apex use?', answer: 'Apex is platform-aware rather than platform-dependent. The implementation depends on the client ecosystem and requirements. Common categories include websites, email platforms, CRM systems, automation tools, analytics, scheduling, and content-production tools.' },
+  { id: 'automation', category: 'Technical', question: 'What does Apex automate?', answer: 'Apex automates repetitive administration such as routing, notifications, data movement, scheduled follow-up, and routine workflow execution. Strategic judgment, diagnosis, positioning, prioritization, and important decisions remain human-led.' },
+  { id: 'seo-geo-aeo', category: 'Technical', question: 'Does Apex build websites for SEO, GEO, and AEO?', answer: 'Yes. Website architecture is designed for crawlability, clear information hierarchy, useful original content, internal linking, entity clarity, structured data where appropriate, accessible HTML, strong page experience, and answer-oriented content. GEO and AEO are treated as extensions of strong search and information architecture rather than shortcut tactics.' },
+  { id: 'location', category: 'General', question: 'Where does Apex Content Lab operate?', answer: 'Apex Content Lab is based in Buea, Cameroon and serves clients remotely across Cameroon, Africa, North America, Europe, and other global markets where remote delivery is appropriate.' },
+  { id: 'get-started', category: 'General', question: 'How do I get started?', answer: 'Start by identifying the business outcome or growth-system problem you want to solve. You can request a diagnostic, book a strategy call, or use the free Attention-to-Leads Blueprint to understand the model before engaging Apex.' },
 ];

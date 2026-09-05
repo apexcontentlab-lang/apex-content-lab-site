@@ -59,14 +59,15 @@ export interface SiteConfig {
 };
 
   socialLinks: {
-    linkedin: string;
-    facebook: string;
-    instagram: string;
-    threads: string;
-    tiktok: string;
-    pinterest: string;
-    youtube: string;
-  };
+  linkedin: string;
+  instagram: string;
+  threads: string;
+  tiktok: string;
+  pinterest: string;
+  youtube: string;
+  facebook: string;
+  upwork: string;
+};
 
   seo: {
     defaultTitle: string;
@@ -184,27 +185,15 @@ export const siteConfig: SiteConfig = {
 },
 
   socialLinks: {
-    linkedin:
-      "https://www.linkedin.com/in/ebua-hastings-ba05173a2",
-
-    facebook:
-      "https://www.facebook.com/profile.php?id=61592196512458",
-
-    instagram:
-      "https://www.instagram.com/apexcontentlab",
-
-    threads:
-      "https://www.threads.com/@apexcontentlab",
-
-    tiktok:
-      "https://www.tiktok.com/@apex.content.lab",
-
-    pinterest:
-      "https://pin.it/1ZAbYcTKX",
-
-    youtube:
-      "https://www.youtube.com/@ApexContentLab",
-  },
+  linkedin: "https://www.linkedin.com/in/ebua-hastings-ba05173a2",
+  instagram: "https://www.instagram.com/apexcontentlab",
+  threads: "https://www.threads.com/@apexcontentlab",
+  tiktok: "https://www.tiktok.com/@apex.content.lab",
+  pinterest: "https://pin.it/1ZAbYcTKX",
+  youtube: "https://www.youtube.com/@ApexContentLab",
+  facebook: "https://www.facebook.com/profile.php?id=61592196512458",
+  upwork: "https://www.upwork.com/freelancers/~01f573f1e34d5f9ce3?mp_source=share",
+},
 
     seo: {
     defaultTitle:

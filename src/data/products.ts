@@ -317,35 +317,37 @@ export const productsData: DigitalProduct[] = [
     description:
       'Get the complete Welcome Email System collection with templates, writing frameworks, sequence implementation, automation, segmentation, and personalization resources in one bundle.',
     price: {
-      display: '$85',
-      amount: 85,
+      display: '$110',
+      amount: 110,
       currency: 'USD',
     },
     category: 'Welcome Email System',
     isBundle: true,
-    bundleValue: '$120',
-    savings: '$35',
+    bundleValue: '$129',
+    savings: '$19',
     bundleCta: 'Get the Complete Welcome Email System',
     isPopular: true,
     isFlagship: true,
     accentColor: welcomeAccent,
     features: [
-      '10 Welcome Email Templates',
-      'Welcome Email Writing Kit',
-      'Welcome Sequence Implementation',
-      'Welcome Email Automation & Implementation',
-      'Segmentation & Personalization',
-      'Complete Welcome Email System resources',
-    ],
+  '10 Welcome Email Templates — $25',
+  'Welcome Email Writing Kit — $22',
+  'Welcome Sequence Implementation — $15',
+  'Welcome Email Automation & Implementation — $22',
+  'Segmentation & Personalization — $16',
+  'Welcome Email Conversion Element — $13',
+  'Welcome Email Testing & Optimization — $16',
+  'Plan → Write → Sequence → Automate → Segment → Convert → Test → Optimize',
+],
+    
     deliverables: [
-      'Complete Welcome Email System bundle',
-      'Templates, frameworks, implementation resources, and checklists',
-    ],
+  'Complete Welcome Email System — 7 standalone resources',
+],
     targetAudience:
       'Businesses, marketers, coaches, consultants, agencies, creators, NGOs, and small teams that want a complete welcome email system.',
     deliveryType: 'gumroad',
-    gumroadUrl: gumroad('welcome-email-system-bundle'),
-    coverImage: '/image/we/products/welcome-email-system-bundle.png',
+    gumroadUrl: gumroad('welcome-email-system'),
+    coverImage: '/image/we/products/welcome-email-system.png',
   },
 
   // =========================================================
@@ -421,8 +423,8 @@ export const productsData: DigitalProduct[] = [
     targetAudience:
       'Coaches, consultants, agencies, creators, NGOs, and small businesses.',
     deliveryType: 'gumroad',
-    gumroadUrl: gumroad('subject-line-swipe-file'),
-    coverImage: '/image/we/products/subject-line-swipe-file.png',
+    gumroadUrl: gumroad('subject-line-wipe-file'),
+    coverImage: '/image/we/products/subject-line-wipe-file.png',
   },
 
   {

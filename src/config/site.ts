@@ -173,11 +173,15 @@ export const siteConfig: SiteConfig = {
         "https://preview.mailerlite.io/preview/2453071/forms/190605752159700691",
     },
 
-    gumroad: {
-      storeUrl: "https://apexlab1.gumroad.com/",
-      handle: "apexlab1",
-    },
+      gumroad: {
+    storeUrl: "https://apexlab1.gumroad.com/",
+    handle: "apexlab1",
   },
+
+  calendly: {
+    url: "https://calendly.com/apexcontentlab",
+  },
+},
 
   socialLinks: {
     linkedin:

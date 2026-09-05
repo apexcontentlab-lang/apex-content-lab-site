@@ -42,17 +42,21 @@ export interface SiteConfig {
   };
 
   integrations: {
-    mailerlite: {
-      accountGroupId: string;
-      formPreviewUrl: string;
-      defaultSubscribeUrl: string;
-    };
-
-    gumroad: {
-      storeUrl: string;
-      handle: string;
-    };
+  mailerlite: {
+    accountGroupId: string;
+    formPreviewUrl: string;
+    defaultSubscribeUrl: string;
   };
+
+  gumroad: {
+    storeUrl: string;
+    handle: string;
+  };
+
+  calendly: {
+    url: string;
+  };
+};
 
   socialLinks: {
     linkedin: string;

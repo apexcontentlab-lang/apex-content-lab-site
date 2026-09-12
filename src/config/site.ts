@@ -142,7 +142,7 @@ integrations: {
   },
 
   calendly: {
-    url: "https://calendly.com/your-direct-booking-page",
+    url: "https://calendly.com/apexcontentlab/30min",
   },
 },
 

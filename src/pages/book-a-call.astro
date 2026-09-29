@@ -151,9 +151,10 @@ const callHighlights = [
 <Footer />
 <FloatingWhatsApp />
 <script>
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', 'lead_form_view');
-  }
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'lead_form_view'
+  });
 </script>
 </BaseLayout>
 

@@ -1,8 +1,9 @@
 User-agent: *
 Allow: /
 
-# Keep public content discoverable while excluding non-public application paths.
-Disallow: /_astro/
+User-agent: OAI-SearchBot
+Allow: /
+
 Disallow: /api/
 
 Sitemap: https://apex-content-lab.com/sitemap-index.xml

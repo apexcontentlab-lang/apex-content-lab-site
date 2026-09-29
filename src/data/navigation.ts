@@ -56,9 +56,9 @@ export const footerNavigation: {
     title: "Growth Solutions",
     items: [
       {
-        label: "Lead Magnet Launchpad",
-        href: `${siteConfig.routes.services}#lead-magnet-launchpad`
-      },
+  label: "Lead Capture System",
+  href: `${siteConfig.routes.services}#lead-capture-system`
+},
       {
         label: "Lead Nurture System",
         href: `${siteConfig.routes.services}#lead-nurture-system`

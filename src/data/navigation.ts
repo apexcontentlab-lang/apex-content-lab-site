@@ -64,12 +64,12 @@ export const footerNavigation: {
         href: `${siteConfig.routes.services}#lead-nurture-system`
       },
       {
-        label: "Attention-to-Leads Engine",
-        href: `${siteConfig.routes.services}#attention-to-leads-system`
-      },
+  label: "Attention-to-Leads Growth System",
+  href: `${siteConfig.routes.services}#attention-to-leads-growth-system`
+},
       {
-        label: "Content & Visibility System",
-        href: `${siteConfig.routes.services}#content-visibility-system`
+  label: "Content Acquisition System",
+  href: `${siteConfig.routes.services}#content-acquisition-system`
       }
     ]
   },

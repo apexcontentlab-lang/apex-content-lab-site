@@ -13,7 +13,7 @@ export function getStaticPaths() {
 
 const { service } = Astro.props;
 const pageTitle = service.title;
-const pageDescription = `${service.summary} Learn what ${service.title} includes, who it is for, and how Apex Content Lab approaches implementation.`;
+const pageDescription = `${service.title}: ${service.purpose} Apex Content Lab.`;
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', item: '/' },
   { name: 'Services', item: '/services' },
